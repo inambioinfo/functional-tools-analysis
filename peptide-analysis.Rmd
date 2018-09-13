@@ -15,6 +15,7 @@ The preview shows you a rendered HTML copy of the contents of the editor. Conseq
 
 ```{r}
 library("dplyr")
+library(stringr)
 ```
 
 
@@ -26,6 +27,7 @@ ups_ref <- read.csv("UPS Proteins.tsv",
   select(ups_protein = X...UniProt.Accession.Number,
          ups1_amount = UPS1.Amount..fmol.,
          ups2_amount = UPS2.Amount..fmol.)
+row.names(ups_ref) = ups_ref$ups_protein
 
 # Replicate 4 of the UPS1 data 
 ups1_raw <- read.table("Data/UPS/UPS1/UPS1_04-Peptide_Shaker_on_data_24__Peptide_Report.tabular",
@@ -47,6 +49,8 @@ ups2 <- filter(ups2_raw, grepl("ups", ups2_protein))
 
 ```
 
+
+Number of peptides found in the UPS datasets:
 ```{r}
 paste('UPS peptides found in UPS1:', nrow(ups1))
 paste('Total number of peptides found in UPS1:', nrow(ups1_raw))
@@ -54,6 +58,14 @@ paste('Total number of peptides found in UPS1:', nrow(ups1_raw))
 ```{r}
 paste('UPS peptides found in UPS2:', nrow(ups2))
 paste('Total number of peptides found in UPS2:', nrow(ups2_raw))
+```
+
+
+Extracts the fmol amount of UPS2 protein
+
+```{r}
+ups_ref[str_match('LALBA_HUMAN; P00709ups','.*(P[0-9]+)ups,*')[2],]$ups2_amount
+
 ```
 
 
