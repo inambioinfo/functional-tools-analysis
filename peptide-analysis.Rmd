@@ -1,0 +1,61 @@
+---
+title: "Peptide Analysis"
+output: html_notebook
+---
+
+```{r}
+install.packages("dplyr")
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+(click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+```{r}
+library("dplyr")
+```
+
+
+
+```{r}
+# Nominal proteins w/ quantitites within the UPS standards
+ups_ref <- read.csv("UPS Proteins.tsv",
+                  header = TRUE) %>%
+  select(ups_protein = X...UniProt.Accession.Number,
+         ups1_amount = UPS1.Amount..fmol.,
+         ups2_amount = UPS2.Amount..fmol.)
+
+# Replicate 4 of the UPS1 data 
+ups1_raw <- read.table("Data/UPS/UPS1/UPS1_04-Peptide_Shaker_on_data_24__Peptide_Report.tabular",
+                   sep = "\t", comment.char="", header = TRUE) %>%
+  select(ups1_protein = Protein.s.,
+         Sequence,
+         ups1_validated_psms = X.Validated.PSMs)
+
+# Filters the dataset to keep only UPS proteins
+ups1 <- filter(ups1_raw, grepl("ups", ups1_protein))
+
+# Replicate 4 of the UPS2 data
+ups2_raw <- read.table("Data/UPS/UPS2/UPS2_04-Peptide_Shaker_on_data_28__Peptide_Report.tabular",
+                   sep = "\t", comment.char="", header = TRUE) %>%
+  select(ups2_protein = Protein.s.,
+         Sequence,
+         ups2_validated_psms = X.Validated.PSMs)
+ups2 <- filter(ups2_raw, grepl("ups", ups2_protein))
+
+```
+
+```{r}
+paste('UPS peptides found in UPS1:', nrow(ups1))
+paste('Total number of peptides found in UPS1:', nrow(ups1_raw))
+```
+```{r}
+paste('UPS peptides found in UPS2:', nrow(ups2))
+paste('Total number of peptides found in UPS2:', nrow(ups2_raw))
+```
+
+
+
+
