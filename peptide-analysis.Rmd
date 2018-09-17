@@ -53,9 +53,10 @@ ups2 <- filter(ups2_raw, grepl("ups", ups2_protein)) %>%
   # Extracts the UPS protein's identifier
   extract('ups2_protein','amount', regex = '.*([A-Z][0-9]+)ups.*', remove = FALSE) %>%
   # Matches the extracted ID to the UPS_ref df to obtain the nominal fmol amount
-  mutate(amount = ups_ref[amount,]$ups2_amount)
+  mutate(amount = gsub(",","",ups_ref[amount,]$ups2_amount))
 
-ups2
+#plot(as.numeric(ups2$amount), ups2$ups2_validated_psms, main="UPS2", 
+ #   xlab="Nominal UPS2 amount (fmol)", ylab="Validated PSMs", pch=19)
 ```
 
 
