@@ -16,6 +16,7 @@ library(ggplot2)
 ```
 
 ```{r}
+
 # Nominal proteins w/ quantitites within the UPS standards
 ups_ref <- read.csv("UPS Proteins.tsv",
                   header = TRUE) %>%
@@ -26,65 +27,77 @@ ups_ref <- read.csv("UPS Proteins.tsv",
   mutate(ups1_amount = gsub(",","",ups1_amount))
 row.names(ups_ref) = ups_ref$ups_protein
 
-# Replicate 4 of the UPS1 data 
-ups1_raw <- read.table("Data/UPS/UPS1/UPS1_04-Peptide_Shaker_on_data_24__Peptide_Report.tabular",
-                   sep = "\t", comment.char="", header = TRUE) %>%
-  select(ups1_protein = Protein.s.,
-         Sequence,
-         ups1_validated_psms = X.Validated.PSMs)
+ups1_diag <- function(filename, title){
+  # Raw UPS1 Data
+  ups1_raw <- read.table(filename,
+                     sep = "\t", comment.char="", header = TRUE) %>%
+    select(proteins = Protein.s.,
+           Sequence,
+           validated_psms = X.Validated.PSMs)
 
-# Filters the dataset to keep only UPS proteins
-ups1 <- filter(ups1_raw, grepl("ups", ups1_protein))
-
-# Replicate 4 of the UPS2 data
-ups2_raw <- read.table("Data/UPS/UPS2/UPS2_04-Peptide_Shaker_on_data_28__Peptide_Report.tabular",
-                   sep = "\t", comment.char="", header = TRUE) %>%
-  select(proteins = Protein.s.,
-         Sequence,
-         ups2_validated_psms = X.Validated.PSMs)
-
-# Filters the dataset to keep only UPS proteins
-ups2 <- filter(ups2_raw, grepl("ups", proteins)) %>%
-  # Extracts the UPS protein's identifier
-  extract(proteins,'ups_protein', regex = '.*([A-Z][0-9]+)ups.*', remove = FALSE) %>%
-  # Matches the extracted ID to the UPS_ref df to obtain the nominal fmol amount
-  mutate(amount = ups_ref[ups_protein,]$ups2_amount)
-
-ups_proteins <- unique(ups2$ups_protein)
-grouped_ups <- data.frame(amount = numeric(length(ups_proteins)),
-                          validated_psms = numeric(length(ups_proteins)))
-
-for (i in seq_along(ups_proteins) ){
-  grouped_ups$amount[i] <- ups_ref[ups_proteins[i],]$ups2_amount
-  grouped_ups$validated_psms[i] <- sum(ups2[which(ups2$ups_protein == ups_proteins[i]),]$ups2_validated_psms)
-  #grouped_ups <- rbind(grouped_ups, data.frame(protein, "asdf","asdf"))
+  # Filters the dataset to keep only UPS proteins
+  ups1 <- filter(ups1_raw, grepl("ups", ups1_protein)) %>%
+    # Extracts the UPS protein's identifier
+    extract(proteins,'ups_protein', regex = '.*([A-Z][0-9]+)ups.*', remove = FALSE) %>%
+    # Matches the extracted ID to the UPS_ref df to obtain the nominal fmol amount
+    mutate(amount = ups_ref[ups_protein,]$ups2_amount)
+  ups1
 }
-row.names(grouped_ups) = ups_proteins
 
-ggplot(grouped_ups, aes(x=amount, y=validated_psms)) + 
-  geom_point() +
-  geom_text(label=rownames(grouped_ups), position = position_nudge(x = .2, y =.2))
+ups1_diag("Data/UPS/UPS1/UPS1_04-Peptide_Shaker_on_data_24__Peptide_Report.tabular", "UPS1 Replicate 4")
 ```
 
 
 
-Number of peptides found in the UPS datasets:
-```{r}
-paste('UPS peptides found in UPS1:', nrow(ups1))
-paste('Total number of peptides found in UPS1:', nrow(ups1_raw))
-```
-```{r}
-paste('UPS peptides found in UPS2:', nrow(ups2))
-paste('Total number of peptides found in UPS2:', nrow(ups2_raw))
-```
-
-
-Extracts the fmol amount of UPS2 protein
 
 ```{r}
-ups_ref[str_match('LALBA_HUMAN; P00709ups','.*(P[0-9]+)ups,*')[2],]$ups2_amount
+# UPS2 Diagnostics
+ups2_diag <- function(filename, title){
+  # Raw UPS data import and processing
+  ups2_raw <- read.table(filename,
+                     sep = "\t", comment.char="", header = TRUE) %>%
+    select(proteins = Protein.s.,
+           Sequence,
+           ups2_validated_psms = X.Validated.PSMs)
+  ups2_raw
+  # Filters the dataset to keep only UPS proteins
+  ups2 <- filter(ups2_raw, grepl("ups", proteins)) %>%
+    # Extracts the UPS protein's identifier
+    extract(proteins,'ups_protein', regex = '.*([A-Z][0-9]+)ups.*', remove = FALSE) %>%
+    # Matches the extracted ID to the UPS_ref df to obtain the nominal fmol amount
+    mutate(amount = ups_ref[ups_protein,]$ups2_amount)
+  
+  # Groups up UPS proteins, adding spectral counts for peptide hits of the same UPS protein
+  ups_proteins <- unique(ups2$ups_protein)
+  grouped_ups <- data.frame(amount = numeric(length(ups_proteins)),
+                            validated_psms = numeric(length(ups_proteins)))
+  for (i in seq_along(ups_proteins) ){
+    grouped_ups$amount[i] <- ups_ref[ups_proteins[i],]$ups2_amount
+    grouped_ups$validated_psms[i] <- sum(ups2[which(ups2$ups_protein == ups_proteins[i]),]$ups2_validated_psms)
+  }
+  row.names(grouped_ups) = ups_proteins
 
+  # Diagnostics
+  print(title)
+  print(nrow(ups2[which(ups2$ups_protein == 'P51965'),]))
+  print(length(ups_proteins))
+  
+  # Plots the result
+  ggplot(grouped_ups, aes(x=amount, y=validated_psms)) + 
+    ggtitle(title) +
+    geom_point() +
+    geom_text(label=rownames(grouped_ups), position = position_nudge(x = .2, y =.2))
+}
+
+ups2_diag("Data/UPS/UPS1/UPS1_04-Peptide_Shaker_on_data_24__Peptide_Report.tabular", "UPS1 Replicate 4")
+ups2_diag("Data/UPS/UPS2/UPS2_01-Peptide_Shaker_on_data_25__Peptide_Report.tabular", "UPS2 Replicate 1")
+ups2_diag("Data/UPS/UPS2/UPS2_02-Peptide_Shaker_on_data_30__Peptide_Report.tabular", "UPS2 Replicate 2")
+ups2_diag("Data/UPS/UPS2/UPS2_03-Peptide_Shaker_on_data_27__Peptide_Report.tabular", "UPS2 Replicate 3")
+ups2_diag("Data/UPS/UPS2/UPS2_04-Peptide_Shaker_on_data_28__Peptide_Report.tabular", "UPS2 Replicate 4")
 ```
+
+
+
 
 
 
