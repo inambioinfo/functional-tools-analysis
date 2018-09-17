@@ -5,6 +5,7 @@ output: html_notebook
 
 ```{r}
 install.packages("dplyr")
+install.packages("tidyverse")
 ```
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
@@ -16,6 +17,7 @@ The preview shows you a rendered HTML copy of the contents of the editor. Conseq
 ```{r}
 library("dplyr")
 library(stringr)
+library(tidyverse)
 ```
 
 
@@ -45,10 +47,14 @@ ups2_raw <- read.table("Data/UPS/UPS2/UPS2_04-Peptide_Shaker_on_data_28__Peptide
   select(ups2_protein = Protein.s.,
          Sequence,
          ups2_validated_psms = X.Validated.PSMs)
-ups2 <- filter(ups2_raw, grepl("ups", ups2_protein)) %>%
-  mutate(amount = str_match(ups2_protein,'.*(P[0-9]+)ups,*')[2])
 
+# Filters the dataset to keep only UPS proteins
+ups2 <- filter(ups2_raw, grepl("ups", ups2_protein)) %>%
+  extract('ups2_protein','amount', regex = '.*(P[0-9]+)ups.*', remove = FALSE)
 ups2
+str_match('LALBA_HUMAN; P00709ups', '.*(P[0-9]+)ups,*')[2]
+str_match('ALBU_BOVIN; ALBU_HUMAN; P02768ups', '.*(P[0-9]+)ups,*')[2]
+
 
 ```
 
