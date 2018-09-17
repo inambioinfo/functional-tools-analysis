@@ -1,6 +1,8 @@
 ---
 title: "Single Peptide Results Analysis - UPS Dataset"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 
 *Ray Sajulga*

@@ -6,11 +6,8 @@ output:
 ---
 
 ```{r}
-install.packages("dplyr")
-install.packages("tidyverse")
-```
-
-```{r}
+#install.packages("dplyr")
+#install.packages("tidyverse")
 library("dplyr")
 library(stringr)
 library(tidyverse)
