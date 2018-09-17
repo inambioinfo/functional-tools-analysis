@@ -1,5 +1,5 @@
 ---
-title: "Peptide Analysis"
+title: "UPS Analysis"
 output: html_notebook
 ---
 
