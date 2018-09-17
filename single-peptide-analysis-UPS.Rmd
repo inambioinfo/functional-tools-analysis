@@ -37,11 +37,16 @@ non_ups_peptides <- filter(peptide_report, !grepl("ups", proteins))
 set.seed(42)
 ups_peps_20 <- ups_peptides[sample(nrow(ups_peptides), 10),]
 non_ups_peps_20 <- non_ups_peptides[sample(nrow(non_ups_peptides), 10),]
+twenty_peps <- rbind(ups_peps_20, non_ups_peps_20)
+set.seed(24)
+fivepep <- twenty_peps[sample(20,5),]
+#five_peps
+fivepep <- fivepep$sequence
 
 # Concatenates the two categories and writes it out in a text file for analysis
-peps_20 <- c(as.vector(ups_peps_20$sequence), as.vector(non_ups_peps_20$sequence))
-write.table(peps_20, "twenty_peptides.txt", 
+write.table(twenty_peps$sequence, "twenty_peptides.txt", 
             sep="\n", quote=FALSE, row.names=FALSE, col.names=FALSE)
+
 ```
 
 ### Unipept
@@ -61,6 +66,7 @@ uni <- read.csv('results/unipept/UPS2_04-Unipept-20pep-42seed.csv',
     mutate(uni_go_bp = str_replace_all(string = uni_go_bp, pattern = cov_pat, replacement = ""),
            uni_go_mf = str_replace_all(string = uni_go_mf, pattern = cov_pat, replacement = ""),
            uni_go_cc = str_replace_all(string = uni_go_cc, pattern = cov_pat, replacement = ""))
+uni
 ```
 
 
@@ -69,3 +75,14 @@ uni <- read.csv('results/unipept/UPS2_04-Unipept-20pep-42seed.csv',
 - Use the Galaxy version of eggNOG mapper, on Galaxy-P
 - Parameters:
   + Taxonomic Scope: Mammals
+  
+```{r}
+em <- read.delim("results/eggNOG/eggnog_mapper_20_sequences_results.tabular",
+                 stringsAsFactors = FALSE,
+                 header=FALSE) %>%
+    select(peptide = V1, em_prot = V2, em_go = V6, em_gene = V5, em_descript = V13) %>%
+    filter(peptide %in% fivepep) %>%
+    mutate(em_go = str_replace_all(em_go, pattern = ",", replacement = "; "))
+em
+```
+
