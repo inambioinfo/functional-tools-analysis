@@ -45,7 +45,10 @@ ups2_raw <- read.table("Data/UPS/UPS2/UPS2_04-Peptide_Shaker_on_data_28__Peptide
   select(ups2_protein = Protein.s.,
          Sequence,
          ups2_validated_psms = X.Validated.PSMs)
-ups2 <- filter(ups2_raw, grepl("ups", ups2_protein))
+ups2 <- filter(ups2_raw, grepl("ups", ups2_protein)) %>%
+  mutate(amount = str_match(ups2_protein,'.*(P[0-9]+)ups,*')[2])
+
+ups2
 
 ```
 
