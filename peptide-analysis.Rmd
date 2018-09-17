@@ -28,7 +28,9 @@ ups_ref <- read.csv("UPS Proteins.tsv",
                   header = TRUE) %>%
   select(ups_protein = X...UniProt.Accession.Number,
          ups1_amount = UPS1.Amount..fmol.,
-         ups2_amount = UPS2.Amount..fmol.)
+         ups2_amount = UPS2.Amount..fmol.) %>%
+  mutate(ups2_amount = gsub(",","",ups2_amount)) %>%
+  mutate(ups1_amount = gsub(",","",ups1_amount))
 row.names(ups_ref) = ups_ref$ups_protein
 
 # Replicate 4 of the UPS1 data 
@@ -53,7 +55,7 @@ ups2 <- filter(ups2_raw, grepl("ups", proteins)) %>%
   # Extracts the UPS protein's identifier
   extract(proteins,'ups_protein', regex = '.*([A-Z][0-9]+)ups.*', remove = FALSE) %>%
   # Matches the extracted ID to the UPS_ref df to obtain the nominal fmol amount
-  mutate(amount = gsub(",","",ups_ref[ups_protein,]$ups2_amount))
+  mutate(amount = ups_ref[ups_protein,]$ups2_amount)
 
 ups_proteins <- unique(ups2$ups_protein)
 grouped_ups <- data.frame(protein = numeric(length(ups_proteins)), #This doesn't work with the character()
@@ -62,20 +64,17 @@ grouped_ups <- data.frame(protein = numeric(length(ups_proteins)), #This doesn't
 
 for (i in seq_along(ups_proteins) ){
   grouped_ups$protein[i] <- ups_proteins[i]
-  grouped_ups$amount[i] <- 2
+  grouped_ups$amount[i] <- ups_ref[ups_proteins[i],]$ups2_amount
+  grouped_ups$validated_psms[i] <- sum(ups2[which(ups2$ups_protein == ups_proteins[i]),]$ups2_validated_psms)
   #grouped_ups <- rbind(grouped_ups, data.frame(protein, "asdf","asdf"))
 }
 grouped_ups
-
-#ups2[which(ups2$ups_protein == 'P00709'),]
-#row.names(ups2) = ups2$ups_protein
-
-
 
 
 #plot(as.numeric(ups2$amount), ups2$ups2_validated_psms, main="UPS2", 
  #    xlab="Nominal UPS2 amount (fmol)", ylab="Validated PSMs", pch=19)
 ```
+
 
 
 Number of peptides found in the UPS datasets:
