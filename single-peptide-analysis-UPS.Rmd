@@ -12,9 +12,10 @@ output:
 # Introduction
 Analysis adapted from Caleb Easterly's "Single Peptide Results Analysis" for the UPS dataset.
 
-# Packages
+## Packages
 ```{r}
-library("dplyr")
+library(dplyr)
+library(stringr)
 ```
 
 # Peptide Sampling
@@ -47,3 +48,24 @@ write.table(peps_20, "twenty_peptides.txt",
 
 #### Process
 - Paste the tabular list of peptides into the Unipept *Metaproteomics Analysis* web application (https://morty.ugent.be/mpa)
+
+```{r}
+cov_pat <- "\ \\(.{3,4}\\)"
+uni <- read.csv('results/unipept/UPS2_04-Unipept-20pep-42seed.csv',
+                stringsAsFactors = FALSE) %>%
+    select(peptide,
+           uni_go_bp = GO..biological.process.,
+           uni_go_mf = GO..molecular.function.,
+           uni_go_cc = GO..cellular.component.) %>%
+    filter(peptide %in% fivepep) %>%
+    mutate(uni_go_bp = str_replace_all(string = uni_go_bp, pattern = cov_pat, replacement = ""),
+           uni_go_mf = str_replace_all(string = uni_go_mf, pattern = cov_pat, replacement = ""),
+           uni_go_cc = str_replace_all(string = uni_go_cc, pattern = cov_pat, replacement = ""))
+```
+
+
+
+### eggNOG mapper
+- Use the Galaxy version of eggNOG mapper, on Galaxy-P
+- Parameters:
+  + Taxonomic Scope: Mammals
