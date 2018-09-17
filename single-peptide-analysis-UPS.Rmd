@@ -6,18 +6,44 @@ output:
 ---
 
 *Ray Sajulga*
-*September 17, 2018*
+
+**September 17, 2018**
 
 # Introduction
+Analysis adapted from Caleb Easterly's "Single Peptide Results Analysis" for the UPS dataset.
 
+# Packages
 ```{r}
 library("dplyr")
+```
+
+# Peptide Sampling
+Let's randomly select 10 UPS peptides and 10 non-UPS peptides from the UPS1 dataset (replicate #3):
+
+```{r}
+
+# Obtains peptide report
 peptide_report <- read.csv("Data/UPS/UPS1/UPS1_03-Peptide_Shaker_on_data_23__Peptide_Report.tabular",
          sep = "\t", comment.char="", header = TRUE) %>%
   select(proteins = Protein.s.,
          sequence = Sequence)
 
-peptides <- peptide_report[sample(nrow(peptide_report), 5),]
-set.seed(6)
-peptides
+# Splits into UPS peptides and non-UPS peptides
+ups_peptides <- filter(peptide_report, grepl("ups", proteins))
+non_ups_peptides <- filter(peptide_report, !grepl("ups", proteins))
+
+# Randomly selects 10 from each category
+set.seed(42)
+ups_peps_20 <- ups_peptides[sample(nrow(ups_peptides), 10),]
+non_ups_peps_20 <- non_ups_peptides[sample(nrow(non_ups_peptides), 10),]
+
+# Concatenates the two categories and writes it out in a text file for analysis
+peps_20 <- c(as.vector(ups_peps_20$sequence), as.vector(non_ups_peps_20$sequence))
+write.table(peps_20, "twenty_peptides.txt", 
+            sep="\n", quote=FALSE, row.names=FALSE, col.names=FALSE)
 ```
+
+### Unipept
+
+#### Process
+- Paste the tabular list of peptides into the Unipept *Metaproteomics Analysis* web application (https://morty.ugent.be/mpa)
