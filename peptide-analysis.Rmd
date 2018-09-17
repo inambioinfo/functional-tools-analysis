@@ -8,19 +8,12 @@ install.packages("dplyr")
 install.packages("tidyverse")
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
-
-(click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file).
-
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
-
 ```{r}
 library("dplyr")
 library(stringr)
 library(tidyverse)
+library(ggplot2)
 ```
-
-
 
 ```{r}
 # Nominal proteins w/ quantitites within the UPS standards
@@ -58,21 +51,19 @@ ups2 <- filter(ups2_raw, grepl("ups", proteins)) %>%
   mutate(amount = ups_ref[ups_protein,]$ups2_amount)
 
 ups_proteins <- unique(ups2$ups_protein)
-grouped_ups <- data.frame(protein = numeric(length(ups_proteins)), #This doesn't work with the character()
-                          amount = numeric(length(ups_proteins)),
+grouped_ups <- data.frame(amount = numeric(length(ups_proteins)),
                           validated_psms = numeric(length(ups_proteins)))
 
 for (i in seq_along(ups_proteins) ){
-  grouped_ups$protein[i] <- ups_proteins[i]
   grouped_ups$amount[i] <- ups_ref[ups_proteins[i],]$ups2_amount
   grouped_ups$validated_psms[i] <- sum(ups2[which(ups2$ups_protein == ups_proteins[i]),]$ups2_validated_psms)
   #grouped_ups <- rbind(grouped_ups, data.frame(protein, "asdf","asdf"))
 }
-grouped_ups
+row.names(grouped_ups) = ups_proteins
 
-
-#plot(as.numeric(ups2$amount), ups2$ups2_validated_psms, main="UPS2", 
- #    xlab="Nominal UPS2 amount (fmol)", ylab="Validated PSMs", pch=19)
+ggplot(grouped_ups, aes(x=amount, y=validated_psms)) + 
+  geom_point() +
+  geom_text(label=rownames(grouped_ups), position = position_nudge(x = .2, y =.2))
 ```
 
 
