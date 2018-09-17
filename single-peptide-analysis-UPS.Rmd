@@ -11,5 +11,13 @@ output:
 # Introduction
 
 ```{r}
-plot(cars)
+library("dplyr")
+peptide_report <- read.csv("Data/UPS/UPS1/UPS1_03-Peptide_Shaker_on_data_23__Peptide_Report.tabular",
+         sep = "\t", comment.char="", header = TRUE) %>%
+  select(proteins = Protein.s.,
+         sequence = Sequence)
+
+peptides <- peptide_report[sample(nrow(peptide_report), 5),]
+set.seed(6)
+peptides
 ```
