@@ -50,12 +50,12 @@ ups2_raw <- read.table("Data/UPS/UPS2/UPS2_04-Peptide_Shaker_on_data_28__Peptide
 
 # Filters the dataset to keep only UPS proteins
 ups2 <- filter(ups2_raw, grepl("ups", ups2_protein)) %>%
-  extract('ups2_protein','amount', regex = '.*(P[0-9]+)ups.*', remove = FALSE)
+  # Extracts the UPS protein's identifier
+  extract('ups2_protein','amount', regex = '.*([A-Z][0-9]+)ups.*', remove = FALSE) %>%
+  # Matches the extracted ID to the UPS_ref df to obtain the nominal fmol amount
+  mutate(amount = ups_ref[amount,]$ups2_amount)
+
 ups2
-str_match('LALBA_HUMAN; P00709ups', '.*(P[0-9]+)ups,*')[2]
-str_match('ALBU_BOVIN; ALBU_HUMAN; P02768ups', '.*(P[0-9]+)ups,*')[2]
-
-
 ```
 
 
