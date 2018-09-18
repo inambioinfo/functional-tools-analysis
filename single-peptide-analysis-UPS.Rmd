@@ -14,8 +14,14 @@ Analysis adapted from Caleb Easterly's "Single Peptide Results Analysis" for the
 
 ## Packages
 ```{r}
+install.packages("dplyr")
+install.packages("pander")
+```
+
+```{r}
 library(dplyr)
 library(stringr)
+library(pander)
 ```
 
 # Peptide Sampling
@@ -86,3 +92,18 @@ em <- read.delim("results/eggNOG/eggnog_mapper_20_sequences_results.tabular",
 em
 ```
 
+### MetaGOmics
+
+
+
+### Combine all of the results:
+```{r}
+all_results <- plyr::join_all(list(em, uni), by = "peptide")
+```
+
+All of the results are below:
+
+```{r}
+library(pander)
+knitr:kable(all_results)
+```
