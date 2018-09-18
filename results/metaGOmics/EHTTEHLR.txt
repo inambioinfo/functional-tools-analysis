@@ -1,0 +1,25 @@
+# MetaGOmics GO report
+# MetaGOmics version: 0.1.1
+# Run date: Tue Sep 18 10:46:51 PDT 2018
+GO acc	GO aspect	GO name	count	total count	ratio
+GO:0043021	molecular_function	ribonucleoprotein complex binding	1	1	1.0
+GO:0043022	molecular_function	ribosome binding	1	1	1.0
+GO:0044464	cellular_component	cell part	1	1	1.0
+GO:0043024	molecular_function	ribosomal small subunit binding	1	1	1.0
+GO:0016020	cellular_component	membrane	1	1	1.0
+GO:0051716	biological_process	cellular response to stimulus	1	1	1.0
+GO:0003674	molecular_function	molecular_function	1	1	1.0
+GO:0005886	cellular_component	plasma membrane	1	1	1.0
+GO:0060187	cellular_component	cell pole	1	1	1.0
+GO:0006950	biological_process	response to stress	1	1	1.0
+GO:0005515	molecular_function	protein binding	1	1	1.0
+GO:0009987	biological_process	cellular process	1	1	1.0
+GO:0033554	biological_process	cellular response to stress	1	1	1.0
+GO:0044877	molecular_function	macromolecular complex binding	1	1	1.0
+GO:0005575	cellular_component	cellular_component	1	1	1.0
+GO:0016021	cellular_component	integral component of membrane	1	1	1.0
+GO:0031224	cellular_component	intrinsic component of membrane	1	1	1.0
+GO:0008150	biological_process	biological_process	1	1	1.0
+GO:0044425	cellular_component	membrane part	1	1	1.0
+GO:0005488	molecular_function	binding	1	1	1.0
+GO:0050896	biological_process	response to stimulus	1	1	1.0
