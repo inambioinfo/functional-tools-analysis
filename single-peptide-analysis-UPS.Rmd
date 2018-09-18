@@ -51,7 +51,7 @@ fivepep <- fivepep_df$sequence
 # Concatenates the two categories and writes it out in a text file for analysis
 write.table(twenty_peps$sequence, "twenty_peptides.txt", 
             sep="\n", quote=FALSE, row.names=FALSE, col.names=FALSE)
-
+fivepep_df
 ```
 
 ### Unipept
@@ -122,7 +122,13 @@ mg
 
 ### Combine all of the results:
 ```{r}
-all_results <- plyr::join_all(list(em, mg, uni), by = "peptide")
+peptide_report
+pepprots <- select(peptide_report,
+       proteins,
+       peptide = sequence) %>%
+  filter(peptide %in% fivepep)
+all_results <- plyr::join_all(list(pepprots, em, mg, uni), by = "peptide")
+all_results
 ```
 
 All of the results are below:
@@ -131,3 +137,17 @@ All of the results are below:
 library(pander)
 knitr::kable(all_results)
 ```
+
+### Let's go through the peptides one-by-one
+
+## ETYGEMADCCAK
+```{r}
+all_results[1, 'peptide']
+buni <- all_results[1, 'blast_go']
+buni
+```
+
+```{r}
+
+```
+
