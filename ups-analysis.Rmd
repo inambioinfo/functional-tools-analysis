@@ -5,6 +5,8 @@ output:
     df_print: paged
 ---
 
+
+
 ```{r}
 #install.packages("dplyr")
 #install.packages("tidyverse")
@@ -12,14 +14,12 @@ library("dplyr")
 library(stringr)
 library(tidyverse)
 library(ggplot2)
-```
 
-```{r}
 
 # Nominal proteins w/ quantitites within the UPS standards
 ups_ref <- read.csv("UPS Proteins.tsv",
                   header = TRUE) %>%
-  select(ups_protein = X...UniProt.Accession.Number,
+  select(ups_protein = UniProt.Accession.Number,
          ups1_amount = UPS1.Amount..fmol.,
          ups2_amount = UPS2.Amount..fmol.) %>%
   mutate(ups2_amount = gsub(",","",ups2_amount)) %>%
@@ -61,10 +61,10 @@ ups1_diag <- function(filename, title){
     geom_text(label=rownames(grouped_ups), position = position_nudge(x = .2, y =.2))
 }
 
-ups1_diag("Data/UPS/UPS1/UPS1_01-Peptide_Shaker_on_data_21__Peptide_Report.tabular", "UPS1 Replicate 1")
-ups1_diag("Data/UPS/UPS1/UPS1_02-Peptide_Shaker_on_data_31__Peptide_Report.tabular", "UPS1 Replicate 2")
-ups1_diag("Data/UPS/UPS1/UPS1_03-Peptide_Shaker_on_data_23__Peptide_Report.tabular", "UPS1 Replicate 3")
-ups1_diag("Data/UPS/UPS1/UPS1_04-Peptide_Shaker_on_data_24__Peptide_Report.tabular", "UPS1 Replicate 4")
+ups1_diag("Data/UPS/UPS1/UPS1_01_[Peptide_Shaker_on_data_19__Peptide_Report].tabular", "UPS1 Replicate 1")
+ups1_diag("Data/UPS/UPS1/UPS1_02_[Peptide_Shaker_on_data_20__Peptide_Report].tabular", "UPS1 Replicate 2")
+ups1_diag("Data/UPS/UPS1/UPS1_03_[Peptide_Shaker_on_data_21__Peptide_Report].tabular", "UPS1 Replicate 3")
+ups1_diag("Data/UPS/UPS1/UPS1_04_[Peptide_Shaker_on_data_22__Peptide_Report].tabular", "UPS1 Replicate 4")
 ```
 
 
