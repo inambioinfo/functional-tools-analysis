@@ -96,7 +96,7 @@ uni
 * Download and compare GO terms
   
 ```{r}
-em <- read.delim("results/eggNOG/eggnog_mapper_20_sequences_results.tabular",
+em <- read.delim("results/eggNOG/eggnog_mapper_20_sequences_results_seed-1003.tabular",
                  stringsAsFactors = FALSE,
                  header=FALSE) %>%
     select(peptide = V1, em_prot = V2, em_go = V6, em_gene = V5, em_descript = V13) %>%
@@ -123,10 +123,10 @@ em
 ```{r}
 peptide <- rep(0, 5)
 blast_go <- rep(0, 5)
-files <- list.files('uniprot_blastp_outputs')
+files <- list.files('results/uniprot_blastp')
 for (i in 1:5){
     peptide[i] <- fivepep[i]
-    result <- read.delim(paste('uniprot_blastp_outputs', paste(fivepep[i], '.tab', sep=""), sep="/"),
+    result <- read.delim(paste('results/uniprot_blastp/', paste(fivepep[i], '.tab', sep=""), sep="/"),
                    stringsAsFactors = FALSE,
                    na.strings = c("", "NA", "NaN"))
     gos <- table(unlist(str_split(result$Gene.ontology.IDs, "; ")))/50
@@ -155,7 +155,7 @@ for (i in 1:nrow(go_input)){
 }
 ```
 
-```{r}
+
 peptide <- rep(0, 5)
 mg_go <- rep(0, 5)
 dir <- 'results/metaGOmics/'
@@ -171,17 +171,14 @@ for (i in 1:5){
 }
 mg <- data.frame(peptide, mg_go, stringsAsFactors = FALSE)
 mg
-```
+
 
 
 ### Combine all of the results:
 ```{r}
-peptide_report
-pepprots <- select(peptide_report,
-       proteins,
-       peptide = sequence) %>%
+pepprots <- select(peptide_report, proteins, peptide = sequence) %>%
   filter(peptide %in% fivepep)
-all_results <- plyr::join_all(list(pepprots, em, mg, uni), by = "peptide")
+all_results <- plyr::join_all(list(pepprots, em, blast, uni), by = "peptide")
 all_results
 ```
 All of the results are below:
