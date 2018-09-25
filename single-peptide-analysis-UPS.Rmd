@@ -148,13 +148,11 @@ blast <- data.frame(peptide, blast_go, stringsAsFactors = FALSE)
 
 ```{r}
 # Creates the input files for metaGOmics i.e., single peptide with spectral count (# of validated PSMs)
-go_input <- select(fivepep_df, sequence, counts)
-for (i in 1:nrow(go_input)){
-  write.table(go_input[i,], paste('Data/metaGOmics/', go_input[i,]$sequence,".txt", sep=""), 
-            sep="\t", eol = "\r\n", quote=FALSE, row.names=FALSE, col.names=FALSE)
-}
-```
-
+#go_input <- select(fivepep_df, sequence, counts)
+#for (i in 1:nrow(go_input)){
+#  write.table(go_input[i,], paste('Data/metaGOmics/', go_input[i,]$sequence,".txt", sep=""), 
+#            sep="\t", eol = "\r\n", quote=FALSE, row.names=FALSE, col.names=FALSE)
+#}
 
 peptide <- rep(0, 5)
 mg_go <- rep(0, 5)
@@ -170,15 +168,14 @@ for (i in 1:5){
     mg_go[i] <- paste(gos, collapse = "; ")
 }
 mg <- data.frame(peptide, mg_go, stringsAsFactors = FALSE)
-mg
-
+```
 
 
 ### Combine all of the results:
 ```{r}
 pepprots <- select(peptide_report, proteins, peptide = sequence) %>%
   filter(peptide %in% fivepep)
-all_results <- plyr::join_all(list(pepprots, em, blast, uni), by = "peptide")
+all_results <- plyr::join_all(list(pepprots, em, blast, mg, uni), by = "peptide")
 all_results
 ```
 All of the results are below:

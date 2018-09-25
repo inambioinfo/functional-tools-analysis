@@ -1,0 +1,88 @@
+# MetaGOmics GO report
+# MetaGOmics version: 0.1.1
+# Run date: Mon Sep 24 19:41:32 PDT 2018
+GO acc	GO aspect	GO name	count	total count	ratio
+GO:0016043	biological_process	cellular component organization	2	2	1.0
+GO:0044464	cellular_component	cell part	2	2	1.0
+GO:0032940	biological_process	secretion by cell	2	2	1.0
+GO:0046928	biological_process	regulation of neurotransmitter secretion	2	2	1.0
+GO:0051588	biological_process	regulation of neurotransmitter transport	2	2	1.0
+GO:0044070	biological_process	regulation of anion transport	2	2	1.0
+GO:0006810	biological_process	transport	2	2	1.0
+GO:0007267	biological_process	cell-cell signaling	2	2	1.0
+GO:0005856	cellular_component	cytoskeleton	2	2	1.0
+GO:0008104	biological_process	protein localization	2	2	1.0
+GO:0048471	cellular_component	perinuclear region of cytoplasm	2	2	1.0
+GO:0043269	biological_process	regulation of ion transport	2	2	1.0
+GO:0008150	biological_process	biological_process	2	2	1.0
+GO:0097458	cellular_component	neuron part	2	2	1.0
+GO:0014059	biological_process	regulation of dopamine secretion	2	2	1.0
+GO:0051179	biological_process	localization	2	2	1.0
+GO:0070062	cellular_component	extracellular exosome	2	2	1.0
+GO:0007268	biological_process	synaptic transmission	2	2	1.0
+GO:0042995	cellular_component	cell projection	2	2	1.0
+GO:0044763	biological_process	single-organism cellular process	2	2	1.0
+GO:0051046	biological_process	regulation of secretion	2	2	1.0
+GO:0044765	biological_process	single-organism transport	2	2	1.0
+GO:0051049	biological_process	regulation of transport	2	2	1.0
+GO:1902578	biological_process	single-organism localization	2	2	1.0
+GO:0005575	cellular_component	cellular_component	2	2	1.0
+GO:0023052	biological_process	signaling	2	2	1.0
+GO:0030534	biological_process	adult behavior	2	2	1.0
+GO:0005488	molecular_function	binding	2	2	1.0
+GO:0045184	biological_process	establishment of protein localization	2	2	1.0
+GO:0007154	biological_process	cell communication	2	2	1.0
+GO:0023051	biological_process	regulation of signaling	2	2	1.0
+GO:0043025	cellular_component	neuronal cell body	2	2	1.0
+GO:0051649	biological_process	establishment of localization in cell	2	2	1.0
+GO:0051234	biological_process	establishment of localization	2	2	1.0
+GO:0003674	molecular_function	molecular_function	2	2	1.0
+GO:0032879	biological_process	regulation of localization	2	2	1.0
+GO:0005737	cellular_component	cytoplasm	2	2	1.0
+GO:0008344	biological_process	adult locomotory behavior	2	2	1.0
+GO:0030424	cellular_component	axon	2	2	1.0
+GO:0050789	biological_process	regulation of biological process	2	2	1.0
+GO:0046903	biological_process	secretion	2	2	1.0
+GO:0044421	cellular_component	extracellular region part	2	2	1.0
+GO:0050794	biological_process	regulation of cellular process	2	2	1.0
+GO:0044422	cellular_component	organelle part	2	2	1.0
+GO:0044424	cellular_component	intracellular part	2	2	1.0
+GO:0050804	biological_process	modulation of synaptic transmission	2	2	1.0
+GO:0009306	biological_process	protein secretion	2	2	1.0
+GO:1903530	biological_process	regulation of secretion by cell	2	2	1.0
+GO:0044430	cellular_component	cytoskeletal part	2	2	1.0
+GO:0051952	biological_process	regulation of amine transport	2	2	1.0
+GO:0044297	cellular_component	cell body	2	2	1.0
+GO:0065007	biological_process	biological regulation	2	2	1.0
+GO:0050808	biological_process	synapse organization	2	2	1.0
+GO:0065010	cellular_component	extracellular membrane-bounded organelle	2	2	1.0
+GO:0033036	biological_process	macromolecule localization	2	2	1.0
+GO:0060341	biological_process	regulation of cellular localization	2	2	1.0
+GO:0044699	biological_process	single-organism process	2	2	1.0
+GO:0044700	biological_process	single organism signaling	2	2	1.0
+GO:0032501	biological_process	multicellular organismal process	2	2	1.0
+GO:0007610	biological_process	behavior	2	2	1.0
+GO:0044444	cellular_component	cytoplasmic part	2	2	1.0
+GO:0015031	biological_process	protein transport	2	2	1.0
+GO:0005815	cellular_component	microtubule organizing center	2	2	1.0
+GO:0044446	cellular_component	intracellular organelle part	2	2	1.0
+GO:0005515	molecular_function	protein binding	2	2	1.0
+GO:0009987	biological_process	cellular process	2	2	1.0
+GO:0005819	cellular_component	spindle	2	2	1.0
+GO:0044707	biological_process	single-multicellular organism process	2	2	1.0
+GO:0044708	biological_process	single-organism behavior	2	2	1.0
+GO:0043226	cellular_component	organelle	2	2	1.0
+GO:0043227	cellular_component	membrane-bounded organelle	2	2	1.0
+GO:0031982	cellular_component	vesicle	2	2	1.0
+GO:0043228	cellular_component	non-membrane-bounded organelle	2	2	1.0
+GO:0071702	biological_process	organic substance transport	2	2	1.0
+GO:0043229	cellular_component	intracellular organelle	2	2	1.0
+GO:0043230	cellular_component	extracellular organelle	2	2	1.0
+GO:0010646	biological_process	regulation of cell communication	2	2	1.0
+GO:0043005	cellular_component	neuron projection	2	2	1.0
+GO:0043232	cellular_component	intracellular non-membrane-bounded organelle	2	2	1.0
+GO:0050433	biological_process	regulation of catecholamine secretion	2	2	1.0
+GO:0071840	biological_process	cellular component organization or biogenesis	2	2	1.0
+GO:0031988	cellular_component	membrane-bounded vesicle	2	2	1.0
+GO:0007626	biological_process	locomotory behavior	2	2	1.0
+GO:1903561	cellular_component	extracellular vesicle	2	2	1.0

@@ -1,0 +1,213 @@
+# MetaGOmics GO report
+# MetaGOmics version: 0.1.1
+# Run date: Mon Sep 24 19:41:49 PDT 2018
+GO acc	GO aspect	GO name	count	total count	ratio
+GO:0090066	biological_process	regulation of anatomical structure size	3	3	1.0
+GO:0032940	biological_process	secretion by cell	3	3	1.0
+GO:0043252	biological_process	sodium-independent organic anion transport	3	3	1.0
+GO:1901363	molecular_function	heterocyclic compound binding	3	3	1.0
+GO:0015643	molecular_function	toxic substance binding	3	3	1.0
+GO:0008144	molecular_function	drug binding	3	3	1.0
+GO:0016209	molecular_function	antioxidant activity	3	3	1.0
+GO:0002576	biological_process	platelet degranulation	3	3	1.0
+GO:0008150	biological_process	biological_process	3	3	1.0
+GO:0072562	cellular_component	blood microparticle	3	3	1.0
+GO:0044364	biological_process	disruption of cells of other organism	3	3	1.0
+GO:0005604	cellular_component	basement membrane	3	3	1.0
+GO:0071496	biological_process	cellular response to external stimulus	3	3	1.0
+GO:0036094	molecular_function	small molecule binding	3	3	1.0
+GO:0005615	cellular_component	extracellular space	3	3	1.0
+GO:0032991	cellular_component	macromolecular complex	3	3	1.0
+GO:0051640	biological_process	organelle localization	3	3	1.0
+GO:0051641	biological_process	cellular localization	3	3	1.0
+GO:0009267	biological_process	cellular response to starvation	3	3	1.0
+GO:0008152	biological_process	metabolic process	3	3	1.0
+GO:0005634	cellular_component	nucleus	3	3	1.0
+GO:0042749	biological_process	regulation of circadian sleep/wake cycle	3	3	1.0
+GO:0051646	biological_process	mitochondrion localization	3	3	1.0
+GO:0043066	biological_process	negative regulation of apoptotic process	3	3	1.0
+GO:0042752	biological_process	regulation of circadian rhythm	3	3	1.0
+GO:0042753	biological_process	positive regulation of circadian rhythm	3	3	1.0
+GO:0051649	biological_process	establishment of localization in cell	3	3	1.0
+GO:0051651	biological_process	maintenance of location in cell	3	3	1.0
+GO:0031406	molecular_function	carboxylic acid binding	3	3	1.0
+GO:0005737	cellular_component	cytoplasm	3	3	1.0
+GO:0016192	biological_process	vesicle-mediated transport	3	3	1.0
+GO:0015711	biological_process	organic anion transport	3	3	1.0
+GO:0051657	biological_process	maintenance of organelle location	3	3	1.0
+GO:1990748	biological_process	cellular detoxification	3	3	1.0
+GO:0051659	biological_process	maintenance of mitochondrion location	3	3	1.0
+GO:0015718	biological_process	monocarboxylic acid transport	3	3	1.0
+GO:0015721	biological_process	bile acid and bile salt transport	3	3	1.0
+GO:0046903	biological_process	secretion	3	3	1.0
+GO:0044419	biological_process	interspecies interaction between organisms	3	3	1.0
+GO:0044420	cellular_component	extracellular matrix component	3	3	1.0
+GO:0044421	cellular_component	extracellular region part	3	3	1.0
+GO:0044422	cellular_component	organelle part	3	3	1.0
+GO:0044424	cellular_component	intracellular part	3	3	1.0
+GO:0060205	cellular_component	cytoplasmic membrane-bounded vesicle lumen	3	3	1.0
+GO:0065007	biological_process	biological regulation	3	3	1.0
+GO:0044432	cellular_component	endoplasmic reticulum part	3	3	1.0
+GO:0065008	biological_process	regulation of biological quality	3	3	1.0
+GO:0042221	biological_process	response to chemical	3	3	1.0
+GO:0044433	cellular_component	cytoplasmic vesicle part	3	3	1.0
+GO:0019835	biological_process	cytolysis	3	3	1.0
+GO:0065010	cellular_component	extracellular membrane-bounded organelle	3	3	1.0
+GO:0032501	biological_process	multicellular organismal process	3	3	1.0
+GO:0044444	cellular_component	cytoplasmic part	3	3	1.0
+GO:0044446	cellular_component	intracellular organelle part	3	3	1.0
+GO:0031974	cellular_component	membrane-enclosed lumen	3	3	1.0
+GO:0005783	cellular_component	endoplasmic reticulum	3	3	1.0
+GO:0098869	biological_process	cellular oxidant detoxification	3	3	1.0
+GO:0070013	cellular_component	intracellular organelle lumen	3	3	1.0
+GO:0042981	biological_process	regulation of apoptotic process	3	3	1.0
+GO:0031982	cellular_component	vesicle	3	3	1.0
+GO:0031983	cellular_component	vesicle lumen	3	3	1.0
+GO:0051701	biological_process	interaction with host	3	3	1.0
+GO:0070541	biological_process	response to platinum ion	3	3	1.0
+GO:0051704	biological_process	multi-organism process	3	3	1.0
+GO:1990267	biological_process	response to transition metal nanoparticle	3	3	1.0
+GO:0031988	cellular_component	membrane-bounded vesicle	3	3	1.0
+GO:1903561	cellular_component	extracellular vesicle	3	3	1.0
+GO:0044464	cellular_component	cell part	3	3	1.0
+GO:0051715	biological_process	cytolysis in other organism	3	3	1.0
+GO:0051716	biological_process	cellular response to stimulus	3	3	1.0
+GO:0043933	biological_process	macromolecular complex subunit organization	3	3	1.0
+GO:0035150	biological_process	regulation of tube size	3	3	1.0
+GO:0060249	biological_process	anatomical structure homeostasis	3	3	1.0
+GO:0006810	biological_process	transport	3	3	1.0
+GO:0006811	biological_process	ion transport	3	3	1.0
+GO:0008270	molecular_function	zinc ion binding	3	3	1.0
+GO:0043412	biological_process	macromolecule modification	3	3	1.0
+GO:0006820	biological_process	anion transport	3	3	1.0
+GO:0051179	biological_process	localization	3	3	1.0
+GO:0010941	biological_process	regulation of cell death	3	3	1.0
+GO:0070062	cellular_component	extracellular exosome	3	3	1.0
+GO:0036211	biological_process	protein modification process	3	3	1.0
+GO:1902578	biological_process	single-organism localization	3	3	1.0
+GO:0042311	biological_process	vasodilation	3	3	1.0
+GO:1902580	biological_process	single-organism cellular localization	3	3	1.0
+GO:0045187	biological_process	regulation of circadian sleep/wake cycle, sleep	3	3	1.0
+GO:0048518	biological_process	positive regulation of biological process	3	3	1.0
+GO:0048519	biological_process	negative regulation of biological process	3	3	1.0
+GO:0045188	biological_process	regulation of circadian sleep/wake cycle, non-REM sleep	3	3	1.0
+GO:0048520	biological_process	positive regulation of behavior	3	3	1.0
+GO:0048523	biological_process	negative regulation of cellular process	3	3	1.0
+GO:0051234	biological_process	establishment of localization	3	3	1.0
+GO:0051235	biological_process	maintenance of location	3	3	1.0
+GO:0006869	biological_process	lipid transport	3	3	1.0
+GO:0044003	biological_process	modification by symbiont of host morphology or physiology	3	3	1.0
+GO:0051239	biological_process	regulation of multicellular organismal process	3	3	1.0
+GO:0010038	biological_process	response to metal ion	3	3	1.0
+GO:0005788	cellular_component	endoplasmic reticulum lumen	3	3	1.0
+GO:0044004	biological_process	disruption by symbiont of host cell	3	3	1.0
+GO:0051240	biological_process	positive regulation of multicellular organismal process	3	3	1.0
+GO:0015849	biological_process	organic acid transport	3	3	1.0
+GO:0019538	biological_process	protein metabolic process	3	3	1.0
+GO:0015850	biological_process	organic hydroxy compound transport	3	3	1.0
+GO:0043231	cellular_component	intracellular membrane-bounded organelle	3	3	1.0
+GO:0005794	cellular_component	Golgi apparatus	3	3	1.0
+GO:0051801	biological_process	cytolysis in other organism involved in symbiotic interaction	3	3	1.0
+GO:0052331	biological_process	hemolysis in other organism involved in symbiotic interaction	3	3	1.0
+GO:0006887	biological_process	exocytosis	3	3	1.0
+GO:0005576	cellular_component	extracellular region	3	3	1.0
+GO:0051817	biological_process	modification of morphology or physiology of other organism involved in symbiotic interaction	3	3	1.0
+GO:0006897	biological_process	endocytosis	3	3	1.0
+GO:0051818	biological_process	disruption of cells of other organism involved in symbiotic interaction	3	3	1.0
+GO:0006898	biological_process	receptor-mediated endocytosis	3	3	1.0
+GO:0005515	molecular_function	protein binding	3	3	1.0
+GO:0009987	biological_process	cellular process	3	3	1.0
+GO:0097159	molecular_function	organic cyclic compound binding	3	3	1.0
+GO:0009991	biological_process	response to extracellular stimulus	3	3	1.0
+GO:0071702	biological_process	organic substance transport	3	3	1.0
+GO:0071704	biological_process	organic substance metabolic process	3	3	1.0
+GO:0048583	biological_process	regulation of response to stimulus	3	3	1.0
+GO:0048584	biological_process	positive regulation of response to stimulus	3	3	1.0
+GO:0046914	molecular_function	transition metal ion binding	3	3	1.0
+GO:0019899	molecular_function	enzyme binding	3	3	1.0
+GO:0006950	biological_process	response to stress	3	3	1.0
+GO:0046942	biological_process	carboxylic acid transport	3	3	1.0
+GO:0010033	biological_process	response to organic substance	3	3	1.0
+GO:0010035	biological_process	response to inorganic substance	3	3	1.0
+GO:0035821	biological_process	modification of morphology or physiology of other organism	3	3	1.0
+GO:0051883	biological_process	killing of cells in other organism involved in symbiotic interaction	3	3	1.0
+GO:0034774	cellular_component	secretory granule lumen	3	3	1.0
+GO:0031640	biological_process	killing of cells of other organism	3	3	1.0
+GO:0031093	cellular_component	platelet alpha granule lumen	3	3	1.0
+GO:0033554	biological_process	cellular response to stress	3	3	1.0
+GO:0005575	cellular_component	cellular_component	3	3	1.0
+GO:0048037	molecular_function	cofactor binding	3	3	1.0
+GO:0006464	biological_process	cellular protein modification process	3	3	1.0
+GO:0003674	molecular_function	molecular_function	3	3	1.0
+GO:0031667	biological_process	response to nutrient levels	3	3	1.0
+GO:0031668	biological_process	cellular response to extracellular stimulus	3	3	1.0
+GO:0003676	molecular_function	nucleic acid binding	3	3	1.0
+GO:0031669	biological_process	cellular response to nutrient levels	3	3	1.0
+GO:0003677	molecular_function	DNA binding	3	3	1.0
+GO:0007584	biological_process	response to nutrient	3	3	1.0
+GO:0050789	biological_process	regulation of biological process	3	3	1.0
+GO:0050794	biological_process	regulation of cellular process	3	3	1.0
+GO:0050795	biological_process	regulation of behavior	3	3	1.0
+GO:0044699	biological_process	single-organism process	3	3	1.0
+GO:0043067	biological_process	regulation of programmed cell death	3	3	1.0
+GO:0071825	biological_process	protein-lipid complex subunit organization	3	3	1.0
+GO:0033293	molecular_function	monocarboxylic acid binding	3	3	1.0
+GO:0043069	biological_process	negative regulation of programmed cell death	3	3	1.0
+GO:0071827	biological_process	plasma lipoprotein particle organization	3	3	1.0
+GO:0044179	biological_process	hemolysis in other organism	3	3	1.0
+GO:0044707	biological_process	single-multicellular organism process	3	3	1.0
+GO:0071840	biological_process	cellular component organization or biogenesis	3	3	1.0
+GO:0001894	biological_process	tissue homeostasis	3	3	1.0
+GO:0001895	biological_process	retina homeostasis	3	3	1.0
+GO:0045938	biological_process	positive regulation of circadian sleep/wake cycle, sleep	3	3	1.0
+GO:0016043	biological_process	cellular component organization	3	3	1.0
+GO:0001897	biological_process	cytolysis by symbiont of host cells	3	3	1.0
+GO:0001906	biological_process	cell killing	3	3	1.0
+GO:0001907	biological_process	killing by symbiont of host cells	3	3	1.0
+GO:0009605	biological_process	response to external stimulus	3	3	1.0
+GO:0019836	biological_process	hemolysis by symbiont of host erythrocytes	3	3	1.0
+GO:0050880	biological_process	regulation of blood vessel size	3	3	1.0
+GO:0003008	biological_process	system process	3	3	1.0
+GO:0043687	biological_process	post-translational protein modification	3	3	1.0
+GO:0034367	biological_process	macromolecular complex remodeling	3	3	1.0
+GO:0034368	biological_process	protein-lipid complex remodeling	3	3	1.0
+GO:0034369	biological_process	plasma lipoprotein particle remodeling	3	3	1.0
+GO:0003013	biological_process	circulatory system process	3	3	1.0
+GO:0050896	biological_process	response to stimulus	3	3	1.0
+GO:0003018	biological_process	vascular process in circulatory system	3	3	1.0
+GO:0034375	biological_process	high-density lipoprotein particle remodeling	3	3	1.0
+GO:0051087	molecular_function	chaperone binding	3	3	1.0
+GO:0044237	biological_process	cellular metabolic process	3	3	1.0
+GO:0044763	biological_process	single-organism cellular process	3	3	1.0
+GO:0044238	biological_process	primary metabolic process	3	3	1.0
+GO:0044764	biological_process	multi-organism cellular process	3	3	1.0
+GO:0044765	biological_process	single-organism transport	3	3	1.0
+GO:0060548	biological_process	negative regulation of cell death	3	3	1.0
+GO:0042592	biological_process	homeostatic process	3	3	1.0
+GO:0042594	biological_process	response to starvation	3	3	1.0
+GO:0005488	molecular_function	binding	3	3	1.0
+GO:0043167	molecular_function	ion binding	3	3	1.0
+GO:0043168	molecular_function	anion binding	3	3	1.0
+GO:0007154	biological_process	cell communication	3	3	1.0
+GO:0044260	biological_process	cellular macromolecule metabolic process	3	3	1.0
+GO:0043169	molecular_function	cation binding	3	3	1.0
+GO:0043170	biological_process	macromolecule metabolic process	3	3	1.0
+GO:0046010	biological_process	positive regulation of circadian sleep/wake cycle, non-REM sleep	3	3	1.0
+GO:0044267	biological_process	cellular protein metabolic process	3	3	1.0
+GO:0005504	molecular_function	fatty acid binding	3	3	1.0
+GO:0043177	molecular_function	organic acid binding	3	3	1.0
+GO:0046872	molecular_function	metal ion binding	3	3	1.0
+GO:0005507	molecular_function	copper ion binding	3	3	1.0
+GO:0046689	biological_process	response to mercury ion	3	3	1.0
+GO:0008289	molecular_function	lipid binding	3	3	1.0
+GO:0030170	molecular_function	pyridoxal phosphate binding	3	3	1.0
+GO:0043209	cellular_component	myelin sheath	3	3	1.0
+GO:0042802	molecular_function	identical protein binding	3	3	1.0
+GO:0019825	molecular_function	oxygen binding	3	3	1.0
+GO:0043226	cellular_component	organelle	3	3	1.0
+GO:0043227	cellular_component	membrane-bounded organelle	3	3	1.0
+GO:0043229	cellular_component	intracellular organelle	3	3	1.0
+GO:0043230	cellular_component	extracellular organelle	3	3	1.0
+GO:0043233	cellular_component	organelle lumen	3	3	1.0
+GO:0043234	cellular_component	protein complex	3	3	1.0
+GO:0098754	biological_process	detoxification	3	3	1.0
