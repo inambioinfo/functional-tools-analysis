@@ -10,17 +10,17 @@ output:
 **September 17, 2018**
 
 # Introduction
-Analysis adapted from Caleb Easterly's "Single Peptide Results Analysis" for the UPS dataset.
+Analysis adapted from Caleb Easterly's "Single Peptide Results Analysis" (https://github.com/caleb-easterly/single_peptide) for the UPS dataset.
 
 ---
 
 #### Packages
 
 ```{r}
-library(dplyr)
 library(stringr)
 library(pander)
 library(knitr)
+library(dplyr)
 ```
 
 ### Peptide Sampling
@@ -77,7 +77,6 @@ uni <- read.csv('results/unipept/UPS1_03-Unipept-20pep-1003seed.csv',
     mutate(uni_go_bp = str_replace_all(string = uni_go_bp, pattern = cov_pat, replacement = ""),
            uni_go_mf = str_replace_all(string = uni_go_mf, pattern = cov_pat, replacement = ""),
            uni_go_cc = str_replace_all(string = uni_go_cc, pattern = cov_pat, replacement = ""))
-uni
 ```
 
 
@@ -102,7 +101,6 @@ em <- read.delim("results/eggNOG/eggnog_mapper_20_sequences_results_seed-1003.ta
     select(peptide = V1, em_prot = V2, em_go = V6, em_gene = V5, em_descript = V13) %>%
     filter(peptide %in% fivepep) %>%
     mutate(em_go = str_replace_all(em_go, pattern = ",", replacement = "; "))
-em
 ```
 ## BLASTP against UniProt
 
@@ -187,11 +185,12 @@ pander::pander(all_results, split.cell = 80, split.table = Inf)
 ```
 
 ## Let's go through the peptides one-by-one
-### AFLPGSLVDTRPVR
 
 Here, BLAST and Unipept give the same four GO terms:
 
+
 ```{r}
+all_results[1, 'peptide']
 buni <- all_results[1, 'blast_go']
 buni
 ```
