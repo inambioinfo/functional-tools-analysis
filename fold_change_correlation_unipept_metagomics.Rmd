@@ -5,6 +5,6 @@ output: html_notebook
 
 
 ```{r}
-plot(cars)
+unipept_fp = 'results/metaGOmics/MetaGOmics_Compare_UPS2_UPS1
 ```
 
