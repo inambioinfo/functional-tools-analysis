@@ -1,33 +1,29 @@
 ---
 title: "Single Peptide Results Analysis - UPS Dataset"
+author: "Caleb Easterly and Ray Sajulga"
 output:
   html_document:
-    df_print: paged
+    toc: true
+    toc_depth: 3
+    toc_float: true
+  pdf_document: default
 ---
 
-*Ray Sajulga*
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
+```
 **September 17, 2018**
-
-# Introduction
+## Introduction
 Analysis adapted from Caleb Easterly's "Single Peptide Results Analysis" (https://github.com/caleb-easterly/single_peptide) for the UPS dataset.
 
 ---
-
-#### Packages
-
-```{r}
-library(stringr)
-library(pander)
-library(knitr)
-library(dplyr)
-```
 
 ### Peptide Sampling
 Let's randomly select 10 UPS peptides and 10 non-UPS peptides from the UPS1 dataset (replicate #3):
 
 ```{r}
-
+library(dplyr)
+library(stringr)
 # Obtains peptide report
 peptide_report <- read.csv("Data/UPS/UPS1/UPS1_03_[Peptide_Shaker_on_data_21__Peptide_Report].tabular",
          sep = "\t", comment.char="", header = TRUE, stringsAsFactors = FALSE) %>%
@@ -190,19 +186,21 @@ Here, BLAST and Unipept give the same four GO terms:
 
 
 ```{r}
-all_results[1, 'peptide']
-buni <- all_results[1, 'blast_go']
+n <- 5
+all_results[n, 'peptide']
+all_results[n, 'proteins']
+buni <- all_results[n, 'blast_go']
 buni
 ```
 
 This is the metaGOmics list:
 ```{r}
-metaGOmics_list <- c(str_split(all_results[1, 'mg_go'], "; ", simplify=TRUE))
+metaGOmics_list <- c(str_split(all_results[n, 'mg_go'], "; ", simplify=TRUE))
 ```
 
 And eggNOG
 ```{r}
-eggnog_list <- c(str_split(all_results[1, 'em_go'], "; ", simplify =TRUE))
+eggnog_list <- c(str_split(all_results[n, 'em_go'], "; ", simplify =TRUE))
 ```
 
 Let's go to the QuickGO API to get the names of the 4 BLAST/Unipept terms.
