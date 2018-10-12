@@ -73,14 +73,13 @@ for (i in 1:nrow(uni_peptides_df)){
       #print(uni_peptides_df[i,]$uni1_go_bp);
     #}
     for (n in 1:nrow(go_terms)){
-      # Filter out GO terms present in less than 5% of the protein
-      print('YO');
-      print(go_terms);
-      print(go_terms[n,3]);
-      if (as.double(go_terms[n,3]) > 5 && !is.na(uni_peptides_df[i,"uni_est_fc"])){
-        go_terms_fc[x, "go_term"] <- go_terms[n,2]
-        go_terms_fc[x, "fold_change"] <- uni_peptides_df[i,"uni_est_fc"]
-        x = x + 1;
+      if (nrow(go_terms) != 0) {
+        # Filter out GO terms present in less than 5% of the protein
+        if (as.double(go_terms[n,3]) > 5 && !is.na(uni_peptides_df[i,"uni_est_fc"])){
+          go_terms_fc[x, "go_term"] <- go_terms[n,2]
+          go_terms_fc[x, "fold_change"] <- uni_peptides_df[i,"uni_est_fc"]
+          x = x + 1;
+        }
       }
     }
     
