@@ -5,6 +5,117 @@ output: html_notebook
 
 
 ```{r}
-unipept_fp = 'results/metaGOmics/MetaGOmics_Compare_UPS2_UPS1
+library(dplyr)
+uni1_fp = 'results/unipept/UPS1_03_All_Peptides.csv'
+uni2_fp = 'results/unipept/UPS2_03_All_Peptides.csv'
+mgo_fp = 'results/metaGOmics/MetaGOmics_Compare_UPS2_UPS1.txt'
+
+
+uni1_df <- read.csv(uni1_fp,
+         sep = ",", comment.char="", header = TRUE, stringsAsFactors = FALSE) %>%
+  select(peptide,
+         uni1_go_bp = GO..biological.process.,
+         uni1_go_mf = GO..molecular.function.,
+         uni1_go_cc = GO..cellular.component.)
+uni1_df
+
+uni2_df <- read.csv(uni2_fp,
+         sep = ",", comment.char="", header = TRUE, stringsAsFactors = FALSE) %>%
+  select(peptide,
+         uni2_go_bp = GO..biological.process.,
+         uni2_go_mf = GO..molecular.function.,
+         uni2_go_cc = GO..cellular.component.)
+uni2_df
+
+mgo_df <- read.csv(mgo_fp,
+         sep = "\t", comment.char="#", header = TRUE, stringsAsFactors = FALSE) %>%
+   select(mgo_go = GO.acc,
+         mgo_fc = Log.2..fold.change)
+#mgo_df
+
+```
+We need to estimate the fold change of unipept.
+
+
+
+
+```{r}
+#uni1_df
+
+add_counts <- function(df, name){
+                counts_df <- unique(df)
+                for (i in 1:nrow(counts_df)){
+                  counts_df[i, paste("count",name, sep = "_")] = as.double((row.names(counts_df[i+1,]))) -
+                                                                as.double((row.names(counts_df[i,])))
+                }
+                return(counts_df)
+              }
+uni1_df <- add_counts(uni1_df, "uni1");
+uni2_df <- add_counts(uni2_df, "uni2");
+uni_peptides_df <- plyr::join_all(list(uni1_df, uni2_df), by = "peptide") %>%
+  mutate(uni_est_fc = log2((count_uni2 / 22350) / (count_uni1 / 18504)))
+#uni_peptides_df
+```
+
+```{r}
+library(stringr)
+go_regex <- "(GO:[0-9]+) \\(([0-9]+)%\\)"
+go_terms_fc <- data.frame();
+print(uni_peptides_df);
+x <- 1;
+for (i in 1:nrow(uni_peptides_df)){
+    #print(uni_peptides_df[i,]$uni1_go_bp)
+    go_terms <- str_match_all(uni_peptides_df[i,]$uni1_go_bp, go_regex)[[1]];
+    go_terms <- rbind(go_terms, str_match_all(uni_peptides_df[i,]$uni1_go_mf, go_regex)[[1]]);
+    go_terms <- rbind(go_terms, str_match_all(uni_peptides_df[i,]$uni1_go_cc, go_regex)[[1]]);
+    #if (uni_peptides_df[i,]$uni1_go_bp == uni_peptides_df[i,]$uni2_go_bp){
+     # print("YO");
+      #print(uni_peptides_df[i,]$uni1_go_bp);
+    #}
+    for (n in 1:nrow(go_terms)){
+      # Filter out GO terms present in less than 5% of the protein
+      print('YO');
+      print(go_terms);
+      print(go_terms[n,3]);
+      if (as.double(go_terms[n,3]) > 5 && !is.na(uni_peptides_df[i,"uni_est_fc"])){
+        go_terms_fc[x, "go_term"] <- go_terms[n,2]
+        go_terms_fc[x, "fold_change"] <- uni_peptides_df[i,"uni_est_fc"]
+        x = x + 1;
+      }
+    }
+    
+    #go_terms <- str_match_all(uni_peptides_df[i,]$uni1_go_cc, go_regex)
+    #go_terms <- str_match_all(uni_peptides_df[i,]$uni1_go_mf, go_regex)
+    #uni_peptides_df[i,]$uni1_go_cc
+    #uni_peptides_df[i,]$uni1_go_mf
+}
+go_terms_fc
+```
+
+
+
+
+```{r}
+n <- 1
+#uni1_counts <- data.frame(peptides = numeric(length(100)),
+                          #counts = );
+for (i in 1:nrow(uni1_df)){
+  if (i <= 300){
+    if (i > 1){
+      if (uni1_df[i,'peptide'] == uni1_df[i-1,'peptide'] && 
+          uni1_df[i,'uni_go_bp'] == uni1_df[i-1,'uni_go_bp'] &&
+          uni1_df[i,'uni_go_mf'] == uni1_df[i-1,'uni_go_mf'] &&
+          uni1_df[i,'uni_go_cc'] == uni1_df[i-1,'uni_go_cc']){
+            n = n + 1;
+      } else {
+        print(uni1_df[i-1,'peptide']);
+        print(n);
+        #uni1_counts['peptide'] = uni1_df[i-1,'peptide'];
+        n = 1;
+      }
+    }
+  }
+}
+uni1_counts
 ```
 
