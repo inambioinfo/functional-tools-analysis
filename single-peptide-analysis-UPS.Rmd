@@ -186,7 +186,7 @@ Here, BLAST and Unipept give the same four GO terms:
 
 
 ```{r}
-n <- 5
+n <- 1
 all_results[n, 'peptide']
 all_results[n, 'proteins']
 buni <- all_results[n, 'blast_go']
@@ -374,6 +374,7 @@ closely_related <- union_all(buni_split, descendants, ancestors, children_of_anc
 em_extraneous <- setdiff(eggnog_list, closely_related)
 em_num_extraneous <- length(em_extraneous)
 em_num_extraneous
+em_extraneous
 ```
 
 #### MetaGOmics
@@ -381,6 +382,7 @@ em_num_extraneous
 mg_extraneous <- setdiff(metaGOmics_list, closely_related)
 mg_num_extraneous <- length(mg_extraneous)
 mg_num_extraneous
+mg_extraneous
 ```
 
 ## Results
@@ -399,6 +401,30 @@ ggplot(term_df) +
     geom_bar(aes(x = Tool, y = NumTerms, fill = typeOfTerm), color = "black", stat = "identity") +
     theme_bw()
 ```
+
+```{r}
+head(get_go_names(em_buni))
+head(get_go_names(mg_buni))
+em_buni
+```
+
+
+```{r}
+em_descendants
+head(get_go_names(em_descendants))
+head(get_go_names(mg_descendants))
+```
+
+```{r}
+head(get_go_names(em_ancestors))
+head(get_go_names(mg_ancestors))
+```
+
+```{r}
+head(get_go_names(em_extraneous))
+head(get_go_names(mg_extraneous))
+```
+
 
 <!-- Calculate proportions to answer three questions: -->
 <!-- 1) How many of Uniprot's terms does the tool pick up? -->
