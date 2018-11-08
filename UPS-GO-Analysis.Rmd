@@ -1,0 +1,87 @@
+
+
+
+```{r}
+library(dplyr)
+library(stringr)
+#library
+
+
+# Takes the Uniprot-derived GO terms for UPS proteins
+ups_go <- read.csv('data/uniprot-UPS-go-terms.tab', sep = "\t",
+                stringsAsFactors = FALSE) %>%
+  select(protein = Entry,
+         go_terms = Gene.ontology.IDs)
+# Separates them into individual GO terms
+x <- 1
+ups_go_ind = data.frame(go_terms = character(3000),
+                        protein = character(3000),
+                        stringsAsFactors = FALSE)
+for (n in 1:nrow(ups_go)){
+  split_terms <- str_split(
+    gsub("\\s","",ups_go$go_terms[n])
+      , ";", simplify=TRUE)
+  for (m in 1:length(split_terms)){
+    ups_go_ind$go_terms[x] <- split_terms[m]
+    ups_go_ind$protein[x] <- ups_go$protein[n]
+    x = x + 1
+  }
+}
+# Removes rows that have non-unique GO terms
+ups_go_ind <- ups_go_ind[!(duplicated(ups_go_ind$go_terms)|duplicated(ups_go_ind$go_terms, fromLast = TRUE)),]
+
+# Reads the metaGOmics fold change data
+mgo_go <- read.csv('results/metaGOmics/MetaGOmics_Compare_UPS2_UPS1.txt', sep = "\t",
+         comment.char="#", header = TRUE, stringsAsFactors = FALSE) %>%
+  select(ups1.psms = Run.1.PSM.count,
+         ups2.psms = Run.2.PSM.count,
+         go_terms = GO.acc,
+         fold_change = Log.2..fold.change)
+
+# Join results by GO terms
+all_results <- plyr::join_all(list(ups_go_ind, mgo_go), by = "go_terms")
+
+# Obtains the unique list of proteins from the results
+proteins = unique(all_results$protein)
+proteins = proteins[proteins != ""]
+
+
+n <- length(proteins)
+output <- data.frame(protein = proteins,
+                     mean = numeric(n),
+                     max = numeric(n))
+                     #fold_change = numeric(n))
+#all_results
+for (i in 1:n){
+  rows <- all_results[all_results$protein == proteins[i],]
+  
+  fold_changes <- suppressWarnings(as.numeric(rows$fold_change))
+  ups1_psms <- suppressWarnings(as.numeric(rows$ups1.psms))
+  ups2_psms <- suppressWarnings(as.numeric(rows$ups2.psms))
+
+ 
+  #output$fold_change[i] <- log2((sum(ups2_psms, na.rm = TRUE)/22350) / 
+  #                              (sum(ups1_psms, na.rm = TRUE)/18504))
+  #output$fold_change[i] <- 
+  output$mean[i] <- mean(fold_changes, na.rm = TRUE)
+  output$max[i] <- max(fold_changes, na.rm = TRUE)
+}
+#all_results
+
+output
+
+#as.numeric(all_results[all_results$protein == 'P00915',]$fold_change)
+
+#mean(as.numeric(all_results[all_results$protein == 'P00915',]$fold_change))
+#max(as.numeric(all_results[all_results$protein == 'P00915',]$fold_change))
+#sorted_results <- all_results[order(~fold_change),]
+#sorted_results
+```
+```{r}
+ups_go_ind
+#ups_go_ind[!duplicated(ups_go_ind$go_terms),]
+ups_go_ind[ups_go_ind$go_terms == "GO:0005829",]
+
+```
+
+
