@@ -30,6 +30,17 @@ for (n in 1:nrow(ups_go)){
 # Removes rows that have non-unique GO terms
 ups_go_ind <- ups_go_ind[!(duplicated(ups_go_ind$go_terms)|duplicated(ups_go_ind$go_terms, fromLast = TRUE)),]
 
+
+ups_ratios <- read.csv("UPS-Protein-Ratios.tsv", sep = "\t",
+                header = TRUE, stringsAsFactors = FALSE) %>%
+  select(ups2_amount = UPS2.Amount..fmol.,
+         protein = UniProt.Accession.Number)
+```
+
+
+Let's look at metaGOmics
+
+```{r}
 # Reads the metaGOmics fold change data
 mgo_go <- read.csv('results/metaGOmics/MetaGOmics_Compare_UPS2_UPS1.txt', sep = "\t",
          comment.char="#", header = TRUE, stringsAsFactors = FALSE) %>%
@@ -49,8 +60,9 @@ proteins = proteins[proteins != ""]
 n <- length(proteins)
 output <- data.frame(protein = proteins,
                      mean = numeric(n),
-                     max = numeric(n))
-                     #fold_change = numeric(n))
+                     max = numeric(n),
+                     min = numeric(n),
+                     fold_change = numeric(n))
 #all_results
 for (i in 1:n){
   rows <- all_results[all_results$protein == proteins[i],]
@@ -60,16 +72,23 @@ for (i in 1:n){
   ups2_psms <- suppressWarnings(as.numeric(rows$ups2.psms))
 
  
-  #output$fold_change[i] <- log2((sum(ups2_psms, na.rm = TRUE)/22350) / 
-  #                              (sum(ups1_psms, na.rm = TRUE)/18504))
-  #output$fold_change[i] <- 
+  output$fold_change[i] <- log2((sum(ups2_psms, na.rm = TRUE)/22350) / 
+                                (sum(ups1_psms, na.rm = TRUE)/18504))
   output$mean[i] <- mean(fold_changes, na.rm = TRUE)
   output$max[i] <- max(fold_changes, na.rm = TRUE)
+  output$min[i] <- min(fold_changes, na.rm = TRUE)
 }
-#all_results
-
+output <- plyr::join_all(list(output, ups_ratios), by = "protein") %>%
+  filter(ups2_amount != 'NA',
+         is.finite(max),
+         is.finite(mean))
 output
-
+mean(output[output$ups2_amount == '50,000',]$min)
+mean(output[output$ups2_amount == '5,000',]$min)
+mean(output[output$ups2_amount == '500',]$min)
+mean(output[output$ups2_amount == '50',]$min)
+mean(output[output$ups2_amount == '5',]$min)
+mean(output[output$ups2_amount == '0.5',]$min)
 #as.numeric(all_results[all_results$protein == 'P00915',]$fold_change)
 
 #mean(as.numeric(all_results[all_results$protein == 'P00915',]$fold_change))
@@ -77,11 +96,6 @@ output
 #sorted_results <- all_results[order(~fold_change),]
 #sorted_results
 ```
-```{r}
-ups_go_ind
-#ups_go_ind[!duplicated(ups_go_ind$go_terms),]
-ups_go_ind[ups_go_ind$go_terms == "GO:0005829",]
 
-```
 
 
