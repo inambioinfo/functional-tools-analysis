@@ -38,8 +38,6 @@ ups_ratios <- read.csv("UPS-Protein-Ratios.tsv", sep = "\t",
 ```
 
 
-Let's look at metaGOmics
-
 ```{r}
 # Reads the metaGOmics fold change data
 mgo_go <- read.csv('results/metaGOmics/MetaGOmics_Compare_UPS2_UPS1.txt', sep = "\t",
@@ -97,5 +95,43 @@ mean(output[output$ups2_amount == '0.5',]$min)
 #sorted_results
 ```
 
+```{r}
+# Reads the MEGAN6 fold change data
+mgo_go <- read.csv('results/metaGOmics/MetaGOmics_Compare_UPS2_UPS1.txt', sep = "\t",
+         comment.char="#", header = TRUE, stringsAsFactors = FALSE) %>%
+  select(ups1.psms = Run.1.PSM.count,
+         ups2.psms = Run.2.PSM.count,
+         go_terms = GO.acc,
+         fold_change = Log.2..fold.change)
+
+```
+
+```{r}
+ups_ratios
+```
+
+
+
+```{r}
+library("readxl")
+mpa_ups1_df <- read_excel("Results/MetaProteomeAnalyzer/UPS1_03_MPA_Analysis.xlsx", sheet = "Proteins") %>%
+  select(protein = "Protein Accession",
+         ups1_count = "Spectral Count") %>%
+  filter(gsub("ups", "", protein) %in% ups_ratios$protein) # TO DO: Change this to look for proteins with the "ups" suffix
+  
+mpa_ups2_df <- read_excel("Results/MetaProteomeAnalyzer/UPS2_03_MPA_Analysis.xlsx", sheet = "Proteins") %>%
+  select(protein = "Protein Accession",
+         ups2_count = "Spectral Count") %>%
+  filter(gsub("ups", "", protein) %in% ups_ratios$protein) # TO DO: Change this to look for proteins with the "ups" suffix
+
+mpa_ups_df <- plyr::join_all(list(mpa_ups1_df, mpa_ups2_df), by = "protein") %>%
+  filter(ups1_count != 'NA',
+         ups2_count != 'NA')
+mpa_ups_df$protein <- gsub("ups","",mpa_ups_df$protein)
+
+mpa_ups_df <- plyr::join_all(list(mpa_ups_df, ups_ratios), by = "protein")
+
+mpa_ups_df[order(mpa_ups_df$ups2_amount),]
+```
 
 
