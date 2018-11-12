@@ -96,23 +96,70 @@ mean(output[output$ups2_amount == '0.5',]$min)
 ```
 
 ```{r}
-# Reads the MEGAN6 fold change data
-mgo_go <- read.csv('results/metaGOmics/MetaGOmics_Compare_UPS2_UPS1.txt', sep = "\t",
-         comment.char="#", header = TRUE, stringsAsFactors = FALSE) %>%
-  select(ups1.psms = Run.1.PSM.count,
-         ups2.psms = Run.2.PSM.count,
-         go_terms = GO.acc,
-         fold_change = Log.2..fold.change)
+# Reads the unipept data
+uni1_fp = 'results/unipept/UPS1_03_All_Peptides.csv'
+uni2_fp = 'results/unipept/UPS2_03_All_Peptides.csv'
 
+uni1_df <- read.csv(uni1_fp,
+         sep = ",", comment.char="", header = TRUE, stringsAsFactors = FALSE) %>%
+  select(peptide,
+         uni_go_bp = GO..biological.process.,
+         uni_go_mf = GO..molecular.function.,
+         uni_go_cc = GO..cellular.component.)
+
+uni2_df <- read.csv(uni2_fp,
+         sep = ",", comment.char="", header = TRUE, stringsAsFactors = FALSE) %>%
+  select(peptide,
+         uni_go_bp = GO..biological.process.,
+         uni_go_mf = GO..molecular.function.,
+         uni_go_cc = GO..cellular.component.)
+
+getCounts <- function(df){
+  peptides <- unique(df$peptide)
+  n <- length(peptides)
+  output <- data.frame(peptide = peptides,
+                       count = numeric(n),
+                       go_terms = numeric(n))
+  for (i in 1:length(peptides)){
+      rows <- df[df$peptide == peptides[i],]
+      if (length(unique(rows$uni_go_bp)) *
+        length(unique(rows$uni_go_cc)) *
+        length(unique(rows$uni_go_mf)) == 1){
+          output$peptide[i] <- peptides[i]
+          output$count[i] <- nrow(rows)
+          output$go_terms[i] <- paste(rows[1,]$uni_go_bp,
+                                     rows[1,]$uni_go_mf,
+                                     rows[1,]$uni_go_cc, collapse = ";")
+      }
+      else{
+        print('Check this!')
+      }
+    }
+  output
+}
+
+uni1_df <- getCounts(uni1_df) %>%
+  select(peptide,
+         ups1_count = count,
+         ups1_go_terms = go_terms)
+uni2_df <- getCounts(uni2_df) %>%
+  select(peptide,
+         ups2_count = count,
+         ups2_go_terms = go_terms)
+
+uni_df <- plyr::join_all(list(uni1_df, uni2_df), by = "peptide") %>%
 ```
 
+
 ```{r}
-ups_ratios
+uni1_df
+uni2_df
 ```
 
 
 
 ```{r}
+# MetaProteomeAnalyzer
 library("readxl")
 mpa_ups1_df <- read_excel("Results/MetaProteomeAnalyzer/UPS1_03_MPA_Analysis.xlsx", sheet = "Proteins") %>%
   select(protein = "Protein Accession",
@@ -131,7 +178,11 @@ mpa_ups_df$protein <- gsub("ups","",mpa_ups_df$protein)
 
 mpa_ups_df <- plyr::join_all(list(mpa_ups_df, ups_ratios), by = "protein")
 
-mpa_ups_df[order(mpa_ups_df$ups2_amount),]
+mpa_ups_df <- mpa_ups_df[order(mpa_ups_df$ups2_amount),]
+
+mpa_ups_df
+#plot(mpa_ups_df$ups2_amount, mpa_ups_df$ups2_count, 
+     #xlab="UPS2 Count", ylab= "UPS2 Amount (fmol)")
 ```
 
 
