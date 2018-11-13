@@ -39,60 +39,49 @@ ups_ratios <- read.csv("UPS-Protein-Ratios.tsv", sep = "\t",
 
 
 ```{r}
+invalid <- c("null", "NaN", "Infinity")
+
 # Reads the metaGOmics fold change data
 mgo_go <- read.csv('results/metaGOmics/MetaGOmics_Compare_UPS2_UPS1.txt', sep = "\t",
          comment.char="#", header = TRUE, stringsAsFactors = FALSE) %>%
   select(ups1.psms = Run.1.PSM.count,
          ups2.psms = Run.2.PSM.count,
          go_terms = GO.acc,
-         fold_change = Log.2..fold.change) %>%
-  filter(fold_change != "null",
-         fold_change != "NaN",
-         fold_change != "Infinity")
+         fold_change = Log.2..fold.change)
 
 # Join results by GO terms
-all_results <- plyr::join_all(list(ups_go_ind, mgo_go), by = "go_terms")
+all_results <- plyr::join_all(list(ups_go_ind, mgo_go), by = "go_terms") %>%
+  filter(!is.na(fold_change),
+         !fold_change %in% invalid)
+all_results <- all_results[rev(order(all_results$fold_change)),]
 
-# Obtains the unique list of proteins from the results
-proteins = unique(all_results$protein)
-proteins = proteins[proteins != ""]
+# print(all_results)
 
-mgo_go <- mgo_go[rev(order(mgo_go$fold_change)),]
+collapsed_results <- all_results
+collapsed_results$go_terms <- NULL
+collapsed_results <- unique(collapsed_results)
+collapsed_results$go_terms <- character(nrow(collapsed_results))
 
+for (i in 1:nrow(collapsed_results)){
+  row <- collapsed_results[i,]
+  go_terms <- paste(filter(all_results,
+                  protein == row$protein,
+                  ups1.psms == row$ups1.psms,
+                  ups2.psms == row$ups2.psms)$go_terms,
+                    collapse = "; ")
+  collapsed_results$go_terms[i] <- go_terms
+}
+collapsed_results
 
-# n <- length(proteins)
-# output <- data.frame(protein = proteins,
-#                      mean = numeric(n),
-#                      max = numeric(n),
-#                      min = numeric(n),
-#                      fold_change = numeric(n))
-# #all_results
-# for (i in 1:n){
-#   rows <- all_results[all_results$protein == proteins[i],]
-#   
-#   fold_changes <- suppressWarnings(as.numeric(rows$fold_change))
-#   ups1_psms <- suppressWarnings(as.numeric(rows$ups1.psms))
-#   ups2_psms <- suppressWarnings(as.numeric(rows$ups2.psms))
-# 
-#  
-#   # output$fold_change[i] <- log2((sum(ups2_psms, na.rm = TRUE)/22350) / 
-#   #                               (sum(ups1_psms, na.rm = TRUE)/18504))
-#   # output$mean[i] <- mean(fold_changes, na.rm = TRUE)
-#   # output$max[i] <- max(fold_changes, na.rm = TRUE)
-#   # output$min[i] <- min(fold_changes, na.rm = TRUE)
+#proteins <- unique(all_results$protein)
+# for (protein in proteins){
+#   print(all_results[all_results$protein == protein,])
 # }
-# output <- plyr::join_all(list(output, ups_ratios), by = "protein") %>%
-#   filter(ups2_amount != 'NA',
-#          is.finite(max),
-#          is.finite(mean))
-#output
-# mean(output[output$ups2_amount == '50,000',]$min)
-# mean(output[output$ups2_amount == '5,000',]$min)
-# mean(output[output$ups2_amount == '500',]$min)
-# mean(output[output$ups2_amount == '50',]$min)
-# mean(output[output$ups2_amount == '5',]$min)
-# mean(output[output$ups2_amount == '0.5',]$min)
+#ups_go_ind
 ```
+
+
+
 
 ```{r}
 # Reads the unipept data
