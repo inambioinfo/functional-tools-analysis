@@ -45,7 +45,10 @@ mgo_go <- read.csv('results/metaGOmics/MetaGOmics_Compare_UPS2_UPS1.txt', sep = 
   select(ups1.psms = Run.1.PSM.count,
          ups2.psms = Run.2.PSM.count,
          go_terms = GO.acc,
-         fold_change = Log.2..fold.change)
+         fold_change = Log.2..fold.change) %>%
+  filter(fold_change != "null",
+         fold_change != "NaN",
+         fold_change != "Infinity")
 
 # Join results by GO terms
 all_results <- plyr::join_all(list(ups_go_ind, mgo_go), by = "go_terms")
@@ -54,45 +57,41 @@ all_results <- plyr::join_all(list(ups_go_ind, mgo_go), by = "go_terms")
 proteins = unique(all_results$protein)
 proteins = proteins[proteins != ""]
 
+mgo_go <- mgo_go[rev(order(mgo_go$fold_change)),]
 
-n <- length(proteins)
-output <- data.frame(protein = proteins,
-                     mean = numeric(n),
-                     max = numeric(n),
-                     min = numeric(n),
-                     fold_change = numeric(n))
-#all_results
-for (i in 1:n){
-  rows <- all_results[all_results$protein == proteins[i],]
-  
-  fold_changes <- suppressWarnings(as.numeric(rows$fold_change))
-  ups1_psms <- suppressWarnings(as.numeric(rows$ups1.psms))
-  ups2_psms <- suppressWarnings(as.numeric(rows$ups2.psms))
 
- 
-  output$fold_change[i] <- log2((sum(ups2_psms, na.rm = TRUE)/22350) / 
-                                (sum(ups1_psms, na.rm = TRUE)/18504))
-  output$mean[i] <- mean(fold_changes, na.rm = TRUE)
-  output$max[i] <- max(fold_changes, na.rm = TRUE)
-  output$min[i] <- min(fold_changes, na.rm = TRUE)
-}
-output <- plyr::join_all(list(output, ups_ratios), by = "protein") %>%
-  filter(ups2_amount != 'NA',
-         is.finite(max),
-         is.finite(mean))
-output
-mean(output[output$ups2_amount == '50,000',]$min)
-mean(output[output$ups2_amount == '5,000',]$min)
-mean(output[output$ups2_amount == '500',]$min)
-mean(output[output$ups2_amount == '50',]$min)
-mean(output[output$ups2_amount == '5',]$min)
-mean(output[output$ups2_amount == '0.5',]$min)
-#as.numeric(all_results[all_results$protein == 'P00915',]$fold_change)
-
-#mean(as.numeric(all_results[all_results$protein == 'P00915',]$fold_change))
-#max(as.numeric(all_results[all_results$protein == 'P00915',]$fold_change))
-#sorted_results <- all_results[order(~fold_change),]
-#sorted_results
+# n <- length(proteins)
+# output <- data.frame(protein = proteins,
+#                      mean = numeric(n),
+#                      max = numeric(n),
+#                      min = numeric(n),
+#                      fold_change = numeric(n))
+# #all_results
+# for (i in 1:n){
+#   rows <- all_results[all_results$protein == proteins[i],]
+#   
+#   fold_changes <- suppressWarnings(as.numeric(rows$fold_change))
+#   ups1_psms <- suppressWarnings(as.numeric(rows$ups1.psms))
+#   ups2_psms <- suppressWarnings(as.numeric(rows$ups2.psms))
+# 
+#  
+#   # output$fold_change[i] <- log2((sum(ups2_psms, na.rm = TRUE)/22350) / 
+#   #                               (sum(ups1_psms, na.rm = TRUE)/18504))
+#   # output$mean[i] <- mean(fold_changes, na.rm = TRUE)
+#   # output$max[i] <- max(fold_changes, na.rm = TRUE)
+#   # output$min[i] <- min(fold_changes, na.rm = TRUE)
+# }
+# output <- plyr::join_all(list(output, ups_ratios), by = "protein") %>%
+#   filter(ups2_amount != 'NA',
+#          is.finite(max),
+#          is.finite(mean))
+#output
+# mean(output[output$ups2_amount == '50,000',]$min)
+# mean(output[output$ups2_amount == '5,000',]$min)
+# mean(output[output$ups2_amount == '500',]$min)
+# mean(output[output$ups2_amount == '50',]$min)
+# mean(output[output$ups2_amount == '5',]$min)
+# mean(output[output$ups2_amount == '0.5',]$min)
 ```
 
 ```{r}
@@ -146,14 +145,24 @@ uni2_df <- getCounts(uni2_df) %>%
   select(peptide,
          ups2_count = count,
          ups2_go_terms = go_terms)
-
-uni_df <- plyr::join_all(list(uni1_df, uni2_df), by = "peptide") %>%
 ```
 
 
 ```{r}
-uni1_df
-uni2_df
+uni_df <- plyr::join_all(list(uni1_df, uni2_df), by = "peptide") %>%
+  filter(ups2_count != 'NA') %>%
+  mutate(ratio = ups2_count/ups1_count)
+uni_df <- uni_df[rev(order(uni_df$ratio)),] %>%
+  
+
+uni_df
+```
+```{r}
+row <- ups_go_ind[ups_go_ind == 'GO:0098868',]
+#ups_ratios
+ups_ratios[ups_ratios$protein == row$protein,]$ups2_amount
+#ups_go[ups_go$protein == row$protein,]
+#ups_go[ups_go$protein == row$protein,]$ups2_amount
 ```
 
 
@@ -176,13 +185,20 @@ mpa_ups_df <- plyr::join_all(list(mpa_ups1_df, mpa_ups2_df), by = "protein") %>%
          ups2_count != 'NA')
 mpa_ups_df$protein <- gsub("ups","",mpa_ups_df$protein)
 
-mpa_ups_df <- plyr::join_all(list(mpa_ups_df, ups_ratios), by = "protein")
+mpa_ups_df <- plyr::join_all(list(mpa_ups_df, ups_ratios), by = "protein") %>%
+  mutate(ratio = ups2_count/ups1_count) %>%
+  filter(protein %in% ups_ratios$protein)
 
-mpa_ups_df <- mpa_ups_df[order(mpa_ups_df$ups2_amount),]
+mpa_ups_df <- mpa_ups_df[rev(order(mpa_ups_df$ratio)),]
 
 mpa_ups_df
 #plot(mpa_ups_df$ups2_amount, mpa_ups_df$ups2_count, 
      #xlab="UPS2 Count", ylab= "UPS2 Amount (fmol)")
 ```
 
+```{r}
+#ups_ratios
+ups_go_ind[ups_go_ind$protein == "P41159",]
+#ups_go_ind[ups_go_ind$protein == "P62988",]
+```
 
