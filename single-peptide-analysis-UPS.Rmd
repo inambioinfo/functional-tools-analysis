@@ -165,13 +165,30 @@ mg <- data.frame(peptide, mg_go, stringsAsFactors = FALSE)
 ```
 
 
+### Get the proteins and GO terms (for UPS) associated with the peptides
+```{r}
+# Takes the Uniprot-derived GO terms for UPS proteins
+ups_go_df <- read.csv('data/uniprot-UPS-go-terms.tab', sep = "\t",
+                stringsAsFactors = FALSE) %>%
+  select(protein = Entry,
+         ups_go = Gene.ontology.IDs)
+
+pepprots <- select(peptide_report, proteins, peptide = sequence) %>%
+  filter(peptide %in% fivepep) %>%
+  mutate(protein = str_extract(proteins,"[A-Z0-9]+")) %>%
+  select(protein, peptide)
+pepprots <- plyr::join_all(list(pepprots, ups_go_df), by = "protein")
+pepprots
+```
+
+
 ### Combine all of the results:
 ```{r}
-pepprots <- select(peptide_report, proteins, peptide = sequence) %>%
-  filter(peptide %in% fivepep)
 all_results <- plyr::join_all(list(pepprots, em, blast, mg, uni), by = "peptide")
 all_results
 ```
+
+
 All of the results are below:
 
 ```{r results = 'asis'}
@@ -182,16 +199,147 @@ pander::pander(all_results, split.cell = 80, split.table = Inf)
 
 ## Let's go through the peptides one-by-one
 
-Here, BLAST and Unipept give the same four GO terms:
+Let's go through this UPS peptide:
+```{r}
+n <- 1
+uniprot <- str_split(all_results[n, 'ups_go'], "; ", simplify=TRUE)
+buni <- str_split(all_results[n, 'blast_go'], "; ", simplify=TRUE)
+em <- str_split(all_results[n, 'em_go'], "; ", simplify=TRUE)
+mg <- str_split(all_results[n, 'mg_go'], "; ", simplify=TRUE)
+all_results[n, 'peptide']
+all_results[n, 'protein']
+```
+
+It has a few GO terms taken from UniProt's UPS protein. It has this many GO terms:
+```{r}
+length(uniprot)
+#setdiff(unlist(get_children(ancestors)), ancestors)
+```
+
+Based on this peptide, unipept analysis provides us adequate coverage, but it does not cover all UniProt terms. 
+Let's check if all of Unipept's terms are contained within the UniProt set.
+```{r}
+length(buni) == length(intersect(buni, uniprot))
+```
+Here's how many GO terms are covered by Unipept:
+```{r}
+length(intersect(buni, uniprot))
+length(uniprot)
+paste(formatC(length(intersect(buni, uniprot)) / length(uniprot) * 100), "%", sep="")
+```
+
+
+Conversely, metaGOmics and eggNOG mapper have a lot of GO terms:
+```{r}
+length(em)
+length(mg)
+```
+
+MetaGOmics seems to cover all the UPS terms:
+```{r}
+length(ups) == length(intersect(ups, mg))
+```
+EggNOG mapper doesn't, but it seems to cover more than Unipept.
+```{r}
+length(ups) == length(intersect(ups, em))
+exclus_buni <- setdiff(unlist(intersect(ups, buni)),
+                intersect(ups, em))
+exclus_em <- setdiff(unlist(intersect(ups, em)),
+              intersect(ups, buni))
+print("BLAST/Unipept exclusive:")
+length(intersect(ups, buni))
+get_go_names(exclus_buni)
+exclus_buni
+print("")
+
+print("EggNOG exclusive:")
+length(intersect(ups, em))
+get_go_names(exclus_em)
+exclus_em
+#intersect(buni)
+```
+
+Extraneous terms
+```{r}
+### Get distance -->
+get_paths <- function(from, to){
+     base_url <- 'https://www.ebi.ac.uk/QuickGO/services/ontology/go/terms/'
+     from_clean <- str_replace(from, ":", "%3A")
+     to_clean <- str_replace(to, ":", "%3A")
+     term_url <- paste(base_url, from_clean,
+                       "/paths/", to_clean, "?relations=is_a", sep="")
+     paths <- GET(term_url, accept("application/json"))
+     json <- toJSON(content(paths))
+     names <- fromJSON(json)$results
+     names
+}
+
+shortest_path <- function(go1, go2){
+  if (go1 == go2){
+    'NA'
+  } else{
+     paths1_2 <- get_paths(go1, go2)
+     #print(paths1_2)
+     paths2_1 <- get_paths(go2, go1)
+     #print(paths2_1)
+     paths <- c(paths1_2, paths2_1)
+     #print(paths)
+     if (length(paths1_2) + length(paths2_1) == 0){
+       'NA'
+     } else {
+       #print(go1)
+       #print(go2)
+       #print("Paths1_2")
+       #print(paths1_2)
+       #print("Paths2_1")
+       #print(paths2_1)
+       #print("Length")
+       min(sapply(paths, nrow))
+     }
+  }
+}
+
+map_paths <- function(x, terms){
+  #print(terms)
+  paste(terms)
+  paths <- list()
+  for (i in 1:length(terms)){
+    result <- shortest_path(x, terms[i])
+    if (result != 'NA'){
+      path <- paste(terms[i], '(', result,')', sep='')
+      paths <- rbind(paths, path)
+    }
+  }
+  print(paste(paths, collapse=";"))
+}
+
+
+
+paths_em_extr <- data.frame(em_extraneous) #%>%
+  #mutate(paths = sapply(em_extraneous, function(x) shortest_path(x, "GO:0005819")))
+  #mutate(paths = sapply(em_extraneous, function(x, em_extraneous) map_paths(x, em_extraneous)))
+  #mutate(paths = )
+for (i in 1:length(em_extraneous)){
+  #paths_em_extr$hello = 'yo'
+  #colnames(paths_em_extr)[0] = 'no'
+  paths_em_extr$paths[i] <- map_paths(em_extraneous[i], em_extraneous)
+  #mutate(paths_em_extr,
+   #      paths = map_paths(x, em_extraneous[i])) 
+}
+
+paths_em_extr
+ # mutate(paths = lapply(em_extraneous, function(x) shortest_path(x, "GO:0005819")))
+#paths_em_extr
+#lapply(em_extraneous, function(x) shortest_path(x, "GO:0005819"))
+```
 
 
 ```{r}
-n <- 1
-all_results[n, 'peptide']
-all_results[n, 'proteins']
-buni <- all_results[n, 'blast_go']
-buni
+shortest_path("GO:0005819","GO:0005856")
 ```
+
+
+
 
 This is the metaGOmics list:
 ```{r}
