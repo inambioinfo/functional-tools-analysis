@@ -237,23 +237,23 @@ length(mg)
 
 MetaGOmics seems to cover all the UPS terms:
 ```{r}
-length(ups) == length(intersect(ups, mg))
+length(uniprot) == length(intersect(uniprot, mg))
 ```
 EggNOG mapper doesn't, but it seems to cover more than Unipept.
 ```{r}
-length(ups) == length(intersect(ups, em))
-exclus_buni <- setdiff(unlist(intersect(ups, buni)),
-                intersect(ups, em))
-exclus_em <- setdiff(unlist(intersect(ups, em)),
-              intersect(ups, buni))
+length(ups) == length(intersect(uniprot, em))
+exclus_buni <- setdiff(unlist(intersect(uniprot, buni)),
+                intersect(uniprot, em))
+exclus_em <- setdiff(unlist(intersect(uniprot, em)),
+              intersect(uniprot, buni))
 print("BLAST/Unipept exclusive:")
-length(intersect(ups, buni))
+length(intersect(uniprot, buni))
 get_go_names(exclus_buni)
 exclus_buni
 print("")
 
 print("EggNOG exclusive:")
-length(intersect(ups, em))
+length(intersect(uniprot, em))
 get_go_names(exclus_em)
 exclus_em
 #intersect(buni)
@@ -279,21 +279,12 @@ shortest_path <- function(go1, go2){
     'NA'
   } else{
      paths1_2 <- get_paths(go1, go2)
-     #print(paths1_2)
      paths2_1 <- get_paths(go2, go1)
-     #print(paths2_1)
      paths <- c(paths1_2, paths2_1)
-     #print(paths)
+     print(paths)
      if (length(paths1_2) + length(paths2_1) == 0){
        'NA'
      } else {
-       #print(go1)
-       #print(go2)
-       #print("Paths1_2")
-       #print(paths1_2)
-       #print("Paths2_1")
-       #print(paths2_1)
-       #print("Length")
        min(sapply(paths, nrow))
      }
   }
@@ -312,32 +303,50 @@ map_paths <- function(x, terms){
   }
   print(paste(paths, collapse=";"))
 }
-
-
-
-paths_em_extr <- data.frame(em_extraneous) #%>%
-  #mutate(paths = sapply(em_extraneous, function(x) shortest_path(x, "GO:0005819")))
-  #mutate(paths = sapply(em_extraneous, function(x, em_extraneous) map_paths(x, em_extraneous)))
-  #mutate(paths = )
-for (i in 1:length(em_extraneous)){
-  #paths_em_extr$hello = 'yo'
-  #colnames(paths_em_extr)[0] = 'no'
-  paths_em_extr$paths[i] <- map_paths(em_extraneous[i], em_extraneous)
-  #mutate(paths_em_extr,
-   #      paths = map_paths(x, em_extraneous[i])) 
-}
-
-paths_em_extr
- # mutate(paths = lapply(em_extraneous, function(x) shortest_path(x, "GO:0005819")))
-#paths_em_extr
-#lapply(em_extraneous, function(x) shortest_path(x, "GO:0005819"))
 ```
 
 
 ```{r}
-shortest_path("GO:0005819","GO:0005856")
+eggnog_list <- c(str_split(all_results[n, 'em_go'], "; ", simplify =TRUE))
+descendants <- get_go_descendants(buni_split)
+ancestors <- get_go_ancestors(buni_split)
+children_of_ancestors <- setdiff(unlist(get_children(ancestors)), ancestors)
+em_ancestors_kids <- intersect(eggnog_list, children_of_ancestors)
+closely_related <- union_all(buni_split, descendants, ancestors, children_of_ancestors)
+em_extraneous <- setdiff(eggnog_list, closely_related)
+em_ancestors_kids
 ```
 
+
+```{r}
+paths_em_extr <- data.frame(em_extraneous)
+for (i in 1:length(em_extraneous)){
+  paths_em_extr$paths[i] <- map_paths(em_extraneous[i], em_ancestors_kids)
+}
+# for (i in 1:length(em_extraneous)){
+# paths_em_extr$uniprot_paths[i] <- map_paths(em_extraneous[i], uniprot)
+# }
+paths_em_extr
+```
+```{r}
+intersect(uniprot, em_extraneous)
+```
+
+
+
+
+# GO:0005840 from BLAST/Unipept
+# Extraneous: GO:0043228
+# Ancestor's kid: GO:0005819
+# map_paths("GO:0005840", "GO:0005819") -> nothing
+#map_paths("GO:0005840", "GO:0043228") # -> 2 nodes away
+#map_paths("GO:0043228", "GO:0005819")
+#map_paths("GO:005819", )
+
+#ancestors <- get_go_ancestors(buni_split)
+#children_of_ancestors <- setdiff(unlist(get_children(ancestors)), ancestors)
+#em_ancestors_kids <- intersect(eggnog_list, children_of_ancestors)
+#intersect(em_extraneous,uniprot)
 
 
 
@@ -556,21 +565,147 @@ head(get_go_names(mg_buni))
 em_buni
 ```
 
-
 ```{r}
-em_descendants
-head(get_go_names(em_descendants))
-head(get_go_names(mg_descendants))
+setdiff(unlist(c("yo","gabba")), "gabba")
 ```
 
 ```{r}
-head(get_go_names(em_ancestors))
-head(get_go_names(mg_ancestors))
+library(ggplot2)
+output <- data.frame(Peptide = all_results[,'peptide'],
+                     Uniprot = all_results[,'ups_go'],
+                     BLAST = character(n),
+                     Unipept = character(n),
+                     Equal = logical(n),
+                     stringsAsFactors = FALSE)
+for (n in 1:1){
+# for (n in 1:nrow(all_results)){
+  blast <- str_split(all_results[n, 'blast_go'], "; ", simplify=TRUE)
+  uni <- c(str_split(all_results[n, 'uni_go_bp'], ";", simplify=TRUE),
+         str_split(all_results[n, 'uni_go_mf'], ";", simplify=TRUE),
+         str_split(all_results[n, 'uni_go_cc'], ";", simplify=TRUE))
+  blast <- blast[blast != ""]
+  
+  uni <- uni[uni != ""]
+  buni <- blast
+  buni_split <- str_split(buni, ";", simplify = TRUE)
+  metaGOmics_list <- c(str_split(all_results[n, 'mg_go'], "; ", simplify=TRUE))
+  eggnog_list <- c(str_split(all_results[n, 'em_go'], "; ", simplify =TRUE))
+
+  ancestors <- get_go_ancestors(buni_split)
+    ancestors <- setdiff(unlist(ancestors), buni_split)
+  descendants <- get_go_descendants(buni_split)
+    descendants <- setdiff(unlist(descendants), buni_split)
+  children_of_ancestors <- setdiff(unlist(get_children(ancestors)), ancestors)
+  closely_related <- union_all(buni_split, descendants, ancestors, children_of_ancestors)
+  #head(get_go_names(ancestors))
+  #head(get_go_names(descendants))
+
+  em_ancestors <- intersect(eggnog_list, ancestors)
+    em_num_ancestors <- length(em_ancestors)
+  mg_ancestors <- intersect(metaGOmics_list, ancestors)
+    mg_num_ancestors <- length(mg_ancestors)
+  em_descendants <- intersect(descendants, eggnog_list)
+    em_num_descendants <- length(em_descendants)
+  mg_descendants <- intersect(descendants, metaGOmics_list)
+    mg_num_descendants <- length(mg_descendants)
+  em_ancestors_kids <- intersect(eggnog_list, children_of_ancestors)
+    em_ancestors_kids <- setdiff(unlist(em_ancestors_kids), buni_split)
+    em_num_ancestors_kids <- length(em_ancestors_kids)
+  mg_ancestors_kids <- intersect(metaGOmics_list, children_of_ancestors)
+    mg_ancestors_kids <- setdiff(unlist(mg_ancestors_kids), buni_split)
+    mg_num_ancestors_kids <- length(mg_ancestors_kids)
+  
+  em_extraneous <- setdiff(eggnog_list, closely_related)
+    em_num_extraneous <- length(em_extraneous)
+  mg_extraneous <- setdiff(metaGOmics_list, closely_related)
+    mg_num_extraneous <- length(mg_extraneous)
+  
+  output$BLAST[n] <- all_results[n, 'blast_go']
+  output$Unipept[n] <- paste(uni, collapse="; ")
+  output$Equal[n] <- setequal(uni, blast)
+  output$em.extraneous[n] <- paste(em_extraneous, collapse="; ")
+  output$mg.extraneous[n] <- paste(mg_extraneous, collapse="; ")
+  output$em.ancestors.kids[n] <- paste(em_ancestors_kids, collapse="; ")
+  output$mg.ancestors.kids[n] <- paste(mg_ancestors_kids, collapse="; ")
+  #output$em.paths[n] <- calc_paths(em_extraneous, em_ancestors_kids)
+  #output$mg.paths[n] <- calc_paths(mg_extraneous, mg_ancestors_kids)
+  
+  output$em.ancestors[n] <- paste(em_ancestors, collapse="; ")
+  output$mg.ancestors[n] <- paste(mg_ancestors, collapse="; ")
+  output$em.descendants[n] <- paste(em_descendants, collapse="; ")
+  output$mg.descendants[n] <- paste(mg_descendants, collapse="; ")
+  #output$em.ancestors[n] <- length(em_ancestors)
+  #output$mg.ancestors[n] <- length(mg_ancestors)
+  #output$em.descendants[n] <- length(em_descendants)
+  #output$mg.descendants[n] <- length(mg_descendants)
+  #output$em.ancestors.kids[n] <- length(em_ancestors_kids)
+  #output$mg.ancestors.kids[n] <- length(mg_ancestors_kids)
+  em_buni <- intersect(eggnog_list, buni)
+    em_num_buni <- length(em_buni)
+  mg_buni <- intersect(metaGOmics_list, buni)
+    mg_num_buni <- length(mg_buni)
+  
+  term_df <- data.frame(
+    typeOfTerm = rep(c("blast_and_unipept", "descendants", "ancestors", "ancestors_kids", "extraneous"), 2),
+    NumTerms = c(em_num_buni, em_num_descendants, em_num_ancestors, em_num_ancestors_kids, em_num_extraneous,
+             mg_num_buni, mg_num_descendants, mg_num_ancestors, mg_num_ancestors_kids, mg_num_extraneous),
+    Tool = rep(c("eggnog_mapper", "metagomics"), each = 5)
+  )
+  plot <- ggplot(term_df) +
+    geom_bar(aes(x = Tool, y = NumTerms, fill = typeOfTerm), color = "black", stat = "identity") +
+    theme_bw()
+  # plot_em <- pie(c(em_num_buni, em_num_descendants, em_num_ancestors, em_num_ancestors_kids, em_num_extraneous), 
+  #     labels = c("blast_and_unipept", "descendants", "ancestors", "ancestors_kids", "extraneous"),
+  #     main=paste("EggNOG\n", all_results[n,'peptide']))
+  # plot_mg <- pie(c(mg_num_buni, mg_num_descendants, mg_num_ancestors, mg_num_ancestors_kids, mg_num_extraneous), 
+  #     labels = c("blast_and_unipept", "descendants", "ancestors", "ancestors_kids", "extraneous"),
+  #     main=paste("MetaGOmics\n", all_results[n,'peptide']))
+  print(plot)
+  #print(plot_em)
+  #print(plot_mg)
+}
+#pander::pander(output, split.cell = 10, split.table = Inf)
 ```
 
 ```{r}
-head(get_go_names(em_extraneous))
-head(get_go_names(mg_extraneous))
+#shortest_path("GO:0003723", "GO:0065007")
+#get_go_ancestors("GO:0065007")
+#get_go_names(get_go_ancestors("GO:0008150"))
+terms <- str_split(output$Uniprot[1], '; ', simplify = TRUE)
+terms
+get_go_names(terms)
+```
+
+
+```{r}
+# Check if there is no overlap between categories
+n <- 1
+length(str_split(output$BLAST[n],'; ', simplify=TRUE)) + length(str_split(output$em.descendants[n],'; ', simplify=TRUE)) +
+length(str_split(output$em.ancestors[n],'; ', simplify=TRUE)) + length(str_split(output$em.ancestors.kids[n],'; ', simplify=TRUE)) +
+length(str_split(output$em.extraneous[n],'; ', simplify=TRUE))
+#== length(eggnog_list)
+length(eggnog_list)
+```
+
+```{r}
+terms <- str_split(output$em.ancestors[1], "; ", simplify = TRUE)
+print(terms)
+print(get_go_names(terms))
+```
+
+
+```{r}
+#shortest_path("GO:0014059","GO:0008344")
+#get_go_names(c("GO:0014059","GO:0046928"))
+# Behavior: GO:0007610
+# Locomotory behavior: GO:0007626
+# Adult behavior: GO:0030534
+# Adult locomotory behavior: GO:0008344
+#shortest_path("GO:0008344", "GO:0030534")
+#shortest_path("GO:0007626","GO:0030534")
+#term <- "GO:0043005"
+#get_go_names(term)
+#get_go_names(get_go_ancestors(term))
 ```
 
 
