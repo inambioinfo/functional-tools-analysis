@@ -1,6 +1,6 @@
 
 
-
+Let's list out the GO terms unique to each protein
 ```{r}
 library(dplyr)
 library(stringr)
@@ -29,12 +29,18 @@ for (n in 1:nrow(ups_go)){
 }
 # Removes rows that have non-unique GO terms
 ups_go_ind <- ups_go_ind[!(duplicated(ups_go_ind$go_terms)|duplicated(ups_go_ind$go_terms, fromLast = TRUE)),]
+ups_go_ind
+```
 
 
+
+Let's get the dynamic amounts for each UPS protein
+```{r}
 ups_ratios <- read.csv("UPS-Protein-Ratios.tsv", sep = "\t",
                 header = TRUE, stringsAsFactors = FALSE) %>%
   select(ups2_amount = UPS2.Amount..fmol.,
          protein = UniProt.Accession.Number)
+ups_ratios
 ```
 
 
@@ -71,7 +77,8 @@ for (i in 1:nrow(collapsed_results)){
                     collapse = "; ")
   collapsed_results$go_terms[i] <- go_terms
 }
-collapsed_results
+#collapsed_results
+mgo_go
 
 #proteins <- unique(all_results$protein)
 # for (protein in proteins){
@@ -138,20 +145,47 @@ uni2_df <- getCounts(uni2_df) %>%
 
 
 ```{r}
+# Runs through the GO terms and sees if any match any UPS GO terms
 uni_df <- plyr::join_all(list(uni1_df, uni2_df), by = "peptide") %>%
   filter(ups2_count != 'NA') %>%
   mutate(ratio = ups2_count/ups1_count)
-uni_df <- uni_df[rev(order(uni_df$ratio)),] %>%
-  
+uni_df <- uni_df[rev(order(uni_df$ratio)),]
 
+uni_df$proteins <- numeric(nrow(uni_df))
+go_regex <- "(GO:[0-9]+) \\(([0-9]+)%\\)"
+for (i in 1:nrow(uni_df)){
+  row <- uni_df[i,]
+    if (row$ups1_go_terms != row$ups2_go_terms){
+      print('Check this: ')
+      print(i)
+    } else {
+      go_terms <- str_match_all(row$ups1_go_terms, go_regex)[[1]]
+      proteins <- list()
+      if (nrow(go_terms) > 0){
+        for (n in 1:nrow(go_terms)){
+          #print(go_terms[n,])
+          if (as.numeric(go_terms[n, 3]) > 5){ # Keeps terms annotated 5% or above
+            if (go_terms[n, 2] %in% ups_go_ind$go_terms){
+              protein <- ups_go_ind[ups_go_ind$go_terms == go_terms[n, 2],]$protein
+              proteins <- rbind(proteins, protein)
+            }
+          }
+        }
+      }
+      uni_df$proteins[i] <- paste(unique(proteins), collapse = ";")
+      #print(uni_df$proteins)
+    }
+}
 uni_df
+# uni_df <- mutate(uni_df,
+#                  amounts = ups_ratios[ups_ratios$protein == proteins,]$ups2_amount) %>%
+#   filter(uni_df,
+#       proteins != "")
 ```
 ```{r}
-row <- ups_go_ind[ups_go_ind == 'GO:0098868',]
-#ups_ratios
-ups_ratios[ups_ratios$protein == row$protein,]$ups2_amount
-#ups_go[ups_go$protein == row$protein,]
-#ups_go[ups_go$protein == row$protein,]$ups2_amount
+uni_df <- filter(uni_df,
+                 proteins %in% ups_ratios$protein)
+uni_df
 ```
 
 
