@@ -1,0 +1,51 @@
+Entry	Status	Gene ontology IDs	Organism ID	Protein names
+K7BKZ6	unreviewed		9598	NAD(P)H dehydrogenase, quinone 1
+K7AZP9	unreviewed		9598	NAD(P)H dehydrogenase, quinone 1
+A0A2R9ATG6	unreviewed	GO:0003955; GO:0005829; GO:0006979; GO:0042802; GO:0043086	9597	Uncharacterized protein
+A0A2K6LFM4	unreviewed	GO:0003955; GO:0005829; GO:0006979; GO:0042802; GO:0043086	61621	Uncharacterized protein
+A0A2K5TZM3	unreviewed	GO:0003955; GO:0005829; GO:0006979; GO:0042802; GO:0043086	9541	Uncharacterized protein
+Q2PFW1	unreviewed		9541	Uncharacterized protein
+G3QL89	unreviewed	GO:0003955; GO:0005829; GO:0006979; GO:0009055; GO:0016491; GO:0042802; GO:0043086	9595	NAD(P)H quinone dehydrogenase 1
+A0A2K5ZPU3	unreviewed	GO:0003955; GO:0005829; GO:0006979; GO:0042802; GO:0043086	9568	Uncharacterized protein
+A0A2R9ATE6	unreviewed		9597	Uncharacterized protein
+A0A2I3MM29	unreviewed	GO:0003955; GO:0005829; GO:0006979; GO:0042802; GO:0043086	9555	Uncharacterized protein
+A0A2K6RLR8	unreviewed	GO:0003955; GO:0005829; GO:0006979; GO:0042802; GO:0043086	61622	Uncharacterized protein
+A0A2K5L6L1	unreviewed	GO:0003955; GO:0005829; GO:0006979; GO:0042802; GO:0043086	9531	Uncharacterized protein
+A0A2J8VVT1	unreviewed	GO:0003955; GO:0005829; GO:0006979; GO:0042802; GO:0043086	9601	NQO1 isoform 3
+F6PFV8	unreviewed	GO:0003955; GO:0005829; GO:0006979; GO:0009055; GO:0016491; GO:0042802; GO:0043086	9258	NAD(P)H quinone dehydrogenase 1
+A0A1U7U7I1	unreviewed	GO:0003955; GO:0005829; GO:0006979; GO:0042802; GO:0043086	1868482	NAD(P)H dehydrogenase [quinone] 1
+A0A2K6C516	unreviewed	GO:0003955; GO:0005829; GO:0006979; GO:0042802; GO:0043086	9545	NAD(P)H quinone dehydrogenase 1
+K7DE06	unreviewed		9598	NAD(P)H dehydrogenase, quinone 1
+H2QBF4	unreviewed	GO:0003955; GO:0005829; GO:0006979; GO:0009055; GO:0016491; GO:0042802; GO:0043086	9598	NAD(P)H quinone dehydrogenase 1 (NQO1 isoform 1)
+A0A1D5QSF4	unreviewed	GO:0003955; GO:0005829; GO:0006979; GO:0009055; GO:0016491; GO:0042802; GO:0043086	9544	NAD(P)H dehydrogenase [quinone] 1 isoform a (NAD(P)H quinone dehydrogenase 1)
+Q53G81	unreviewed		9606	NAD(P)H menadione oxidoreductase 1, dioxin-inducible variant (Fragment)
+Q5RD31	reviewed	GO:0003955; GO:0005829; GO:0006979; GO:0042802; GO:0043086	9601	NAD(P)H dehydrogenase [quinone] 1 (EC 1.6.5.2) (Azoreductase) (DT-diaphorase) (DTD) (Menadione reductase) (NAD(P)H:quinone oxidoreductase 1) (Phylloquinone reductase) (Quinone reductase 1) (QR1)
+P15559	reviewed	GO:0003723; GO:0003955; GO:0004128; GO:0004784; GO:0005737; GO:0005829; GO:0006521; GO:0006805; GO:0006809; GO:0007271; GO:0007568; GO:0007584; GO:0009055; GO:0009636; GO:0016491; GO:0030425; GO:0032355; GO:0042802; GO:0043025; GO:0043066; GO:0043086; GO:0043525; GO:0045471; GO:0051602; GO:0070301; GO:0071248; GO:1901698; GO:1904880	9606	NAD(P)H dehydrogenase [quinone] 1 (EC 1.6.5.2) (Azoreductase) (DT-diaphorase) (DTD) (Menadione reductase) (NAD(P)H:quinone oxidoreductase 1) (Phylloquinone reductase) (Quinone reductase 1) (QR1)
+A0A2K6C527	unreviewed		9545	Uncharacterized protein
+A0A2K6LFM8	unreviewed		61621	Uncharacterized protein
+G7Q1I5	unreviewed		9541	NAD(P)H dehydrogenase [quinone] 1 (Fragment)
+A0A2K5TZP6	unreviewed		9541	Uncharacterized protein
+A0A2I2Z4P5	unreviewed		9595	NAD(P)H quinone dehydrogenase 1
+A0A2K5ZPU5	unreviewed		9568	Uncharacterized protein
+A0A2R9AZT3	unreviewed		9597	Uncharacterized protein
+A0A2I3M1D6	unreviewed		9555	Uncharacterized protein
+A0A2K6RLS7	unreviewed		61622	Uncharacterized protein
+A0A2K5L6P9	unreviewed		9531	Uncharacterized protein
+A0A2I3TIB8	unreviewed		9598	NAD(P)H quinone dehydrogenase 1
+F6RW03	unreviewed		9544	Uncharacterized protein
+G7NQM5	unreviewed		9544	NAD(P)H dehydrogenase [quinone] 1 (Fragment)
+A0A2K6FXQ5	unreviewed	GO:0003955; GO:0005829; GO:0006979; GO:0042802; GO:0043086	379532	Uncharacterized protein
+A0A2I2YBQ6	unreviewed		9595	NAD(P)H quinone dehydrogenase 1
+A0A2R9AZP3	unreviewed		9597	Uncharacterized protein
+A0A2J8VVN5	unreviewed		9601	NQO1 isoform 1
+A0A2I3RHE4	unreviewed		9598	NAD(P)H quinone dehydrogenase 1 (NQO1 isoform 7)
+H3BRK3	unreviewed		9606	NAD(P)H dehydrogenase [quinone] 1
+A0A2I3H9G3	unreviewed	GO:0003955; GO:0005829; GO:0006979; GO:0042802; GO:0043086	61853	Uncharacterized protein
+B4EHH9	unreviewed	GO:0016021	216591	Putative membrane protein
+A0A1V2Y484	unreviewed	GO:0016021	95486	Uncharacterized protein
+A0A329DIE4	unreviewed		95486	Uncharacterized protein
+A0A2X1GGQ0	unreviewed	GO:0008233	95486	ATP-dependent serine protease
+A0A095F8S1	unreviewed	GO:0016021	292	Uncharacterized protein
+A0A364GSF1	unreviewed		2183921	Uncharacterized protein
+A0A1V2VQG3	unreviewed	GO:0016021	95486	Putative membrane protein
+A0A0D9QVX2	unreviewed	GO:0003955; GO:0005829; GO:0006979; GO:0042802; GO:0043086	60711	NAD(P)H quinone dehydrogenase 1

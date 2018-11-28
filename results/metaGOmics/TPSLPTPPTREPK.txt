@@ -1,0 +1,413 @@
+# MetaGOmics GO report
+# MetaGOmics version: 0.1.1
+# Run date: Wed Nov 28 13:52:23 PST 2018
+GO acc	GO aspect	GO name	count	total count	ratio
+GO:0031329	biological_process	regulation of cellular catabolic process	3	3	1.0
+GO:0015630	cellular_component	microtubule cytoskeleton	3	3	1.0
+GO:0015631	molecular_function	tubulin binding	3	3	1.0
+GO:0031334	biological_process	positive regulation of protein complex assembly	3	3	1.0
+GO:0032403	molecular_function	protein complex binding	3	3	1.0
+GO:0060632	biological_process	regulation of microtubule-based movement	3	3	1.0
+GO:0098772	molecular_function	molecular function regulator	3	3	1.0
+GO:0031344	biological_process	regulation of cell projection organization	3	3	1.0
+GO:0031346	biological_process	positive regulation of cell projection organization	3	3	1.0
+GO:0048311	biological_process	mitochondrion distribution	3	3	1.0
+GO:0048312	biological_process	intracellular distribution of mitochondria	3	3	1.0
+GO:0044877	molecular_function	macromolecular complex binding	3	3	1.0
+GO:0019896	biological_process	axon transport of mitochondrion	3	3	1.0
+GO:0019900	molecular_function	kinase binding	3	3	1.0
+GO:0019901	molecular_function	protein kinase binding	3	3	1.0
+GO:0051604	biological_process	protein maturation	3	3	1.0
+GO:0019902	molecular_function	phosphatase binding	3	3	1.0
+GO:0019903	molecular_function	protein phosphatase binding	3	3	1.0
+GO:0019904	molecular_function	protein domain specific binding	3	3	1.0
+GO:0046983	molecular_function	protein dimerization activity	3	3	1.0
+GO:0010821	biological_process	regulation of mitochondrion organization	3	3	1.0
+GO:0010823	biological_process	negative regulation of mitochondrion organization	3	3	1.0
+GO:0051640	biological_process	organelle localization	3	3	1.0
+GO:0051641	biological_process	cellular localization	3	3	1.0
+GO:0008152	biological_process	metabolic process	3	3	1.0
+GO:0016049	biological_process	cell growth	3	3	1.0
+GO:0001558	biological_process	regulation of cell growth	3	3	1.0
+GO:0051646	biological_process	mitochondrion localization	3	3	1.0
+GO:0042750	biological_process	hibernation	3	3	1.0
+GO:0051649	biological_process	establishment of localization in cell	3	3	1.0
+GO:1902988	biological_process	neurofibrillary tangle assembly	3	3	1.0
+GO:0051654	biological_process	establishment of mitochondrion localization	3	3	1.0
+GO:0005886	cellular_component	plasma membrane	3	3	1.0
+GO:0051656	biological_process	establishment of organelle localization	3	3	1.0
+GO:0007165	biological_process	signal transduction	3	3	1.0
+GO:0090659	biological_process	walking behavior	3	3	1.0
+GO:0007010	biological_process	cytoskeleton organization	3	3	1.0
+GO:0065003	biological_process	macromolecular complex assembly	3	3	1.0
+GO:0065007	biological_process	biological regulation	3	3	1.0
+GO:0065008	biological_process	regulation of biological quality	3	3	1.0
+GO:0065009	biological_process	regulation of molecular function	3	3	1.0
+GO:0030307	biological_process	positive regulation of cell growth	3	3	1.0
+GO:0009653	biological_process	anatomical structure morphogenesis	3	3	1.0
+GO:0007017	biological_process	microtubule-based process	3	3	1.0
+GO:0032501	biological_process	multicellular organismal process	3	3	1.0
+GO:0032502	biological_process	developmental process	3	3	1.0
+GO:2000377	biological_process	regulation of reactive oxygen species metabolic process	3	3	1.0
+GO:0042803	molecular_function	protein homodimerization activity	3	3	1.0
+GO:0051260	biological_process	protein homooligomerization	3	3	1.0
+GO:0051704	biological_process	multi-organism process	3	3	1.0
+GO:0034605	biological_process	cellular response to heat	3	3	1.0
+GO:0035556	biological_process	intracellular signal transduction	3	3	1.0
+GO:0051716	biological_process	cellular response to stimulus	3	3	1.0
+GO:0043933	biological_process	macromolecular complex subunit organization	3	3	1.0
+GO:0010917	biological_process	negative regulation of mitochondrial membrane potential	3	3	1.0
+GO:0051721	molecular_function	protein phosphatase 2A binding	3	3	1.0
+GO:0022607	biological_process	cellular component assembly	3	3	1.0
+GO:0009892	biological_process	negative regulation of metabolic process	3	3	1.0
+GO:0009893	biological_process	positive regulation of metabolic process	3	3	1.0
+GO:0009894	biological_process	regulation of catabolic process	3	3	1.0
+GO:1904115	cellular_component	axon cytoplasm	3	3	1.0
+GO:0009898	cellular_component	cytoplasmic side of plasma membrane	3	3	1.0
+GO:0010941	biological_process	regulation of cell death	3	3	1.0
+GO:0050877	biological_process	neurological system process	3	3	1.0
+GO:0010942	biological_process	positive regulation of cell death	3	3	1.0
+GO:0034643	biological_process	establishment of mitochondrion localization, microtubule-mediated	3	3	1.0
+GO:0007409	biological_process	axonogenesis	3	3	1.0
+GO:0010950	biological_process	positive regulation of endopeptidase activity	3	3	1.0
+GO:0010952	biological_process	positive regulation of peptidase activity	3	3	1.0
+GO:0007416	biological_process	synapse assembly	3	3	1.0
+GO:0007420	biological_process	brain development	3	3	1.0
+GO:0080090	biological_process	regulation of primary metabolic process	3	3	1.0
+GO:0048513	biological_process	organ development	3	3	1.0
+GO:0032589	cellular_component	neuron projection membrane	3	3	1.0
+GO:0010970	biological_process	microtubule-based transport	3	3	1.0
+GO:0048518	biological_process	positive regulation of biological process	3	3	1.0
+GO:0048519	biological_process	negative regulation of biological process	3	3	1.0
+GO:0010975	biological_process	regulation of neuron projection development	3	3	1.0
+GO:0010976	biological_process	positive regulation of neuron projection development	3	3	1.0
+GO:0048522	biological_process	positive regulation of cellular process	3	3	1.0
+GO:0048523	biological_process	negative regulation of cellular process	3	3	1.0
+GO:0030424	cellular_component	axon	3	3	1.0
+GO:0030425	cellular_component	dendrite	3	3	1.0
+GO:0030426	cellular_component	growth cone	3	3	1.0
+GO:0030427	cellular_component	site of polarized growth	3	3	1.0
+GO:0030431	biological_process	sleep	3	3	1.0
+GO:0031072	molecular_function	heat shock protein binding	3	3	1.0
+GO:0009966	biological_process	regulation of signal transduction	3	3	1.0
+GO:0080134	biological_process	regulation of response to stress	3	3	1.0
+GO:0080135	biological_process	regulation of cellular response to stress	3	3	1.0
+GO:0033673	biological_process	negative regulation of kinase activity	3	3	1.0
+GO:0005515	molecular_function	protein binding	3	3	1.0
+GO:1900034	biological_process	regulation of cellular response to heat	3	3	1.0
+GO:0009987	biological_process	cellular process	3	3	1.0
+GO:0097159	molecular_function	organic cyclic compound binding	3	3	1.0
+GO:0035770	cellular_component	ribonucleoprotein granule	3	3	1.0
+GO:0009991	biological_process	response to extracellular stimulus	3	3	1.0
+GO:0048583	biological_process	regulation of response to stimulus	3	3	1.0
+GO:0001764	biological_process	neuron migration	3	3	1.0
+GO:0048588	biological_process	developmental cell growth	3	3	1.0
+GO:0048589	biological_process	developmental growth	3	3	1.0
+GO:0000226	biological_process	microtubule cytoskeleton organization	3	3	1.0
+GO:0017124	molecular_function	SH3 domain binding	3	3	1.0
+GO:0001774	biological_process	microglial cell activation	3	3	1.0
+GO:0001775	biological_process	cell activation	3	3	1.0
+GO:0019899	molecular_function	enzyme binding	3	3	1.0
+GO:0097190	biological_process	apoptotic signaling pathway	3	3	1.0
+GO:0097193	biological_process	intrinsic apoptotic signaling pathway	3	3	1.0
+GO:0044087	biological_process	regulation of cellular component biogenesis	3	3	1.0
+GO:0030516	biological_process	regulation of axon extension	3	3	1.0
+GO:0010033	biological_process	response to organic substance	3	3	1.0
+GO:0044089	biological_process	positive regulation of cellular component biogenesis	3	3	1.0
+GO:0097202	biological_process	activation of cysteine-type endopeptidase activity	3	3	1.0
+GO:0045298	cellular_component	tubulin complex	3	3	1.0
+GO:0051881	biological_process	regulation of mitochondrial membrane potential	3	3	1.0
+GO:0044092	biological_process	negative regulation of molecular function	3	3	1.0
+GO:0044093	biological_process	positive regulation of molecular function	3	3	1.0
+GO:0048638	biological_process	regulation of developmental growth	3	3	1.0
+GO:0048639	biological_process	positive regulation of developmental growth	3	3	1.0
+GO:0042995	cellular_component	cell projection	3	3	1.0
+GO:0014069	cellular_component	postsynaptic density	3	3	1.0
+GO:0047497	biological_process	mitochondrion transport along microtubule	3	3	1.0
+GO:0070201	biological_process	regulation of establishment of protein localization	3	3	1.0
+GO:0030545	molecular_function	receptor regulator activity	3	3	1.0
+GO:0031638	biological_process	zymogen activation	3	3	1.0
+GO:0030546	molecular_function	receptor activator activity	3	3	1.0
+GO:0005575	cellular_component	cellular_component	3	3	1.0
+GO:0045321	biological_process	leukocyte activation	3	3	1.0
+GO:0006461	biological_process	protein complex assembly	3	3	1.0
+GO:0007565	biological_process	female pregnancy	3	3	1.0
+GO:0050767	biological_process	regulation of neurogenesis	3	3	1.0
+GO:0050769	biological_process	positive regulation of neurogenesis	3	3	1.0
+GO:0050770	biological_process	regulation of axonogenesis	3	3	1.0
+GO:0043025	cellular_component	neuronal cell body	3	3	1.0
+GO:0050772	biological_process	positive regulation of axonogenesis	3	3	1.0
+GO:0048675	biological_process	axon extension	3	3	1.0
+GO:0031667	biological_process	response to nutrient levels	3	3	1.0
+GO:0007584	biological_process	response to nutrient	3	3	1.0
+GO:0050789	biological_process	regulation of biological process	3	3	1.0
+GO:0050790	biological_process	regulation of catalytic activity	3	3	1.0
+GO:0050793	biological_process	regulation of developmental process	3	3	1.0
+GO:0050794	biological_process	regulation of cellular process	3	3	1.0
+GO:0006915	biological_process	apoptotic process	3	3	1.0
+GO:0048699	biological_process	generation of neurons	3	3	1.0
+GO:0050808	biological_process	synapse organization	3	3	1.0
+GO:0043062	biological_process	extracellular structure organization	3	3	1.0
+GO:0051960	biological_process	regulation of nervous system development	3	3	1.0
+GO:0043065	biological_process	positive regulation of apoptotic process	3	3	1.0
+GO:0043067	biological_process	regulation of programmed cell death	3	3	1.0
+GO:0051962	biological_process	positive regulation of nervous system development	3	3	1.0
+GO:0007610	biological_process	behavior	3	3	1.0
+GO:0006508	biological_process	proteolysis	3	3	1.0
+GO:0043068	biological_process	positive regulation of programmed cell death	3	3	1.0
+GO:0007611	biological_process	learning or memory	3	3	1.0
+GO:0007613	biological_process	memory	3	3	1.0
+GO:0016485	biological_process	protein processing	3	3	1.0
+GO:0050848	biological_process	regulation of calcium-mediated signaling	3	3	1.0
+GO:0043085	biological_process	positive regulation of catalytic activity	3	3	1.0
+GO:0043086	biological_process	negative regulation of catalytic activity	3	3	1.0
+GO:1901214	biological_process	regulation of neuron death	3	3	1.0
+GO:0007626	biological_process	locomotory behavior	3	3	1.0
+GO:1901216	biological_process	positive regulation of neuron death	3	3	1.0
+GO:0040008	biological_process	regulation of growth	3	3	1.0
+GO:0007628	biological_process	adult walking behavior	3	3	1.0
+GO:0016043	biological_process	cellular component organization	3	3	1.0
+GO:0040011	biological_process	locomotion	3	3	1.0
+GO:0072384	biological_process	organelle transport along microtubule	3	3	1.0
+GO:0072386	biological_process	plus-end-directed organelle transport along microtubule	3	3	1.0
+GO:0003008	biological_process	system process	3	3	1.0
+GO:0008017	molecular_function	microtubule binding	3	3	1.0
+GO:0050890	biological_process	cognition	3	3	1.0
+GO:0030673	cellular_component	axolemma	3	3	1.0
+GO:0050896	biological_process	response to stimulus	3	3	1.0
+GO:0019220	biological_process	regulation of phosphate metabolic process	3	3	1.0
+GO:0019222	biological_process	regulation of metabolic process	3	3	1.0
+GO:0044238	biological_process	primary metabolic process	3	3	1.0
+GO:0071813	molecular_function	lipoprotein particle binding	3	3	1.0
+GO:0030534	biological_process	adult behavior	3	3	1.0
+GO:0005488	molecular_function	binding	3	3	1.0
+GO:0030705	biological_process	cytoskeleton-dependent intracellular transport	3	3	1.0
+GO:0043170	biological_process	macromolecule metabolic process	3	3	1.0
+GO:0032879	biological_process	regulation of localization	3	3	1.0
+GO:0032880	biological_process	regulation of protein localization	3	3	1.0
+GO:0048812	biological_process	neuron projection morphogenesis	3	3	1.0
+GO:0032886	biological_process	regulation of microtubule-based process	3	3	1.0
+GO:0044295	cellular_component	axonal growth cone	3	3	1.0
+GO:0044297	cellular_component	cell body	3	3	1.0
+GO:0008088	biological_process	axon cargo transport	3	3	1.0
+GO:0008092	molecular_function	cytoskeletal protein binding	3	3	1.0
+GO:0044304	cellular_component	main axon	3	3	1.0
+GO:0043226	cellular_component	organelle	3	3	1.0
+GO:0097418	cellular_component	neurofibrillary tangle	3	3	1.0
+GO:0043227	cellular_component	membrane-bounded organelle	3	3	1.0
+GO:0043228	cellular_component	non-membrane-bounded organelle	3	3	1.0
+GO:0043229	cellular_component	intracellular organelle	3	3	1.0
+GO:0043232	cellular_component	intracellular non-membrane-bounded organelle	3	3	1.0
+GO:0048856	biological_process	anatomical structure development	3	3	1.0
+GO:0043234	cellular_component	protein complex	3	3	1.0
+GO:0048858	biological_process	cell projection morphogenesis	3	3	1.0
+GO:0032928	biological_process	regulation of superoxide anion generation	3	3	1.0
+GO:0032930	biological_process	positive regulation of superoxide anion generation	3	3	1.0
+GO:0042116	biological_process	macrophage activation	3	3	1.0
+GO:0097435	biological_process	fibril organization	3	3	1.0
+GO:0048869	biological_process	cellular developmental process	3	3	1.0
+GO:0048870	biological_process	cell motility	3	3	1.0
+GO:0005102	molecular_function	receptor binding	3	3	1.0
+GO:0043254	biological_process	regulation of protein complex assembly	3	3	1.0
+GO:1901363	molecular_function	heterocyclic compound binding	3	3	1.0
+GO:0097458	cellular_component	neuron part	3	3	1.0
+GO:0008150	biological_process	biological_process	3	3	1.0
+GO:0043280	biological_process	positive regulation of cysteine-type endopeptidase activity involved in apoptotic process	3	3	1.0
+GO:0043281	biological_process	regulation of cysteine-type endopeptidase activity involved in apoptotic process	3	3	1.0
+GO:0016234	cellular_component	inclusion body	3	3	1.0
+GO:0051049	biological_process	regulation of transport	3	3	1.0
+GO:0051051	biological_process	negative regulation of transport	3	3	1.0
+GO:0032989	biological_process	cellular component morphogenesis	3	3	1.0
+GO:0032990	biological_process	cell part morphogenesis	3	3	1.0
+GO:0032991	cellular_component	macromolecular complex	3	3	1.0
+GO:0009266	biological_process	response to temperature stimulus	3	3	1.0
+GO:0005634	cellular_component	nucleus	3	3	1.0
+GO:0016265	biological_process	death	3	3	1.0
+GO:0045595	biological_process	regulation of cell differentiation	3	3	1.0
+GO:0045597	biological_process	positive regulation of cell differentiation	3	3	1.0
+GO:1902473	biological_process	regulation of protein localization to synapse	3	3	1.0
+GO:1902474	biological_process	positive regulation of protein localization to synapse	3	3	1.0
+GO:0090140	biological_process	regulation of mitochondrial fission	3	3	1.0
+GO:0005737	cellular_component	cytoplasm	3	3	1.0
+GO:0051093	biological_process	negative regulation of developmental process	3	3	1.0
+GO:0051094	biological_process	positive regulation of developmental process	3	3	1.0
+GO:0044422	cellular_component	organelle part	3	3	1.0
+GO:0070507	biological_process	regulation of microtubule cytoskeleton organization	3	3	1.0
+GO:0044424	cellular_component	intracellular part	3	3	1.0
+GO:0044425	cellular_component	membrane part	3	3	1.0
+GO:0044428	cellular_component	nuclear part	3	3	1.0
+GO:0044430	cellular_component	cytoskeletal part	3	3	1.0
+GO:0008219	biological_process	cell death	3	3	1.0
+GO:0042221	biological_process	response to chemical	3	3	1.0
+GO:0012501	biological_process	programmed cell death	3	3	1.0
+GO:0044441	cellular_component	ciliary part	3	3	1.0
+GO:0044444	cellular_component	cytoplasmic part	3	3	1.0
+GO:0051128	biological_process	regulation of cellular component organization	3	3	1.0
+GO:0044446	cellular_component	intracellular organelle part	3	3	1.0
+GO:0033043	biological_process	regulation of organelle organization	3	3	1.0
+GO:0051129	biological_process	negative regulation of cellular component organization	3	3	1.0
+GO:0051130	biological_process	positive regulation of cellular component organization	3	3	1.0
+GO:0044451	cellular_component	nucleoplasm part	3	3	1.0
+GO:0042981	biological_process	regulation of apoptotic process	3	3	1.0
+GO:0044456	cellular_component	synapse part	3	3	1.0
+GO:0044459	cellular_component	plasma membrane part	3	3	1.0
+GO:0022008	biological_process	neurogenesis	3	3	1.0
+GO:0044463	cellular_component	cell projection part	3	3	1.0
+GO:0044464	cellular_component	cell part	3	3	1.0
+GO:1902531	biological_process	regulation of intracellular signal transduction	3	3	1.0
+GO:0045664	biological_process	regulation of neuron differentiation	3	3	1.0
+GO:1900452	biological_process	regulation of long term synaptic depression	3	3	1.0
+GO:0045666	biological_process	positive regulation of neuron differentiation	3	3	1.0
+GO:1900454	biological_process	positive regulation of long term synaptic depression	3	3	1.0
+GO:0006810	biological_process	transport	3	3	1.0
+GO:0060255	biological_process	regulation of macromolecule metabolic process	3	3	1.0
+GO:0051174	biological_process	regulation of phosphorus metabolic process	3	3	1.0
+GO:0051179	biological_process	localization	3	3	1.0
+GO:0022414	biological_process	reproductive process	3	3	1.0
+GO:0022603	biological_process	regulation of anatomical structure morphogenesis	3	3	1.0
+GO:0060284	biological_process	regulation of cell development	3	3	1.0
+GO:0022604	biological_process	regulation of cell morphogenesis	3	3	1.0
+GO:1902578	biological_process	single-organism localization	3	3	1.0
+GO:1902580	biological_process	single-organism cellular localization	3	3	1.0
+GO:1902582	biological_process	single-organism intracellular transport	3	3	1.0
+GO:0022611	biological_process	dormancy process	3	3	1.0
+GO:1902589	biological_process	single-organism organelle organization	3	3	1.0
+GO:0042325	biological_process	regulation of phosphorylation	3	3	1.0
+GO:0090258	biological_process	negative regulation of mitochondrial fission	3	3	1.0
+GO:0042326	biological_process	negative regulation of phosphorylation	3	3	1.0
+GO:0051234	biological_process	establishment of localization	3	3	1.0
+GO:0009408	biological_process	response to heat	3	3	1.0
+GO:0010468	biological_process	regulation of gene expression	3	3	1.0
+GO:0010469	biological_process	regulation of receptor activity	3	3	1.0
+GO:0051239	biological_process	regulation of multicellular organismal process	3	3	1.0
+GO:0051240	biological_process	positive regulation of multicellular organismal process	3	3	1.0
+GO:0019538	biological_process	protein metabolic process	3	3	1.0
+GO:0051246	biological_process	regulation of protein metabolic process	3	3	1.0
+GO:0043231	cellular_component	intracellular membrane-bounded organelle	3	3	1.0
+GO:0051247	biological_process	positive regulation of protein metabolic process	3	3	1.0
+GO:0008344	biological_process	adult locomotory behavior	3	3	1.0
+GO:0016477	biological_process	cell migration	3	3	1.0
+GO:0051259	biological_process	protein oligomerization	3	3	1.0
+GO:2001020	biological_process	regulation of response to DNA damage stimulus	3	3	1.0
+GO:0051270	biological_process	regulation of cellular component movement	3	3	1.0
+GO:1990904	cellular_component	ribonucleoprotein complex	3	3	1.0
+GO:0005829	cellular_component	cytosol	3	3	1.0
+GO:0060341	biological_process	regulation of cellular localization	3	3	1.0
+GO:0034185	molecular_function	apolipoprotein binding	3	3	1.0
+GO:0002274	biological_process	myeloid leukocyte activation	3	3	1.0
+GO:0010506	biological_process	regulation of autophagy	3	3	1.0
+GO:0045773	biological_process	positive regulation of axon extension	3	3	1.0
+GO:0061387	biological_process	regulation of extent of cell growth	3	3	1.0
+GO:0006919	biological_process	activation of cysteine-type endopeptidase activity involved in apoptotic process	3	3	1.0
+GO:0046907	biological_process	intracellular transport	3	3	1.0
+GO:0071704	biological_process	organic substance metabolic process	3	3	1.0
+GO:0006928	biological_process	movement of cell or subcellular component	3	3	1.0
+GO:0042391	biological_process	regulation of membrane potential	3	3	1.0
+GO:0090322	biological_process	regulation of superoxide metabolic process	3	3	1.0
+GO:2001056	biological_process	positive regulation of cysteine-type endopeptidase activity	3	3	1.0
+GO:2000026	biological_process	regulation of multicellular organismal development	3	3	1.0
+GO:0005856	cellular_component	cytoskeleton	3	3	1.0
+GO:0006950	biological_process	response to stress	3	3	1.0
+GO:0043549	biological_process	regulation of kinase activity	3	3	1.0
+GO:0048018	molecular_function	receptor agonist activity	3	3	1.0
+GO:0051879	molecular_function	Hsp90 protein binding	3	3	1.0
+GO:0005874	cellular_component	microtubule	3	3	1.0
+GO:0005875	cellular_component	microtubule associated complex	3	3	1.0
+GO:0051336	biological_process	regulation of hydrolase activity	3	3	1.0
+GO:0051338	biological_process	regulation of transferase activity	3	3	1.0
+GO:0045837	biological_process	negative regulation of membrane potential	3	3	1.0
+GO:0010563	biological_process	negative regulation of phosphorus metabolic process	3	3	1.0
+GO:0051345	biological_process	positive regulation of hydrolase activity	3	3	1.0
+GO:0051348	biological_process	negative regulation of transferase activity	3	3	1.0
+GO:1903747	biological_process	regulation of establishment of protein localization to mitochondrion	3	3	1.0
+GO:1903748	biological_process	negative regulation of establishment of protein localization to mitochondrion	3	3	1.0
+GO:0006996	biological_process	organelle organization	3	3	1.0
+GO:0033554	biological_process	cellular response to stress	3	3	1.0
+GO:0045862	biological_process	positive regulation of proteolysis	3	3	1.0
+GO:0007005	biological_process	mitochondrion organization	3	3	1.0
+GO:0016604	cellular_component	nuclear body	3	3	1.0
+GO:0023051	biological_process	regulation of signaling	3	3	1.0
+GO:0016607	cellular_component	nuclear speck	3	3	1.0
+GO:0031110	biological_process	regulation of microtubule polymerization or depolymerization	3	3	1.0
+GO:0031112	biological_process	positive regulation of microtubule polymerization or depolymerization	3	3	1.0
+GO:0007018	biological_process	microtubule-based movement	3	3	1.0
+GO:0031113	biological_process	regulation of microtubule polymerization	3	3	1.0
+GO:0031116	biological_process	positive regulation of microtubule polymerization	3	3	1.0
+GO:0003674	molecular_function	molecular_function	3	3	1.0
+GO:0003676	molecular_function	nucleic acid binding	3	3	1.0
+GO:0003677	molecular_function	DNA binding	3	3	1.0
+GO:0031122	biological_process	cytoplasmic microtubule organization	3	3	1.0
+GO:0010604	biological_process	positive regulation of macromolecule metabolic process	3	3	1.0
+GO:0010605	biological_process	negative regulation of macromolecule metabolic process	3	3	1.0
+GO:0002376	biological_process	immune system process	3	3	1.0
+GO:0033267	cellular_component	axon part	3	3	1.0
+GO:0098552	cellular_component	side of membrane	3	3	1.0
+GO:2000116	biological_process	regulation of cysteine-type endopeptidase activity	3	3	1.0
+GO:0071814	molecular_function	protein-lipid complex binding	3	3	1.0
+GO:0098562	cellular_component	cytoplasmic side of membrane	3	3	1.0
+GO:0010629	biological_process	negative regulation of gene expression	3	3	1.0
+GO:0071822	biological_process	protein complex subunit organization	3	3	1.0
+GO:0044699	biological_process	single-organism process	3	3	1.0
+GO:0030030	biological_process	cell projection organization	3	3	1.0
+GO:0044703	biological_process	multi-organism reproductive process	3	3	1.0
+GO:0010638	biological_process	positive regulation of organelle organization	3	3	1.0
+GO:0010639	biological_process	negative regulation of organelle organization	3	3	1.0
+GO:0044706	biological_process	multi-multicellular organism process	3	3	1.0
+GO:0044707	biological_process	single-multicellular organism process	3	3	1.0
+GO:0044708	biological_process	single-organism behavior	3	3	1.0
+GO:1990000	biological_process	amyloid fibril formation	3	3	1.0
+GO:0044710	biological_process	single-organism metabolic process	3	3	1.0
+GO:0045927	biological_process	positive regulation of growth	3	3	1.0
+GO:0043005	cellular_component	neuron projection	3	3	1.0
+GO:0010646	biological_process	regulation of cell communication	3	3	1.0
+GO:0071840	biological_process	cellular component organization or biogenesis	3	3	1.0
+GO:0098589	cellular_component	membrane region	3	3	1.0
+GO:1903827	biological_process	regulation of cellular protein localization	3	3	1.0
+GO:0098590	cellular_component	plasma membrane region	3	3	1.0
+GO:1903828	biological_process	negative regulation of cellular protein localization	3	3	1.0
+GO:0045936	biological_process	negative regulation of phosphate metabolic process	3	3	1.0
+GO:1903829	biological_process	positive regulation of cellular protein localization	3	3	1.0
+GO:0048143	biological_process	astrocyte activation	3	3	1.0
+GO:0031175	biological_process	neuron projection development	3	3	1.0
+GO:0009605	biological_process	response to external stimulus	3	3	1.0
+GO:0030529	cellular_component	intracellular ribonucleoprotein complex	3	3	1.0
+GO:0032268	biological_process	regulation of cellular protein metabolic process	3	3	1.0
+GO:2000379	biological_process	positive regulation of reactive oxygen species metabolic process	3	3	1.0
+GO:0032270	biological_process	positive regulation of cellular protein metabolic process	3	3	1.0
+GO:0032271	biological_process	regulation of protein polymerization	3	3	1.0
+GO:0032273	biological_process	positive regulation of protein polymerization	3	3	1.0
+GO:0036464	cellular_component	cytoplasmic ribonucleoprotein granule	3	3	1.0
+GO:0009628	biological_process	response to abiotic stimulus	3	3	1.0
+GO:0070841	biological_process	inclusion body assembly	3	3	1.0
+GO:0036477	cellular_component	somatodendritic compartment	3	3	1.0
+GO:0044763	biological_process	single-organism cellular process	3	3	1.0
+GO:0052547	biological_process	regulation of peptidase activity	3	3	1.0
+GO:0044765	biological_process	single-organism transport	3	3	1.0
+GO:0005930	cellular_component	axoneme	3	3	1.0
+GO:0052548	biological_process	regulation of endopeptidase activity	3	3	1.0
+GO:0044767	biological_process	single-organism developmental process	3	3	1.0
+GO:0003779	molecular_function	actin binding	3	3	1.0
+GO:0031253	cellular_component	cell projection membrane	3	3	1.0
+GO:0051493	biological_process	regulation of cytoskeleton organization	3	3	1.0
+GO:0031256	cellular_component	leading edge membrane	3	3	1.0
+GO:0051495	biological_process	positive regulation of cytoskeleton organization	3	3	1.0
+GO:0034399	cellular_component	nuclear periphery	3	3	1.0
+GO:0040007	biological_process	growth	3	3	1.0
+GO:0060560	biological_process	developmental growth involved in morphogenesis	3	3	1.0
+GO:0010720	biological_process	positive regulation of cell development	3	3	1.0
+GO:0016020	cellular_component	membrane	3	3	1.0
+GO:0030154	biological_process	cell differentiation	3	3	1.0
+GO:0008631	biological_process	intrinsic apoptotic signaling pathway in response to oxidative stress	3	3	1.0
+GO:0030162	biological_process	regulation of proteolysis	3	3	1.0
+GO:0034452	molecular_function	dynactin binding	3	3	1.0
+GO:0042802	molecular_function	identical protein binding	3	3	1.0
+GO:0030182	biological_process	neuron differentiation	3	3	1.0
+GO:0010769	biological_process	regulation of cell morphogenesis involved in differentiation	3	3	1.0
+GO:0010770	biological_process	positive regulation of cell morphogenesis involved in differentiation	3	3	1.0
+GO:1990138	biological_process	neuron projection extension	3	3	1.0
+GO:0031323	biological_process	regulation of cellular metabolic process	3	3	1.0
+GO:0032386	biological_process	regulation of intracellular transport	3	3	1.0
+GO:0031324	biological_process	negative regulation of cellular metabolic process	3	3	1.0
+GO:0032387	biological_process	negative regulation of intracellular transport	3	3	1.0
+GO:0031325	biological_process	positive regulation of cellular metabolic process	3	3	1.0
+GO:0030198	biological_process	extracellular matrix organization	3	3	1.0

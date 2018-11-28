@@ -1,0 +1,218 @@
+# MetaGOmics GO report
+# MetaGOmics version: 0.1.1
+# Run date: Wed Nov 28 14:20:13 PST 2018
+GO acc	GO aspect	GO name	count	total count	ratio
+GO:0001501	biological_process	skeletal system development	3	3	1.0
+GO:0016918	molecular_function	retinal binding	3	3	1.0
+GO:0048878	biological_process	chemical homeostasis	3	3	1.0
+GO:0042127	biological_process	regulation of cell proliferation	3	3	1.0
+GO:0016202	biological_process	regulation of striated muscle tissue development	3	3	1.0
+GO:0051023	biological_process	regulation of immunoglobulin secretion	3	3	1.0
+GO:0051024	biological_process	positive regulation of immunoglobulin secretion	3	3	1.0
+GO:0090087	biological_process	regulation of peptide transport	3	3	1.0
+GO:0001523	biological_process	retinoid metabolic process	3	3	1.0
+GO:0046620	biological_process	regulation of organ growth	3	3	1.0
+GO:0046621	biological_process	negative regulation of organ growth	3	3	1.0
+GO:0008150	biological_process	biological_process	3	3	1.0
+GO:0046983	molecular_function	protein dimerization activity	3	3	1.0
+GO:0010817	biological_process	regulation of hormone levels	3	3	1.0
+GO:0051046	biological_process	regulation of secretion	3	3	1.0
+GO:0051047	biological_process	positive regulation of secretion	3	3	1.0
+GO:0033993	biological_process	response to lipid	3	3	1.0
+GO:0051049	biological_process	regulation of transport	3	3	1.0
+GO:0051050	biological_process	positive regulation of transport	3	3	1.0
+GO:0036094	molecular_function	small molecule binding	3	3	1.0
+GO:0005615	cellular_component	extracellular space	3	3	1.0
+GO:0060157	biological_process	urinary bladder development	3	3	1.0
+GO:0006720	biological_process	isoprenoid metabolic process	3	3	1.0
+GO:0006721	biological_process	terpenoid metabolic process	3	3	1.0
+GO:0033500	biological_process	carbohydrate homeostasis	3	3	1.0
+GO:0032991	cellular_component	macromolecular complex	3	3	1.0
+GO:0008152	biological_process	metabolic process	3	3	1.0
+GO:0030277	biological_process	maintenance of gastrointestinal epithelium	3	3	1.0
+GO:0051093	biological_process	negative regulation of developmental process	3	3	1.0
+GO:0002637	biological_process	regulation of immunoglobulin production	3	3	1.0
+GO:0002639	biological_process	positive regulation of immunoglobulin production	3	3	1.0
+GO:0044421	cellular_component	extracellular region part	3	3	1.0
+GO:0044424	cellular_component	intracellular part	3	3	1.0
+GO:1903530	biological_process	regulation of secretion by cell	3	3	1.0
+GO:0065007	biological_process	biological regulation	3	3	1.0
+GO:1903532	biological_process	positive regulation of secretion by cell	3	3	1.0
+GO:0042221	biological_process	response to chemical	3	3	1.0
+GO:0065008	biological_process	regulation of biological quality	3	3	1.0
+GO:0065010	cellular_component	extracellular membrane-bounded organelle	3	3	1.0
+GO:0035112	biological_process	genitalia morphogenesis	3	3	1.0
+GO:0009653	biological_process	anatomical structure morphogenesis	3	3	1.0
+GO:0032501	biological_process	multicellular organismal process	3	3	1.0
+GO:0032502	biological_process	developmental process	3	3	1.0
+GO:0044444	cellular_component	cytoplasmic part	3	3	1.0
+GO:0031982	cellular_component	vesicle	3	3	1.0
+GO:0030324	biological_process	lung development	3	3	1.0
+GO:0031988	cellular_component	membrane-bounded vesicle	3	3	1.0
+GO:1903561	cellular_component	extracellular vesicle	3	3	1.0
+GO:0044464	cellular_component	cell part	3	3	1.0
+GO:0002682	biological_process	regulation of immune system process	3	3	1.0
+GO:0032526	biological_process	response to retinoic acid	3	3	1.0
+GO:0002684	biological_process	positive regulation of immune system process	3	3	1.0
+GO:0060249	biological_process	anatomical structure homeostasis	3	3	1.0
+GO:0006810	biological_process	transport	3	3	1.0
+GO:0002697	biological_process	regulation of immune effector process	3	3	1.0
+GO:0001654	biological_process	eye development	3	3	1.0
+GO:0002699	biological_process	positive regulation of immune effector process	3	3	1.0
+GO:0048646	biological_process	anatomical structure formation involved in morphogenesis	3	3	1.0
+GO:0002700	biological_process	regulation of production of molecular mediator of immune response	3	3	1.0
+GO:0002702	biological_process	positive regulation of production of molecular mediator of immune response	3	3	1.0
+GO:0034632	molecular_function	retinol transporter activity	3	3	1.0
+GO:0034633	biological_process	retinol transport	3	3	1.0
+GO:0008285	biological_process	negative regulation of cell proliferation	3	3	1.0
+GO:0009887	biological_process	organ morphogenesis	3	3	1.0
+GO:0009888	biological_process	tissue development	3	3	1.0
+GO:0032024	biological_process	positive regulation of insulin secretion	3	3	1.0
+GO:0051183	molecular_function	vitamin transporter activity	3	3	1.0
+GO:0051179	biological_process	localization	3	3	1.0
+GO:0070062	cellular_component	extracellular exosome	3	3	1.0
+GO:0050877	biological_process	neurological system process	3	3	1.0
+GO:0022414	biological_process	reproductive process	3	3	1.0
+GO:0022600	biological_process	digestive system process	3	3	1.0
+GO:1902578	biological_process	single-organism localization	3	3	1.0
+GO:0007423	biological_process	sensory organ development	3	3	1.0
+GO:0048513	biological_process	organ development	3	3	1.0
+GO:0046887	biological_process	positive regulation of hormone secretion	3	3	1.0
+GO:0051222	biological_process	positive regulation of protein transport	3	3	1.0
+GO:0051223	biological_process	regulation of protein transport	3	3	1.0
+GO:0048518	biological_process	positive regulation of biological process	3	3	1.0
+GO:0048519	biological_process	negative regulation of biological process	3	3	1.0
+GO:0048522	biological_process	positive regulation of cellular process	3	3	1.0
+GO:0051234	biological_process	establishment of localization	3	3	1.0
+GO:0048523	biological_process	negative regulation of cellular process	3	3	1.0
+GO:0006869	biological_process	lipid transport	3	3	1.0
+GO:0051239	biological_process	regulation of multicellular organismal process	3	3	1.0
+GO:0051241	biological_process	negative regulation of multicellular organismal process	3	3	1.0
+GO:0015850	biological_process	organic hydroxy compound transport	3	3	1.0
+GO:0090276	biological_process	regulation of peptide hormone secretion	3	3	1.0
+GO:0090277	biological_process	positive regulation of peptide hormone secretion	3	3	1.0
+GO:0046864	biological_process	isoprenoid transport	3	3	1.0
+GO:0046865	biological_process	terpenoid transport	3	3	1.0
+GO:1901576	biological_process	organic substance biosynthetic process	3	3	1.0
+GO:0005576	cellular_component	extracellular region	3	3	1.0
+GO:0046883	biological_process	regulation of hormone secretion	3	3	1.0
+GO:0005829	cellular_component	cytosol	3	3	1.0
+GO:0048562	biological_process	embryonic organ morphogenesis	3	3	1.0
+GO:0060341	biological_process	regulation of cellular localization	3	3	1.0
+GO:0060343	biological_process	trabecula formation	3	3	1.0
+GO:0002791	biological_process	regulation of peptide secretion	3	3	1.0
+GO:0060347	biological_process	heart trabecula formation	3	3	1.0
+GO:0002793	biological_process	positive regulation of peptide secretion	3	3	1.0
+GO:0005515	molecular_function	protein binding	3	3	1.0
+GO:0009987	biological_process	cellular process	3	3	1.0
+GO:0071702	biological_process	organic substance transport	3	3	1.0
+GO:0071704	biological_process	organic substance metabolic process	3	3	1.0
+GO:0050708	biological_process	regulation of protein secretion	3	3	1.0
+GO:0007507	biological_process	heart development	3	3	1.0
+GO:0022892	molecular_function	substrate-specific transporter activity	3	3	1.0
+GO:2000026	biological_process	regulation of multicellular organismal development	3	3	1.0
+GO:0048598	biological_process	embryonic morphogenesis	3	3	1.0
+GO:1901615	biological_process	organic hydroxy compound metabolic process	3	3	1.0
+GO:0050714	biological_process	positive regulation of protein secretion	3	3	1.0
+GO:0048608	biological_process	reproductive structure development	3	3	1.0
+GO:0034754	biological_process	cellular hormone metabolic process	3	3	1.0
+GO:0005215	molecular_function	transporter activity	3	3	1.0
+GO:0010033	biological_process	response to organic substance	3	3	1.0
+GO:0048634	biological_process	regulation of muscle organ development	3	3	1.0
+GO:0048635	biological_process	negative regulation of muscle organ development	3	3	1.0
+GO:0046364	biological_process	monosaccharide biosynthetic process	3	3	1.0
+GO:0048638	biological_process	regulation of developmental growth	3	3	1.0
+GO:0048640	biological_process	negative regulation of developmental growth	3	3	1.0
+GO:0055021	biological_process	regulation of cardiac muscle tissue growth	3	3	1.0
+GO:0055022	biological_process	negative regulation of cardiac muscle tissue growth	3	3	1.0
+GO:0045843	biological_process	negative regulation of striated muscle tissue development	3	3	1.0
+GO:0030540	biological_process	female genitalia development	3	3	1.0
+GO:0070201	biological_process	regulation of establishment of protein localization	3	3	1.0
+GO:0055024	biological_process	regulation of cardiac muscle tissue development	3	3	1.0
+GO:0055026	biological_process	negative regulation of cardiac muscle tissue development	3	3	1.0
+GO:0042445	biological_process	hormone metabolic process	3	3	1.0
+GO:0046982	molecular_function	protein heterodimerization activity	3	3	1.0
+GO:0014706	biological_process	striated muscle tissue development	3	3	1.0
+GO:0005575	cellular_component	cellular_component	3	3	1.0
+GO:0060420	biological_process	regulation of heart growth	3	3	1.0
+GO:0023051	biological_process	regulation of signaling	3	3	1.0
+GO:0023056	biological_process	positive regulation of signaling	3	3	1.0
+GO:0003674	molecular_function	molecular_function	3	3	1.0
+GO:0050789	biological_process	regulation of biological process	3	3	1.0
+GO:0050793	biological_process	regulation of developmental process	3	3	1.0
+GO:0001101	biological_process	response to acid chemical	3	3	1.0
+GO:0050794	biological_process	regulation of cellular process	3	3	1.0
+GO:1901700	biological_process	response to oxygen-containing compound	3	3	1.0
+GO:0034308	biological_process	primary alcohol metabolic process	3	3	1.0
+GO:0005319	molecular_function	lipid transporter activity	3	3	1.0
+GO:0007600	biological_process	sensory perception	3	3	1.0
+GO:0007601	biological_process	visual perception	3	3	1.0
+GO:0048706	biological_process	embryonic skeletal system development	3	3	1.0
+GO:0044699	biological_process	single-organism process	3	3	1.0
+GO:0044702	biological_process	single organism reproductive process	3	3	1.0
+GO:0044707	biological_process	single-multicellular organism process	3	3	1.0
+GO:0044710	biological_process	single-organism metabolic process	3	3	1.0
+GO:0005975	biological_process	carbohydrate metabolic process	3	3	1.0
+GO:0044711	biological_process	single-organism biosynthetic process	3	3	1.0
+GO:0045926	biological_process	negative regulation of growth	3	3	1.0
+GO:0009058	biological_process	biosynthetic process	3	3	1.0
+GO:0010646	biological_process	regulation of cell communication	3	3	1.0
+GO:0010647	biological_process	positive regulation of cell communication	3	3	1.0
+GO:0001894	biological_process	tissue homeostasis	3	3	1.0
+GO:0040008	biological_process	regulation of growth	3	3	1.0
+GO:0048731	biological_process	system development	3	3	1.0
+GO:0044723	biological_process	single-organism carbohydrate metabolic process	3	3	1.0
+GO:0097305	biological_process	response to alcohol	3	3	1.0
+GO:0016051	biological_process	carbohydrate biosynthetic process	3	3	1.0
+GO:0048738	biological_process	cardiac muscle tissue development	3	3	1.0
+GO:0005996	biological_process	monosaccharide metabolic process	3	3	1.0
+GO:0010669	biological_process	epithelial structure maintenance	3	3	1.0
+GO:0006006	biological_process	glucose metabolic process	3	3	1.0
+GO:0003006	biological_process	developmental process involved in reproduction	3	3	1.0
+GO:0003008	biological_process	system process	3	3	1.0
+GO:0050896	biological_process	response to stimulus	3	3	1.0
+GO:0050796	biological_process	regulation of insulin secretion	3	3	1.0
+GO:0042572	biological_process	retinol metabolic process	3	3	1.0
+GO:0044237	biological_process	cellular metabolic process	3	3	1.0
+GO:0044238	biological_process	primary metabolic process	3	3	1.0
+GO:0044763	biological_process	single-organism cellular process	3	3	1.0
+GO:0044765	biological_process	single-organism transport	3	3	1.0
+GO:0060537	biological_process	muscle tissue development	3	3	1.0
+GO:0044767	biological_process	single-organism developmental process	3	3	1.0
+GO:0016101	biological_process	diterpenoid metabolic process	3	3	1.0
+GO:0042592	biological_process	homeostatic process	3	3	1.0
+GO:0042593	biological_process	glucose homeostasis	3	3	1.0
+GO:0044255	biological_process	cellular lipid metabolic process	3	3	1.0
+GO:0005488	molecular_function	binding	3	3	1.0
+GO:0060043	biological_process	regulation of cardiac muscle cell proliferation	3	3	1.0
+GO:0060044	biological_process	negative regulation of cardiac muscle cell proliferation	3	3	1.0
+GO:0005501	molecular_function	retinoid binding	3	3	1.0
+GO:0045471	biological_process	response to ethanol	3	3	1.0
+GO:0043178	molecular_function	alcohol binding	3	3	1.0
+GO:0048806	biological_process	genitalia development	3	3	1.0
+GO:0048807	biological_process	female genitalia morphogenesis	3	3	1.0
+GO:0006066	biological_process	alcohol metabolic process	3	3	1.0
+GO:0032879	biological_process	regulation of localization	3	3	1.0
+GO:0032880	biological_process	regulation of protein localization	3	3	1.0
+GO:0060059	biological_process	embryonic retina morphogenesis in camera-type eye	3	3	1.0
+GO:0044281	biological_process	small molecule metabolic process	3	3	1.0
+GO:0060065	biological_process	uterus development	3	3	1.0
+GO:0044283	biological_process	small molecule biosynthetic process	3	3	1.0
+GO:0050953	biological_process	sensory perception of light stimulus	3	3	1.0
+GO:0060068	biological_process	vagina development	3	3	1.0
+GO:0019840	molecular_function	isoprenoid binding	3	3	1.0
+GO:0006629	biological_process	lipid metabolic process	3	3	1.0
+GO:0019841	molecular_function	retinol binding	3	3	1.0
+GO:0019842	molecular_function	vitamin binding	3	3	1.0
+GO:0008289	molecular_function	lipid binding	3	3	1.0
+GO:0061117	biological_process	negative regulation of heart growth	3	3	1.0
+GO:0006094	biological_process	gluconeogenesis	3	3	1.0
+GO:0043226	cellular_component	organelle	3	3	1.0
+GO:0043227	cellular_component	membrane-bounded organelle	3	3	1.0
+GO:0043230	cellular_component	extracellular organelle	3	3	1.0
+GO:0048856	biological_process	anatomical structure development	3	3	1.0
+GO:1901861	biological_process	regulation of muscle tissue development	3	3	1.0
+GO:0043234	cellular_component	protein complex	3	3	1.0
+GO:0019318	biological_process	hexose metabolic process	3	3	1.0
+GO:1901862	biological_process	negative regulation of muscle tissue development	3	3	1.0
+GO:0019319	biological_process	hexose biosynthetic process	3	3	1.0

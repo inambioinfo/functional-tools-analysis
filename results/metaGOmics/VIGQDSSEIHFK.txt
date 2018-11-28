@@ -1,0 +1,331 @@
+# MetaGOmics GO report
+# MetaGOmics version: 0.1.1
+# Run date: Wed Nov 28 13:50:17 PST 2018
+GO acc	GO aspect	GO name	count	total count	ratio
+GO:0018193	biological_process	peptidyl-amino acid modification	5	5	1.0
+GO:0031329	biological_process	regulation of cellular catabolic process	5	5	1.0
+GO:0031331	biological_process	positive regulation of cellular catabolic process	5	5	1.0
+GO:0031334	biological_process	positive regulation of protein complex assembly	5	5	1.0
+GO:0005102	molecular_function	receptor binding	5	5	1.0
+GO:1901360	biological_process	organic cyclic compound metabolic process	5	5	1.0
+GO:0008134	molecular_function	transcription factor binding	5	5	1.0
+GO:0018205	biological_process	peptidyl-lysine modification	5	5	1.0
+GO:1901363	molecular_function	heterocyclic compound binding	5	5	1.0
+GO:0043254	biological_process	regulation of protein complex assembly	5	5	1.0
+GO:0032409	biological_process	regulation of transporter activity	5	5	1.0
+GO:0032410	biological_process	negative regulation of transporter activity	5	5	1.0
+GO:0098772	molecular_function	molecular function regulator	5	5	1.0
+GO:0032411	biological_process	positive regulation of transporter activity	5	5	1.0
+GO:0032412	biological_process	regulation of ion transmembrane transporter activity	5	5	1.0
+GO:0032413	biological_process	negative regulation of ion transmembrane transporter activity	5	5	1.0
+GO:0031347	biological_process	regulation of defense response	5	5	1.0
+GO:0032414	biological_process	positive regulation of ion transmembrane transporter activity	5	5	1.0
+GO:0043266	biological_process	regulation of potassium ion transport	5	5	1.0
+GO:0006139	biological_process	nucleobase-containing compound metabolic process	5	5	1.0
+GO:0043269	biological_process	regulation of ion transport	5	5	1.0
+GO:0008150	biological_process	biological_process	5	5	1.0
+GO:1901894	biological_process	regulation of calcium-transporting ATPase activity	5	5	1.0
+GO:0043270	biological_process	positive regulation of ion transport	5	5	1.0
+GO:0097458	cellular_component	neuron part	5	5	1.0
+GO:1901379	biological_process	regulation of potassium ion transmembrane transport	5	5	1.0
+GO:0043271	biological_process	negative regulation of ion transport	5	5	1.0
+GO:1901380	biological_process	negative regulation of potassium ion transmembrane transport	5	5	1.0
+GO:1901896	biological_process	positive regulation of calcium-transporting ATPase activity	5	5	1.0
+GO:0034504	biological_process	protein localization to nucleus	5	5	1.0
+GO:0000726	biological_process	non-recombinational repair	5	5	1.0
+GO:0032970	biological_process	regulation of actin filament-based process	5	5	1.0
+GO:0032434	biological_process	regulation of proteasomal ubiquitin-dependent protein catabolic process	5	5	1.0
+GO:0098796	cellular_component	membrane protein complex	5	5	1.0
+GO:0098797	cellular_component	plasma membrane protein complex	5	5	1.0
+GO:0032436	biological_process	positive regulation of proteasomal ubiquitin-dependent protein catabolic process	5	5	1.0
+GO:0051049	biological_process	regulation of transport	5	5	1.0
+GO:0051050	biological_process	positive regulation of transport	5	5	1.0
+GO:0051051	biological_process	negative regulation of transport	5	5	1.0
+GO:0016247	molecular_function	channel regulator activity	5	5	1.0
+GO:0032446	biological_process	protein modification by small protein conjugation	5	5	1.0
+GO:0042176	biological_process	regulation of protein catabolic process	5	5	1.0
+GO:0032991	cellular_component	macromolecular complex	5	5	1.0
+GO:0044388	molecular_function	small protein activating enzyme binding	5	5	1.0
+GO:0009266	biological_process	response to temperature stimulus	5	5	1.0
+GO:0051641	biological_process	cellular localization	5	5	1.0
+GO:0044389	molecular_function	ubiquitin-like protein ligase binding	5	5	1.0
+GO:0006725	biological_process	cellular aromatic compound metabolic process	5	5	1.0
+GO:0008152	biological_process	metabolic process	5	5	1.0
+GO:0005634	cellular_component	nucleus	5	5	1.0
+GO:1903506	biological_process	regulation of nucleic acid-templated transcription	5	5	1.0
+GO:0005643	cellular_component	nuclear pore	5	5	1.0
+GO:1903507	biological_process	negative regulation of nucleic acid-templated transcription	5	5	1.0
+GO:0051090	biological_process	regulation of sequence-specific DNA binding transcription factor activity	5	5	1.0
+GO:0005737	cellular_component	cytoplasm	5	5	1.0
+GO:0005886	cellular_component	plasma membrane	5	5	1.0
+GO:0051098	biological_process	regulation of binding	5	5	1.0
+GO:0005654	cellular_component	nucleoplasm	5	5	1.0
+GO:0051100	biological_process	negative regulation of binding	5	5	1.0
+GO:0051101	biological_process	regulation of DNA binding	5	5	1.0
+GO:0044419	biological_process	interspecies interaction between organisms	5	5	1.0
+GO:0044422	cellular_component	organelle part	5	5	1.0
+GO:1903522	biological_process	regulation of blood circulation	5	5	1.0
+GO:0044424	cellular_component	intracellular part	5	5	1.0
+GO:0044425	cellular_component	membrane part	5	5	1.0
+GO:1902494	cellular_component	catalytic complex	5	5	1.0
+GO:0044427	cellular_component	chromosomal part	5	5	1.0
+GO:0044428	cellular_component	nuclear part	5	5	1.0
+GO:1902495	cellular_component	transmembrane transporter complex	5	5	1.0
+GO:0000785	cellular_component	chromatin	5	5	1.0
+GO:0065007	biological_process	biological regulation	5	5	1.0
+GO:0065008	biological_process	regulation of biological quality	5	5	1.0
+GO:0042221	biological_process	response to chemical	5	5	1.0
+GO:1904062	biological_process	regulation of cation transmembrane transport	5	5	1.0
+GO:0065009	biological_process	regulation of molecular function	5	5	1.0
+GO:1904063	biological_process	negative regulation of cation transmembrane transport	5	5	1.0
+GO:1904064	biological_process	positive regulation of cation transmembrane transport	5	5	1.0
+GO:0031965	cellular_component	nuclear membrane	5	5	1.0
+GO:0033036	biological_process	macromolecule localization	5	5	1.0
+GO:0000792	cellular_component	heterochromatin	5	5	1.0
+GO:0016925	biological_process	protein sumoylation	5	5	1.0
+GO:0045088	biological_process	regulation of innate immune response	5	5	1.0
+GO:0032502	biological_process	developmental process	5	5	1.0
+GO:0044444	cellular_component	cytoplasmic part	5	5	1.0
+GO:0051128	biological_process	regulation of cellular component organization	5	5	1.0
+GO:0044446	cellular_component	intracellular organelle part	5	5	1.0
+GO:0051130	biological_process	positive regulation of cellular component organization	5	5	1.0
+GO:0000803	cellular_component	sex chromosome	5	5	1.0
+GO:0044451	cellular_component	nucleoplasm part	5	5	1.0
+GO:0044452	cellular_component	nucleolar part	5	5	1.0
+GO:0098900	biological_process	regulation of action potential	5	5	1.0
+GO:0072657	biological_process	protein localization to membrane	5	5	1.0
+GO:0005694	cellular_component	chromosome	5	5	1.0
+GO:0043392	biological_process	negative regulation of DNA binding	5	5	1.0
+GO:0044459	cellular_component	plasma membrane part	5	5	1.0
+GO:0051704	biological_process	multi-organism process	5	5	1.0
+GO:0034605	biological_process	cellular response to heat	5	5	1.0
+GO:0044464	cellular_component	cell part	5	5	1.0
+GO:0002682	biological_process	regulation of immune system process	5	5	1.0
+GO:1903050	biological_process	regulation of proteolysis involved in cellular protein catabolic process	5	5	1.0
+GO:0051716	biological_process	cellular response to stimulus	5	5	1.0
+GO:1903052	biological_process	positive regulation of proteolysis involved in cellular protein catabolic process	5	5	1.0
+GO:0060759	biological_process	regulation of response to cytokine stimulus	5	5	1.0
+GO:0034613	biological_process	cellular protein localization	5	5	1.0
+GO:0090204	biological_process	protein localization to nuclear pore	5	5	1.0
+GO:0006807	biological_process	nitrogen compound metabolic process	5	5	1.0
+GO:0001650	cellular_component	fibrillar center	5	5	1.0
+GO:0043412	biological_process	macromolecule modification	5	5	1.0
+GO:0008104	biological_process	protein localization	5	5	1.0
+GO:0060255	biological_process	regulation of macromolecule metabolic process	5	5	1.0
+GO:0009889	biological_process	regulation of biosynthetic process	5	5	1.0
+GO:0009890	biological_process	negative regulation of biosynthetic process	5	5	1.0
+GO:0009892	biological_process	negative regulation of metabolic process	5	5	1.0
+GO:0009893	biological_process	positive regulation of metabolic process	5	5	1.0
+GO:0006259	biological_process	DNA metabolic process	5	5	1.0
+GO:0009894	biological_process	regulation of catabolic process	5	5	1.0
+GO:0051171	biological_process	regulation of nitrogen compound metabolic process	5	5	1.0
+GO:0005730	cellular_component	nucleolus	5	5	1.0
+GO:0051172	biological_process	negative regulation of nitrogen compound metabolic process	5	5	1.0
+GO:0009896	biological_process	positive regulation of catabolic process	5	5	1.0
+GO:0000122	biological_process	negative regulation of transcription from RNA polymerase II promoter	5	5	1.0
+GO:0051179	biological_process	localization	5	5	1.0
+GO:0036211	biological_process	protein modification process	5	5	1.0
+GO:0034641	biological_process	cellular nitrogen compound metabolic process	5	5	1.0
+GO:0043433	biological_process	negative regulation of sequence-specific DNA binding transcription factor activity	5	5	1.0
+GO:0006281	biological_process	DNA repair	5	5	1.0
+GO:0044403	biological_process	symbiosis, encompassing mutualism through parasitism	5	5	1.0
+GO:0050821	biological_process	protein stabilization	5	5	1.0
+GO:0006289	biological_process	nucleotide-excision repair	5	5	1.0
+GO:1902578	biological_process	single-organism localization	5	5	1.0
+GO:0031510	cellular_component	SUMO activating enzyme complex	5	5	1.0
+GO:0010959	biological_process	regulation of metal ion transport	5	5	1.0
+GO:1902580	biological_process	single-organism cellular localization	5	5	1.0
+GO:1901016	biological_process	regulation of potassium ion transmembrane transporter activity	5	5	1.0
+GO:1901017	biological_process	negative regulation of potassium ion transmembrane transporter activity	5	5	1.0
+GO:1901019	biological_process	regulation of calcium ion transmembrane transporter activity	5	5	1.0
+GO:0080090	biological_process	regulation of primary metabolic process	5	5	1.0
+GO:1901021	biological_process	positive regulation of calcium ion transmembrane transporter activity	5	5	1.0
+GO:0043462	biological_process	regulation of ATPase activity	5	5	1.0
+GO:0006302	biological_process	double-strand break repair	5	5	1.0
+GO:0006303	biological_process	double-strand break repair via nonhomologous end joining	5	5	1.0
+GO:0090257	biological_process	regulation of muscle system process	5	5	1.0
+GO:0048518	biological_process	positive regulation of biological process	5	5	1.0
+GO:0048519	biological_process	negative regulation of biological process	5	5	1.0
+GO:1990351	cellular_component	transporter complex	5	5	1.0
+GO:0016032	biological_process	viral process	5	5	1.0
+GO:0048522	biological_process	positive regulation of cellular process	5	5	1.0
+GO:0048523	biological_process	negative regulation of cellular process	5	5	1.0
+GO:0009408	biological_process	response to heat	5	5	1.0
+GO:1903115	biological_process	regulation of actin filament-based movement	5	5	1.0
+GO:0045732	biological_process	positive regulation of protein catabolic process	5	5	1.0
+GO:0010468	biological_process	regulation of gene expression	5	5	1.0
+GO:0010038	biological_process	response to metal ion	5	5	1.0
+GO:0051239	biological_process	regulation of multicellular organismal process	5	5	1.0
+GO:0051246	biological_process	regulation of protein metabolic process	5	5	1.0
+GO:0019538	biological_process	protein metabolic process	5	5	1.0
+GO:0051247	biological_process	positive regulation of protein metabolic process	5	5	1.0
+GO:0043231	cellular_component	intracellular membrane-bounded organelle	5	5	1.0
+GO:0045202	cellular_component	synapse	5	5	1.0
+GO:0030425	cellular_component	dendrite	5	5	1.0
+GO:0051252	biological_process	regulation of RNA metabolic process	5	5	1.0
+GO:0051253	biological_process	negative regulation of RNA metabolic process	5	5	1.0
+GO:0009966	biological_process	regulation of signal transduction	5	5	1.0
+GO:0060330	biological_process	regulation of response to interferon-gamma	5	5	1.0
+GO:0034702	cellular_component	ion channel complex	5	5	1.0
+GO:0034703	cellular_component	cation channel complex	5	5	1.0
+GO:0045759	biological_process	negative regulation of action potential	5	5	1.0
+GO:0034705	cellular_component	potassium channel complex	5	5	1.0
+GO:0060334	biological_process	regulation of interferon-gamma-mediated signaling pathway	5	5	1.0
+GO:0070647	biological_process	protein modification by small protein conjugation or removal	5	5	1.0
+GO:0051270	biological_process	regulation of cellular component movement	5	5	1.0
+GO:1990904	cellular_component	ribonucleoprotein complex	5	5	1.0
+GO:0001741	cellular_component	XY body	5	5	1.0
+GO:0005829	cellular_component	cytosol	5	5	1.0
+GO:0006355	biological_process	regulation of transcription, DNA-templated	5	5	1.0
+GO:0080134	biological_process	regulation of response to stress	5	5	1.0
+GO:0006357	biological_process	regulation of transcription from RNA polymerase II promoter	5	5	1.0
+GO:0090304	biological_process	nucleic acid metabolic process	5	5	1.0
+GO:0005515	molecular_function	protein binding	5	5	1.0
+GO:0009987	biological_process	cellular process	5	5	1.0
+GO:0097159	molecular_function	organic cyclic compound binding	5	5	1.0
+GO:0035257	molecular_function	nuclear hormone receptor binding	5	5	1.0
+GO:0035770	cellular_component	ribonucleoprotein granule	5	5	1.0
+GO:0035258	molecular_function	steroid hormone receptor binding	5	5	1.0
+GO:0035259	molecular_function	glucocorticoid receptor binding	5	5	1.0
+GO:0071704	biological_process	organic substance metabolic process	5	5	1.0
+GO:0097165	cellular_component	nuclear stress granule	5	5	1.0
+GO:0048583	biological_process	regulation of response to stimulus	5	5	1.0
+GO:1903169	biological_process	regulation of calcium ion transmembrane transport	5	5	1.0
+GO:0044057	biological_process	regulation of system process	5	5	1.0
+GO:0006937	biological_process	regulation of muscle contraction	5	5	1.0
+GO:0022898	biological_process	regulation of transmembrane transporter activity	5	5	1.0
+GO:0006942	biological_process	regulation of striated muscle contraction	5	5	1.0
+GO:0019899	molecular_function	enzyme binding	5	5	1.0
+GO:0006950	biological_process	response to stress	5	5	1.0
+GO:0034762	biological_process	regulation of transmembrane transport	5	5	1.0
+GO:1902679	biological_process	negative regulation of RNA biosynthetic process	5	5	1.0
+GO:0034763	biological_process	negative regulation of transmembrane transport	5	5	1.0
+GO:0034764	biological_process	positive regulation of transmembrane transport	5	5	1.0
+GO:0034765	biological_process	regulation of ion transmembrane transport	5	5	1.0
+GO:0034766	biological_process	negative regulation of ion transmembrane transport	5	5	1.0
+GO:0044087	biological_process	regulation of cellular component biogenesis	5	5	1.0
+GO:0034767	biological_process	positive regulation of ion transmembrane transport	5	5	1.0
+GO:0044089	biological_process	positive regulation of cellular component biogenesis	5	5	1.0
+GO:0010035	biological_process	response to inorganic substance	5	5	1.0
+GO:0051336	biological_process	regulation of hydrolase activity	5	5	1.0
+GO:0045892	biological_process	negative regulation of transcription, DNA-templated	5	5	1.0
+GO:0010556	biological_process	regulation of macromolecule biosynthetic process	5	5	1.0
+GO:0044092	biological_process	negative regulation of molecular function	5	5	1.0
+GO:0006974	biological_process	cellular response to DNA damage stimulus	5	5	1.0
+GO:0044093	biological_process	positive regulation of molecular function	5	5	1.0
+GO:0010558	biological_process	negative regulation of macromolecule biosynthetic process	5	5	1.0
+GO:0031625	molecular_function	ubiquitin protein ligase binding	5	5	1.0
+GO:0051345	biological_process	positive regulation of hydrolase activity	5	5	1.0
+GO:0042995	cellular_component	cell projection	5	5	1.0
+GO:0071241	biological_process	cellular response to inorganic substance	5	5	1.0
+GO:0031090	cellular_component	organelle membrane	5	5	1.0
+GO:0070727	biological_process	cellular macromolecule localization	5	5	1.0
+GO:0071248	biological_process	cellular response to metal ion	5	5	1.0
+GO:0006996	biological_process	organelle organization	5	5	1.0
+GO:0033554	biological_process	cellular response to stress	5	5	1.0
+GO:0006997	biological_process	nucleus organization	5	5	1.0
+GO:0005575	cellular_component	cellular_component	5	5	1.0
+GO:0031647	biological_process	regulation of protein stability	5	5	1.0
+GO:0045862	biological_process	positive regulation of proteolysis	5	5	1.0
+GO:0070887	biological_process	cellular response to chemical stimulus	5	5	1.0
+GO:0006464	biological_process	cellular protein modification process	5	5	1.0
+GO:0016604	cellular_component	nuclear body	5	5	1.0
+GO:0016605	cellular_component	PML body	5	5	1.0
+GO:0023051	biological_process	regulation of signaling	5	5	1.0
+GO:0016607	cellular_component	nuclear speck	5	5	1.0
+GO:0051924	biological_process	regulation of calcium ion transport	5	5	1.0
+GO:0050776	biological_process	regulation of immune response	5	5	1.0
+GO:0051928	biological_process	positive regulation of calcium ion transport	5	5	1.0
+GO:0030575	biological_process	nuclear body organization	5	5	1.0
+GO:0003674	molecular_function	molecular_function	5	5	1.0
+GO:0003676	molecular_function	nucleic acid binding	5	5	1.0
+GO:0030578	biological_process	PML body organization	5	5	1.0
+GO:0071276	biological_process	cellular response to cadmium ion	5	5	1.0
+GO:0010604	biological_process	positive regulation of macromolecule metabolic process	5	5	1.0
+GO:0086004	biological_process	regulation of cardiac muscle cell contraction	5	5	1.0
+GO:0010605	biological_process	negative regulation of macromolecule metabolic process	5	5	1.0
+GO:0050789	biological_process	regulation of biological process	5	5	1.0
+GO:0050790	biological_process	regulation of catalytic activity	5	5	1.0
+GO:2001141	biological_process	regulation of RNA biosynthetic process	5	5	1.0
+GO:0050794	biological_process	regulation of cellular process	5	5	1.0
+GO:2000112	biological_process	regulation of cellular macromolecule biosynthetic process	5	5	1.0
+GO:2000113	biological_process	negative regulation of cellular macromolecule biosynthetic process	5	5	1.0
+GO:0010629	biological_process	negative regulation of gene expression	5	5	1.0
+GO:0044699	biological_process	single-organism process	5	5	1.0
+GO:0090435	biological_process	protein localization to nuclear envelope	5	5	1.0
+GO:0015459	molecular_function	potassium channel regulator activity	5	5	1.0
+GO:1903817	biological_process	negative regulation of voltage-gated potassium channel activity	5	5	1.0
+GO:0051427	molecular_function	hormone receptor binding	5	5	1.0
+GO:0044710	biological_process	single-organism metabolic process	5	5	1.0
+GO:0043085	biological_process	positive regulation of catalytic activity	5	5	1.0
+GO:0043005	cellular_component	neuron projection	5	5	1.0
+GO:0010646	biological_process	regulation of cell communication	5	5	1.0
+GO:0071840	biological_process	cellular component organization or biogenesis	5	5	1.0
+GO:0032781	biological_process	positive regulation of ATPase activity	5	5	1.0
+GO:0045934	biological_process	negative regulation of nucleobase-containing compound metabolic process	5	5	1.0
+GO:1902259	biological_process	regulation of delayed rectifier potassium channel activity	5	5	1.0
+GO:1902260	biological_process	negative regulation of delayed rectifier potassium channel activity	5	5	1.0
+GO:0016043	biological_process	cellular component organization	5	5	1.0
+GO:0003723	molecular_function	RNA binding	5	5	1.0
+GO:0055117	biological_process	regulation of cardiac muscle contraction	5	5	1.0
+GO:0061136	biological_process	regulation of proteasomal protein catabolic process	5	5	1.0
+GO:0061024	biological_process	membrane organization	5	5	1.0
+GO:0030529	cellular_component	intracellular ribonucleoprotein complex	5	5	1.0
+GO:0032268	biological_process	regulation of cellular protein metabolic process	5	5	1.0
+GO:0032270	biological_process	positive regulation of cellular protein metabolic process	5	5	1.0
+GO:0043267	biological_process	negative regulation of potassium ion transport	5	5	1.0
+GO:0008016	biological_process	regulation of heart contraction	5	5	1.0
+GO:0046483	biological_process	heterocycle metabolic process	5	5	1.0
+GO:0009628	biological_process	response to abiotic stimulus	5	5	1.0
+GO:0050896	biological_process	response to stimulus	5	5	1.0
+GO:0008022	molecular_function	protein C-terminus binding	5	5	1.0
+GO:0019219	biological_process	regulation of nucleobase-containing compound metabolic process	5	5	1.0
+GO:0019222	biological_process	regulation of metabolic process	5	5	1.0
+GO:0044237	biological_process	cellular metabolic process	5	5	1.0
+GO:0044763	biological_process	single-organism cellular process	5	5	1.0
+GO:0060021	biological_process	palate development	5	5	1.0
+GO:0044238	biological_process	primary metabolic process	5	5	1.0
+GO:0044764	biological_process	multi-organism cellular process	5	5	1.0
+GO:0030674	molecular_function	protein binding, bridging	5	5	1.0
+GO:0019787	molecular_function	ubiquitin-like protein transferase activity	5	5	1.0
+GO:0033365	biological_process	protein localization to organelle	5	5	1.0
+GO:0019789	molecular_function	SUMO transferase activity	5	5	1.0
+GO:0001959	biological_process	regulation of cytokine-mediated signaling pathway	5	5	1.0
+GO:1903362	biological_process	regulation of cellular protein catabolic process	5	5	1.0
+GO:0016740	molecular_function	transferase activity	5	5	1.0
+GO:0005488	molecular_function	binding	5	5	1.0
+GO:1901800	biological_process	positive regulation of proteasomal protein catabolic process	5	5	1.0
+GO:1903364	biological_process	positive regulation of cellular protein catabolic process	5	5	1.0
+GO:0044260	biological_process	cellular macromolecule metabolic process	5	5	1.0
+GO:0043170	biological_process	macromolecule metabolic process	5	5	1.0
+GO:0016020	cellular_component	membrane	5	5	1.0
+GO:0044267	biological_process	cellular protein metabolic process	5	5	1.0
+GO:2001257	biological_process	regulation of cation channel activity	5	5	1.0
+GO:2001258	biological_process	negative regulation of cation channel activity	5	5	1.0
+GO:0044802	biological_process	single-organism membrane organization	5	5	1.0
+GO:0032879	biological_process	regulation of localization	5	5	1.0
+GO:0032880	biological_process	regulation of protein localization	5	5	1.0
+GO:0001221	molecular_function	transcription cofactor binding	5	5	1.0
+GO:0001222	molecular_function	transcription corepressor binding	5	5	1.0
+GO:1904427	biological_process	positive regulation of calcium ion transmembrane transport	5	5	1.0
+GO:0016765	molecular_function	transferase activity, transferring alkyl or aryl (other than methyl) groups	5	5	1.0
+GO:0008076	cellular_component	voltage-gated potassium channel complex	5	5	1.0
+GO:0046686	biological_process	response to cadmium ion	5	5	1.0
+GO:0030162	biological_process	regulation of proteolysis	5	5	1.0
+GO:0070911	biological_process	global genome nucleotide-excision repair	5	5	1.0
+GO:0060090	molecular_function	binding, bridging	5	5	1.0
+GO:0004364	molecular_function	glutathione transferase activity	5	5	1.0
+GO:0003824	molecular_function	catalytic activity	5	5	1.0
+GO:0031386	molecular_function	protein tag	5	5	1.0
+GO:0043226	cellular_component	organelle	5	5	1.0
+GO:0043227	cellular_component	membrane-bounded organelle	5	5	1.0
+GO:0043228	cellular_component	non-membrane-bounded organelle	5	5	1.0
+GO:0043229	cellular_component	intracellular organelle	5	5	1.0
+GO:0043232	cellular_component	intracellular non-membrane-bounded organelle	5	5	1.0
+GO:0048856	biological_process	anatomical structure development	5	5	1.0
+GO:0031323	biological_process	regulation of cellular metabolic process	5	5	1.0
+GO:0043234	cellular_component	protein complex	5	5	1.0
+GO:0031324	biological_process	negative regulation of cellular metabolic process	5	5	1.0
+GO:0031325	biological_process	positive regulation of cellular metabolic process	5	5	1.0
+GO:0031326	biological_process	regulation of cellular biosynthetic process	5	5	1.0
+GO:0031327	biological_process	negative regulation of cellular biosynthetic process	5	5	1.0

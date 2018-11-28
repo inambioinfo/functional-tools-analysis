@@ -1,0 +1,107 @@
+# MetaGOmics GO report
+# MetaGOmics version: 0.1.1
+# Run date: Wed Nov 28 14:06:28 PST 2018
+GO acc	GO aspect	GO name	count	total count	ratio
+GO:0006399	biological_process	tRNA metabolic process	1	1	1.0
+GO:1901360	biological_process	organic cyclic compound metabolic process	1	1	1.0
+GO:1901363	molecular_function	heterocyclic compound binding	1	1	1.0
+GO:0006412	biological_process	translation	1	1	1.0
+GO:0006418	biological_process	tRNA aminoacylation for protein translation	1	1	1.0
+GO:0006139	biological_process	nucleobase-containing compound metabolic process	1	1	1.0
+GO:0008150	biological_process	biological_process	1	1	1.0
+GO:0046983	molecular_function	protein dimerization activity	1	1	1.0
+GO:0006427	biological_process	histidyl-tRNA aminoacylation	1	1	1.0
+GO:0036094	molecular_function	small molecule binding	1	1	1.0
+GO:0006996	biological_process	organelle organization	1	1	1.0
+GO:0005575	cellular_component	cellular_component	1	1	1.0
+GO:0030554	molecular_function	adenyl nucleotide binding	1	1	1.0
+GO:0016874	molecular_function	ligase activity	1	1	1.0
+GO:0016875	molecular_function	ligase activity, forming carbon-oxygen bonds	1	1	1.0
+GO:0016876	molecular_function	ligase activity, forming aminoacyl-tRNA and related compounds	1	1	1.0
+GO:0007005	biological_process	mitochondrion organization	1	1	1.0
+GO:0006725	biological_process	cellular aromatic compound metabolic process	1	1	1.0
+GO:0008152	biological_process	metabolic process	1	1	1.0
+GO:0043603	biological_process	cellular amide metabolic process	1	1	1.0
+GO:0043604	biological_process	amide biosynthetic process	1	1	1.0
+GO:0003674	molecular_function	molecular_function	1	1	1.0
+GO:0005737	cellular_component	cytoplasm	1	1	1.0
+GO:0043038	biological_process	amino acid activation	1	1	1.0
+GO:0003676	molecular_function	nucleic acid binding	1	1	1.0
+GO:0043039	biological_process	tRNA aminoacylation	1	1	1.0
+GO:0043043	biological_process	peptide biosynthetic process	1	1	1.0
+GO:0044422	cellular_component	organelle part	1	1	1.0
+GO:0044424	cellular_component	intracellular part	1	1	1.0
+GO:0044429	cellular_component	mitochondrial part	1	1	1.0
+GO:0044699	biological_process	single-organism process	1	1	1.0
+GO:0044444	cellular_component	cytoplasmic part	1	1	1.0
+GO:0044446	cellular_component	intracellular organelle part	1	1	1.0
+GO:0031974	cellular_component	membrane-enclosed lumen	1	1	1.0
+GO:0001882	molecular_function	nucleoside binding	1	1	1.0
+GO:0070013	cellular_component	intracellular organelle lumen	1	1	1.0
+GO:0035639	molecular_function	purine ribonucleoside triphosphate binding	1	1	1.0
+GO:0001883	molecular_function	purine nucleoside binding	1	1	1.0
+GO:0044710	biological_process	single-organism metabolic process	1	1	1.0
+GO:0044711	biological_process	single-organism biosynthetic process	1	1	1.0
+GO:0009058	biological_process	biosynthetic process	1	1	1.0
+GO:0042803	molecular_function	protein homodimerization activity	1	1	1.0
+GO:0009059	biological_process	macromolecule biosynthetic process	1	1	1.0
+GO:0006518	biological_process	peptide metabolic process	1	1	1.0
+GO:0006520	biological_process	cellular amino acid metabolic process	1	1	1.0
+GO:0071840	biological_process	cellular component organization or biogenesis	1	1	1.0
+GO:0016043	biological_process	cellular component organization	1	1	1.0
+GO:0044464	cellular_component	cell part	1	1	1.0
+GO:0003723	molecular_function	RNA binding	1	1	1.0
+GO:0005739	cellular_component	mitochondrion	1	1	1.0
+GO:0006807	biological_process	nitrogen compound metabolic process	1	1	1.0
+GO:0004812	molecular_function	aminoacyl-tRNA ligase activity	1	1	1.0
+GO:0019752	biological_process	carboxylic acid metabolic process	1	1	1.0
+GO:0004821	molecular_function	histidine-tRNA ligase activity	1	1	1.0
+GO:0032543	biological_process	mitochondrial translation	1	1	1.0
+GO:0016070	biological_process	RNA metabolic process	1	1	1.0
+GO:0046483	biological_process	heterocycle metabolic process	1	1	1.0
+GO:0032549	molecular_function	ribonucleoside binding	1	1	1.0
+GO:0032550	molecular_function	purine ribonucleoside binding	1	1	1.0
+GO:0032553	molecular_function	ribonucleotide binding	1	1	1.0
+GO:0032555	molecular_function	purine ribonucleotide binding	1	1	1.0
+GO:0034641	biological_process	cellular nitrogen compound metabolic process	1	1	1.0
+GO:0032559	molecular_function	adenyl ribonucleotide binding	1	1	1.0
+GO:0043436	biological_process	oxoacid metabolic process	1	1	1.0
+GO:0034645	biological_process	cellular macromolecule biosynthetic process	1	1	1.0
+GO:0044237	biological_process	cellular metabolic process	1	1	1.0
+GO:0044238	biological_process	primary metabolic process	1	1	1.0
+GO:0044763	biological_process	single-organism cellular process	1	1	1.0
+GO:1901265	molecular_function	nucleoside phosphate binding	1	1	1.0
+GO:0005759	cellular_component	mitochondrial matrix	1	1	1.0
+GO:0044249	biological_process	cellular biosynthetic process	1	1	1.0
+GO:0034660	biological_process	ncRNA metabolic process	1	1	1.0
+GO:0005488	molecular_function	binding	1	1	1.0
+GO:1902589	biological_process	single-organism organelle organization	1	1	1.0
+GO:0043167	molecular_function	ion binding	1	1	1.0
+GO:0044260	biological_process	cellular macromolecule metabolic process	1	1	1.0
+GO:0043168	molecular_function	anion binding	1	1	1.0
+GO:0000166	molecular_function	nucleotide binding	1	1	1.0
+GO:0043170	biological_process	macromolecule metabolic process	1	1	1.0
+GO:0097367	molecular_function	carbohydrate derivative binding	1	1	1.0
+GO:0044267	biological_process	cellular protein metabolic process	1	1	1.0
+GO:0044271	biological_process	cellular nitrogen compound biosynthetic process	1	1	1.0
+GO:0019538	biological_process	protein metabolic process	1	1	1.0
+GO:0043231	cellular_component	intracellular membrane-bounded organelle	1	1	1.0
+GO:1901564	biological_process	organonitrogen compound metabolic process	1	1	1.0
+GO:0044281	biological_process	small molecule metabolic process	1	1	1.0
+GO:1901566	biological_process	organonitrogen compound biosynthetic process	1	1	1.0
+GO:0005524	molecular_function	ATP binding	1	1	1.0
+GO:0017076	molecular_function	purine nucleotide binding	1	1	1.0
+GO:0006082	biological_process	organic acid metabolic process	1	1	1.0
+GO:1901576	biological_process	organic substance biosynthetic process	1	1	1.0
+GO:0005829	cellular_component	cytosol	1	1	1.0
+GO:0090304	biological_process	nucleic acid metabolic process	1	1	1.0
+GO:0042802	molecular_function	identical protein binding	1	1	1.0
+GO:0005515	molecular_function	protein binding	1	1	1.0
+GO:0009987	biological_process	cellular process	1	1	1.0
+GO:0003824	molecular_function	catalytic activity	1	1	1.0
+GO:0097159	molecular_function	organic cyclic compound binding	1	1	1.0
+GO:0043226	cellular_component	organelle	1	1	1.0
+GO:0043227	cellular_component	membrane-bounded organelle	1	1	1.0
+GO:0043229	cellular_component	intracellular organelle	1	1	1.0
+GO:0071704	biological_process	organic substance metabolic process	1	1	1.0
+GO:0043233	cellular_component	organelle lumen	1	1	1.0

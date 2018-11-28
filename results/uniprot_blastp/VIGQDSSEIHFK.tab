@@ -1,0 +1,51 @@
+Entry	Status	Gene ontology IDs	Organism ID	Protein names
+A0A146XTU4	unreviewed	GO:0016925	8078	Small ubiquitin-related modifier 1
+A0A337SP28	unreviewed		9685	Uncharacterized protein
+A0A147APG9	unreviewed	GO:0016925	8078	Small ubiquitin-related modifier 1
+A0A337SJE0	unreviewed		9685	Uncharacterized protein
+A0A0A0MXR0	unreviewed	GO:0016925	9601	Uncharacterized protein
+A0A0P6JEP9	unreviewed	GO:0016925	10181	Small ubiquitin-related modifier 1 isoform b
+A0A1U7RRL4	unreviewed	GO:0016925	38654	small ubiquitin-related modifier 1 isoform X1
+A0A1L8EWZ5	unreviewed	GO:0016925	8355	Uncharacterized protein
+A0A1D5RJ75	unreviewed	GO:0005634; GO:0016925; GO:0031386	9544	Uncharacterized protein
+V8NV39	unreviewed	GO:0016925	8665	Small ubiquitin-related modifier 1 (Fragment)
+A0A2K6DP74	unreviewed	GO:0016925	9545	Uncharacterized protein
+A0A2K5US11	unreviewed	GO:0016925	9541	Uncharacterized protein
+A0A2I2Z460	unreviewed	GO:0001741; GO:0006355; GO:0008134; GO:0016604; GO:0016925; GO:0030578; GO:0031647; GO:0060021; GO:0086004; GO:0090204; GO:1901896	9595	Uncharacterized protein
+A0A2R9BUH9	unreviewed	GO:0001741; GO:0006355; GO:0008134; GO:0016604; GO:0016925; GO:0030578; GO:0031647; GO:0060021; GO:0086004; GO:0090204; GO:1901896	9597	Uncharacterized protein
+A0A2I3MZR0	unreviewed	GO:0001222; GO:0005730; GO:0008022; GO:0008076; GO:0015459; GO:0016605; GO:0016925; GO:0030674; GO:0031334; GO:0031510; GO:0031625; GO:0031965; GO:0032436; GO:0034605; GO:0035259; GO:0043392; GO:0043433; GO:0044388; GO:0045759; GO:0045892; GO:0050821; GO:0071276; GO:0097165; GO:1902260	9555	Uncharacterized protein
+A0A2K5MG55	unreviewed	GO:0016925	9531	Uncharacterized protein
+A0A2J8WUW7	unreviewed	GO:0016925	9601	SUMO1 isoform 3
+A0A1D5QTK4	unreviewed	GO:0016925	9544	Uncharacterized protein
+A0A2I3TI94	unreviewed	GO:0016925	9598	SUMO1 isoform 3
+B8ZZN6	unreviewed	GO:0005634; GO:0005730; GO:0016604; GO:0016925; GO:0031965	9606	Small ubiquitin-related modifier 1
+L8I0Y3	unreviewed	GO:0016925	72004	Small ubiquitin-related modifier 1
+A0A2K6Q380	unreviewed	GO:0016925	61622	Uncharacterized protein
+G7PL76	unreviewed	GO:0016925	9541	Uncharacterized protein (Fragment)
+H2N550	unreviewed	GO:0016925	9601	Uncharacterized protein
+G7N8P0	unreviewed	GO:0016925	9544	Uncharacterized protein (Fragment)
+A0A1L8EPQ0	unreviewed	GO:0016925	8355	Uncharacterized protein (Fragment)
+S7MEF8	unreviewed	GO:0016925	109478	Small ubiquitin-related modifier 1
+R0LC89	unreviewed	GO:0016021; GO:0016925	8839	Small ubiquitin-related modifier 1 (Fragment)
+A0A1U7RGP6	unreviewed	GO:0016925	38654	small ubiquitin-related modifier 1 isoform X2
+A0A384BUD5	unreviewed		29073	small ubiquitin-related modifier 1
+U3JN76	unreviewed	GO:0001222; GO:0005730; GO:0008022; GO:0008076; GO:0015459; GO:0016605; GO:0016925; GO:0030578; GO:0030674; GO:0031334; GO:0031510; GO:0031625; GO:0031965; GO:0032436; GO:0034605; GO:0035259; GO:0043392; GO:0043433; GO:0044388; GO:0045759; GO:0045892; GO:0050821; GO:0060021; GO:0071276; GO:0086004; GO:0090204; GO:0097165; GO:1901896; GO:1902260	59894	Small ubiquitin-like modifier 1
+A0A0S7HX79	unreviewed	GO:0016925	188132	SUMO1 (Fragment)
+M3XMN1	unreviewed	GO:0001741; GO:0006355; GO:0008134; GO:0016604; GO:0016925; GO:0030578; GO:0031647; GO:0060021; GO:0086004; GO:0090204; GO:1901896	9669	Small ubiquitin-like modifier 1
+A0A2R8MNJ7	unreviewed	GO:0016925	9483	Uncharacterized protein
+A0A096LQU3	unreviewed	GO:0016925	48698	Uncharacterized protein
+A0A2K6M5A8	unreviewed	GO:0005634; GO:0016925	61621	Small ubiquitin-related modifier (SUMO)
+L5K0J1	unreviewed	GO:0005634; GO:0016925	9402	Small ubiquitin-related modifier (SUMO)
+A0A2P4T1E2	unreviewed	GO:0005634; GO:0016021; GO:0016925	9083	Small ubiquitin-related modifier (SUMO)
+A0A2K6M5A6	unreviewed	GO:0005634; GO:0016925	61621	Small ubiquitin-related modifier (SUMO)
+A0A2K6RJ67	unreviewed	GO:0005634; GO:0016925	61622	Small ubiquitin-related modifier (SUMO)
+A0A2K5TLA8	unreviewed	GO:0005634; GO:0016925	9541	Small ubiquitin-related modifier (SUMO)
+A0A2I0LQ99	unreviewed	GO:0005634; GO:0016925	8932	Small ubiquitin-related modifier (SUMO)
+A0A0F8CY73	unreviewed	GO:0005634; GO:0016925	215358	Small ubiquitin-related modifier (SUMO)
+A0A2Y9SQB1	unreviewed	GO:0005634; GO:0016925	9755	Small ubiquitin-related modifier (SUMO)
+A0A2K6AVD7	unreviewed	GO:0005634; GO:0016925	9545	Small ubiquitin-related modifier (SUMO)
+A0A287D8A4	unreviewed	GO:0005634; GO:0016925	43179	Small ubiquitin-related modifier (SUMO)
+A0A2J8N5D1	unreviewed	GO:0005634; GO:0016925	9598	Small ubiquitin-related modifier (SUMO)
+A0A226N9W6	unreviewed	GO:0005634; GO:0016925	9009	Small ubiquitin-related modifier (SUMO)
+A0A1U7UV41	unreviewed	GO:0005634; GO:0016925	1868482	Small ubiquitin-related modifier (SUMO)
+A0A2K6JLX1	unreviewed		61621	Uncharacterized protein

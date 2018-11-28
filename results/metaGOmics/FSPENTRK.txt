@@ -1,0 +1,133 @@
+# MetaGOmics GO report
+# MetaGOmics version: 0.1.1
+# Run date: Wed Nov 28 14:09:45 PST 2018
+GO acc	GO aspect	GO name	count	total count	ratio
+GO:0032941	biological_process	secretion by tissue	1	1	1.0
+GO:0019899	molecular_function	enzyme binding	1	1	1.0
+GO:0098772	molecular_function	molecular function regulator	1	1	1.0
+GO:0006950	biological_process	response to stress	1	1	1.0
+GO:0006954	biological_process	inflammatory response	1	1	1.0
+GO:0006955	biological_process	immune response	1	1	1.0
+GO:0008150	biological_process	biological_process	1	1	1.0
+GO:0051336	biological_process	regulation of hydrolase activity	1	1	1.0
+GO:0072562	cellular_component	blood microparticle	1	1	1.0
+GO:0044092	biological_process	negative regulation of molecular function	1	1	1.0
+GO:0030234	molecular_function	enzyme regulator activity	1	1	1.0
+GO:0051346	biological_process	negative regulation of hydrolase activity	1	1	1.0
+GO:0005615	cellular_component	extracellular space	1	1	1.0
+GO:0005575	cellular_component	cellular_component	1	1	1.0
+GO:0045861	biological_process	negative regulation of proteolysis	1	1	1.0
+GO:0006464	biological_process	cellular protein modification process	1	1	1.0
+GO:0008152	biological_process	metabolic process	1	1	1.0
+GO:1901681	molecular_function	sulfur compound binding	1	1	1.0
+GO:0003674	molecular_function	molecular_function	1	1	1.0
+GO:0031667	biological_process	response to nutrient levels	1	1	1.0
+GO:0005886	cellular_component	plasma membrane	1	1	1.0
+GO:0061135	molecular_function	endopeptidase regulator activity	1	1	1.0
+GO:0010605	biological_process	negative regulation of macromolecule metabolic process	1	1	1.0
+GO:0002376	biological_process	immune system process	1	1	1.0
+GO:0007584	biological_process	response to nutrient	1	1	1.0
+GO:0008201	molecular_function	heparin binding	1	1	1.0
+GO:0050789	biological_process	regulation of biological process	1	1	1.0
+GO:0007589	biological_process	body fluid secretion	1	1	1.0
+GO:0050790	biological_process	regulation of catalytic activity	1	1	1.0
+GO:0046903	biological_process	secretion	1	1	1.0
+GO:0050794	biological_process	regulation of cellular process	1	1	1.0
+GO:0044421	cellular_component	extracellular region part	1	1	1.0
+GO:0044422	cellular_component	organelle part	1	1	1.0
+GO:0044424	cellular_component	intracellular part	1	1	1.0
+GO:0007595	biological_process	lactation	1	1	1.0
+GO:0007599	biological_process	hemostasis	1	1	1.0
+GO:0065007	biological_process	biological regulation	1	1	1.0
+GO:0044432	cellular_component	endoplasmic reticulum part	1	1	1.0
+GO:0065008	biological_process	regulation of biological quality	1	1	1.0
+GO:0042221	biological_process	response to chemical	1	1	1.0
+GO:0065009	biological_process	regulation of molecular function	1	1	1.0
+GO:0065010	cellular_component	extracellular membrane-bounded organelle	1	1	1.0
+GO:0050817	biological_process	coagulation	1	1	1.0
+GO:0050818	biological_process	regulation of coagulation	1	1	1.0
+GO:0044699	biological_process	single-organism process	1	1	1.0
+GO:0032501	biological_process	multicellular organismal process	1	1	1.0
+GO:0044444	cellular_component	cytoplasmic part	1	1	1.0
+GO:0044446	cellular_component	intracellular organelle part	1	1	1.0
+GO:0031974	cellular_component	membrane-enclosed lumen	1	1	1.0
+GO:0044707	biological_process	single-multicellular organism process	1	1	1.0
+GO:0070013	cellular_component	intracellular organelle lumen	1	1	1.0
+GO:1903034	biological_process	regulation of response to wounding	1	1	1.0
+GO:0031982	cellular_component	vesicle	1	1	1.0
+GO:0043086	biological_process	negative regulation of catalytic activity	1	1	1.0
+GO:0031988	cellular_component	membrane-bounded vesicle	1	1	1.0
+GO:1903561	cellular_component	extracellular vesicle	1	1	1.0
+GO:0044464	cellular_component	cell part	1	1	1.0
+GO:0009605	biological_process	response to external stimulus	1	1	1.0
+GO:0002437	biological_process	inflammatory response to antigenic stimulus	1	1	1.0
+GO:0006810	biological_process	transport	1	1	1.0
+GO:0050878	biological_process	regulation of body fluid levels	1	1	1.0
+GO:0002438	biological_process	acute inflammatory response to antigenic stimulus	1	1	1.0
+GO:0043412	biological_process	macromolecule modification	1	1	1.0
+GO:0032268	biological_process	regulation of cellular protein metabolic process	1	1	1.0
+GO:0032269	biological_process	negative regulation of cellular protein metabolic process	1	1	1.0
+GO:0060255	biological_process	regulation of macromolecule metabolic process	1	1	1.0
+GO:0009892	biological_process	negative regulation of metabolic process	1	1	1.0
+GO:0061041	biological_process	regulation of wound healing	1	1	1.0
+GO:0043687	biological_process	post-translational protein modification	1	1	1.0
+GO:0050896	biological_process	response to stimulus	1	1	1.0
+GO:0051179	biological_process	localization	1	1	1.0
+GO:0070062	cellular_component	extracellular exosome	1	1	1.0
+GO:0036211	biological_process	protein modification process	1	1	1.0
+GO:0019222	biological_process	regulation of metabolic process	1	1	1.0
+GO:0044237	biological_process	cellular metabolic process	1	1	1.0
+GO:0044238	biological_process	primary metabolic process	1	1	1.0
+GO:0052547	biological_process	regulation of peptidase activity	1	1	1.0
+GO:0052548	biological_process	regulation of endopeptidase activity	1	1	1.0
+GO:0044765	biological_process	single-organism transport	1	1	1.0
+GO:0010951	biological_process	negative regulation of endopeptidase activity	1	1	1.0
+GO:1902578	biological_process	single-organism localization	1	1	1.0
+GO:0004857	molecular_function	enzyme inhibitor activity	1	1	1.0
+GO:0080090	biological_process	regulation of primary metabolic process	1	1	1.0
+GO:0005488	molecular_function	binding	1	1	1.0
+GO:0004866	molecular_function	endopeptidase inhibitor activity	1	1	1.0
+GO:0043167	molecular_function	ion binding	1	1	1.0
+GO:0004867	molecular_function	serine-type endopeptidase inhibitor activity	1	1	1.0
+GO:0043168	molecular_function	anion binding	1	1	1.0
+GO:0044260	biological_process	cellular macromolecule metabolic process	1	1	1.0
+GO:0043170	biological_process	macromolecule metabolic process	1	1	1.0
+GO:0048519	biological_process	negative regulation of biological process	1	1	1.0
+GO:0097367	molecular_function	carbohydrate derivative binding	1	1	1.0
+GO:0016020	cellular_component	membrane	1	1	1.0
+GO:0048523	biological_process	negative regulation of cellular process	1	1	1.0
+GO:0051234	biological_process	establishment of localization	1	1	1.0
+GO:0044267	biological_process	cellular protein metabolic process	1	1	1.0
+GO:0010466	biological_process	negative regulation of peptidase activity	1	1	1.0
+GO:0006952	biological_process	defense response	1	1	1.0
+GO:0051239	biological_process	regulation of multicellular organismal process	1	1	1.0
+GO:0005788	cellular_component	endoplasmic reticulum lumen	1	1	1.0
+GO:0051246	biological_process	regulation of protein metabolic process	1	1	1.0
+GO:0019538	biological_process	protein metabolic process	1	1	1.0
+GO:0051248	biological_process	negative regulation of protein metabolic process	1	1	1.0
+GO:0007596	biological_process	blood coagulation	1	1	1.0
+GO:0030162	biological_process	regulation of proteolysis	1	1	1.0
+GO:0005576	cellular_component	extracellular region	1	1	1.0
+GO:0005539	molecular_function	glycosaminoglycan binding	1	1	1.0
+GO:0002526	biological_process	acute inflammatory response	1	1	1.0
+GO:0080134	biological_process	regulation of response to stress	1	1	1.0
+GO:2000257	biological_process	regulation of protein activation cascade	1	1	1.0
+GO:0032101	biological_process	regulation of response to external stimulus	1	1	1.0
+GO:0042802	molecular_function	identical protein binding	1	1	1.0
+GO:0005515	molecular_function	protein binding	1	1	1.0
+GO:0009987	biological_process	cellular process	1	1	1.0
+GO:0061134	molecular_function	peptidase regulator activity	1	1	1.0
+GO:0043226	cellular_component	organelle	1	1	1.0
+GO:2000266	biological_process	regulation of blood coagulation, intrinsic pathway	1	1	1.0
+GO:0043227	cellular_component	membrane-bounded organelle	1	1	1.0
+GO:0002020	molecular_function	protease binding	1	1	1.0
+GO:0009991	biological_process	response to extracellular stimulus	1	1	1.0
+GO:0043230	cellular_component	extracellular organelle	1	1	1.0
+GO:0071704	biological_process	organic substance metabolic process	1	1	1.0
+GO:0030193	biological_process	regulation of blood coagulation	1	1	1.0
+GO:0048583	biological_process	regulation of response to stimulus	1	1	1.0
+GO:0030414	molecular_function	peptidase inhibitor activity	1	1	1.0
+GO:0043233	cellular_component	organelle lumen	1	1	1.0
+GO:0031323	biological_process	regulation of cellular metabolic process	1	1	1.0
+GO:0031324	biological_process	negative regulation of cellular metabolic process	1	1	1.0
+GO:1900046	biological_process	regulation of hemostasis	1	1	1.0

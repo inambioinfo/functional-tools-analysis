@@ -1,0 +1,203 @@
+# MetaGOmics GO report
+# MetaGOmics version: 0.1.1
+# Run date: Wed Nov 28 14:04:18 PST 2018
+GO acc	GO aspect	GO name	count	total count	ratio
+GO:0031329	biological_process	regulation of cellular catabolic process	4	4	1.0
+GO:0090068	biological_process	positive regulation of cell cycle process	4	4	1.0
+GO:0031331	biological_process	positive regulation of cellular catabolic process	4	4	1.0
+GO:1901363	molecular_function	heterocyclic compound binding	4	4	1.0
+GO:0008150	biological_process	biological_process	4	4	1.0
+GO:0070979	biological_process	protein K11-linked ubiquitination	4	4	1.0
+GO:0032434	biological_process	regulation of proteasomal ubiquitin-dependent protein catabolic process	4	4	1.0
+GO:0036094	molecular_function	small molecule binding	4	4	1.0
+GO:0032446	biological_process	protein modification by small protein conjugation	4	4	1.0
+GO:0042176	biological_process	regulation of protein catabolic process	4	4	1.0
+GO:0032991	cellular_component	macromolecular complex	4	4	1.0
+GO:0044389	molecular_function	ubiquitin-like protein ligase binding	4	4	1.0
+GO:0008152	biological_process	metabolic process	4	4	1.0
+GO:0031396	biological_process	regulation of protein ubiquitination	4	4	1.0
+GO:0031397	biological_process	negative regulation of protein ubiquitination	4	4	1.0
+GO:0031398	biological_process	positive regulation of protein ubiquitination	4	4	1.0
+GO:0031399	biological_process	regulation of protein modification process	4	4	1.0
+GO:0031400	biological_process	negative regulation of protein modification process	4	4	1.0
+GO:0031401	biological_process	positive regulation of protein modification process	4	4	1.0
+GO:0005737	cellular_component	cytoplasm	4	4	1.0
+GO:0005886	cellular_component	plasma membrane	4	4	1.0
+GO:0005654	cellular_component	nucleoplasm	4	4	1.0
+GO:0044422	cellular_component	organelle part	4	4	1.0
+GO:0044424	cellular_component	intracellular part	4	4	1.0
+GO:1990234	cellular_component	transferase complex	4	4	1.0
+GO:1902494	cellular_component	catalytic complex	4	4	1.0
+GO:0044428	cellular_component	nuclear part	4	4	1.0
+GO:0065003	biological_process	macromolecular complex assembly	4	4	1.0
+GO:0065007	biological_process	biological regulation	4	4	1.0
+GO:0065009	biological_process	regulation of molecular function	4	4	1.0
+GO:0007346	biological_process	regulation of mitotic cell cycle	4	4	1.0
+GO:0005680	cellular_component	anaphase-promoting complex	4	4	1.0
+GO:0044444	cellular_component	cytoplasmic part	4	4	1.0
+GO:0051128	biological_process	regulation of cellular component organization	4	4	1.0
+GO:0033043	biological_process	regulation of organelle organization	4	4	1.0
+GO:0044446	cellular_component	intracellular organelle part	4	4	1.0
+GO:0051130	biological_process	positive regulation of cellular component organization	4	4	1.0
+GO:0035639	molecular_function	purine ribonucleoside triphosphate binding	4	4	1.0
+GO:1901987	biological_process	regulation of cell cycle phase transition	4	4	1.0
+GO:1901989	biological_process	positive regulation of cell cycle phase transition	4	4	1.0
+GO:1901990	biological_process	regulation of mitotic cell cycle phase transition	4	4	1.0
+GO:1901992	biological_process	positive regulation of mitotic cell cycle phase transition	4	4	1.0
+GO:0044464	cellular_component	cell part	4	4	1.0
+GO:1903047	biological_process	mitotic cell cycle process	4	4	1.0
+GO:0031461	cellular_component	cullin-RING ubiquitin ligase complex	4	4	1.0
+GO:1903050	biological_process	regulation of proteolysis involved in cellular protein catabolic process	4	4	1.0
+GO:0043933	biological_process	macromolecular complex subunit organization	4	4	1.0
+GO:1903052	biological_process	positive regulation of proteolysis involved in cellular protein catabolic process	4	4	1.0
+GO:0043412	biological_process	macromolecule modification	4	4	1.0
+GO:0034622	biological_process	cellular macromolecular complex assembly	4	4	1.0
+GO:0060255	biological_process	regulation of macromolecule metabolic process	4	4	1.0
+GO:0022607	biological_process	cellular component assembly	4	4	1.0
+GO:0009892	biological_process	negative regulation of metabolic process	4	4	1.0
+GO:0009893	biological_process	positive regulation of metabolic process	4	4	1.0
+GO:0009894	biological_process	regulation of catabolic process	4	4	1.0
+GO:0009896	biological_process	positive regulation of catabolic process	4	4	1.0
+GO:0032549	molecular_function	ribonucleoside binding	4	4	1.0
+GO:0032550	molecular_function	purine ribonucleoside binding	4	4	1.0
+GO:0022402	biological_process	cell cycle process	4	4	1.0
+GO:0032553	molecular_function	ribonucleotide binding	4	4	1.0
+GO:0032555	molecular_function	purine ribonucleotide binding	4	4	1.0
+GO:0036211	biological_process	protein modification process	4	4	1.0
+GO:0032559	molecular_function	adenyl ribonucleotide binding	4	4	1.0
+GO:0000151	cellular_component	ubiquitin ligase complex	4	4	1.0
+GO:0000152	cellular_component	nuclear ubiquitin ligase complex	4	4	1.0
+GO:0080090	biological_process	regulation of primary metabolic process	4	4	1.0
+GO:1904666	biological_process	regulation of ubiquitin protein ligase activity	4	4	1.0
+GO:1904668	biological_process	positive regulation of ubiquitin protein ligase activity	4	4	1.0
+GO:0000166	molecular_function	nucleotide binding	4	4	1.0
+GO:0010458	biological_process	exit from mitosis	4	4	1.0
+GO:0051781	biological_process	positive regulation of cell division	4	4	1.0
+GO:0048518	biological_process	positive regulation of biological process	4	4	1.0
+GO:0048519	biological_process	negative regulation of biological process	4	4	1.0
+GO:0051783	biological_process	regulation of nuclear division	4	4	1.0
+GO:0051785	biological_process	positive regulation of nuclear division	4	4	1.0
+GO:0048522	biological_process	positive regulation of cellular process	4	4	1.0
+GO:0048523	biological_process	negative regulation of cellular process	4	4	1.0
+GO:0045732	biological_process	positive regulation of protein catabolic process	4	4	1.0
+GO:0031536	biological_process	positive regulation of exit from mitosis	4	4	1.0
+GO:0051246	biological_process	regulation of protein metabolic process	4	4	1.0
+GO:0019538	biological_process	protein metabolic process	4	4	1.0
+GO:0051247	biological_process	positive regulation of protein metabolic process	4	4	1.0
+GO:0051248	biological_process	negative regulation of protein metabolic process	4	4	1.0
+GO:0010994	biological_process	free ubiquitin chain polymerization	4	4	1.0
+GO:0017076	molecular_function	purine nucleotide binding	4	4	1.0
+GO:0051258	biological_process	protein polymerization	4	4	1.0
+GO:1901575	biological_process	organic substance catabolic process	4	4	1.0
+GO:0070647	biological_process	protein modification by small protein conjugation or removal	4	4	1.0
+GO:1902099	biological_process	regulation of metaphase/anaphase transition of cell cycle	4	4	1.0
+GO:0005829	cellular_component	cytosol	4	4	1.0
+GO:0010498	biological_process	proteasomal protein catabolic process	4	4	1.0
+GO:0000209	biological_process	protein polyubiquitination	4	4	1.0
+GO:0005515	molecular_function	protein binding	4	4	1.0
+GO:0009987	biological_process	cellular process	4	4	1.0
+GO:0019941	biological_process	modification-dependent protein catabolic process	4	4	1.0
+GO:0042787	biological_process	protein ubiquitination involved in ubiquitin-dependent protein catabolic process	4	4	1.0
+GO:0097159	molecular_function	organic cyclic compound binding	4	4	1.0
+GO:0071704	biological_process	organic substance metabolic process	4	4	1.0
+GO:0045787	biological_process	positive regulation of cell cycle	4	4	1.0
+GO:0051301	biological_process	cell division	4	4	1.0
+GO:0051302	biological_process	regulation of cell division	4	4	1.0
+GO:0019899	molecular_function	enzyme binding	4	4	1.0
+GO:0051338	biological_process	regulation of transferase activity	4	4	1.0
+GO:0044092	biological_process	negative regulation of molecular function	4	4	1.0
+GO:0031625	molecular_function	ubiquitin protein ligase binding	4	4	1.0
+GO:0044093	biological_process	positive regulation of molecular function	4	4	1.0
+GO:0051340	biological_process	regulation of ligase activity	4	4	1.0
+GO:2000058	biological_process	regulation of protein ubiquitination involved in ubiquitin-dependent protein catabolic process	4	4	1.0
+GO:0045840	biological_process	positive regulation of mitotic nuclear division	4	4	1.0
+GO:2000060	biological_process	positive regulation of protein ubiquitination involved in ubiquitin-dependent protein catabolic process	4	4	1.0
+GO:0010564	biological_process	regulation of cell cycle process	4	4	1.0
+GO:0051347	biological_process	positive regulation of transferase activity	4	4	1.0
+GO:0051348	biological_process	negative regulation of transferase activity	4	4	1.0
+GO:0051351	biological_process	positive regulation of ligase activity	4	4	1.0
+GO:0051352	biological_process	negative regulation of ligase activity	4	4	1.0
+GO:0005575	cellular_component	cellular_component	4	4	1.0
+GO:0030554	molecular_function	adenyl nucleotide binding	4	4	1.0
+GO:0006461	biological_process	protein complex assembly	4	4	1.0
+GO:0045862	biological_process	positive regulation of proteolysis	4	4	1.0
+GO:0006464	biological_process	cellular protein modification process	4	4	1.0
+GO:0003674	molecular_function	molecular_function	4	4	1.0
+GO:0044770	biological_process	cell cycle phase transition	4	4	1.0
+GO:0010604	biological_process	positive regulation of macromolecule metabolic process	4	4	1.0
+GO:0010605	biological_process	negative regulation of macromolecule metabolic process	4	4	1.0
+GO:0050789	biological_process	regulation of biological process	4	4	1.0
+GO:0050790	biological_process	regulation of catalytic activity	4	4	1.0
+GO:0050794	biological_process	regulation of cellular process	4	4	1.0
+GO:0043623	biological_process	cellular protein complex assembly	4	4	1.0
+GO:0007049	biological_process	cell cycle	4	4	1.0
+GO:0031145	biological_process	anaphase-promoting complex-dependent proteasomal ubiquitin-dependent protein catabolic process	4	4	1.0
+GO:0043632	biological_process	modification-dependent macromolecule catabolic process	4	4	1.0
+GO:0071822	biological_process	protein complex subunit organization	4	4	1.0
+GO:0044699	biological_process	single-organism process	4	4	1.0
+GO:0006508	biological_process	proteolysis	4	4	1.0
+GO:0010638	biological_process	positive regulation of organelle organization	4	4	1.0
+GO:0051603	biological_process	proteolysis involved in cellular protein catabolic process	4	4	1.0
+GO:0006511	biological_process	ubiquitin-dependent protein catabolic process	4	4	1.0
+GO:0001882	molecular_function	nucleoside binding	4	4	1.0
+GO:0001883	molecular_function	purine nucleoside binding	4	4	1.0
+GO:0009056	biological_process	catabolic process	4	4	1.0
+GO:0009057	biological_process	macromolecule catabolic process	4	4	1.0
+GO:0043085	biological_process	positive regulation of catalytic activity	4	4	1.0
+GO:0043086	biological_process	negative regulation of catalytic activity	4	4	1.0
+GO:0045931	biological_process	positive regulation of mitotic cell cycle	4	4	1.0
+GO:0071840	biological_process	cellular component organization or biogenesis	4	4	1.0
+GO:0051436	biological_process	negative regulation of ubiquitin-protein ligase activity involved in mitotic cell cycle	4	4	1.0
+GO:0051437	biological_process	positive regulation of ubiquitin-protein ligase activity involved in regulation of mitotic cell cycle transition	4	4	1.0
+GO:0051438	biological_process	regulation of ubiquitin-protein transferase activity	4	4	1.0
+GO:0051439	biological_process	regulation of ubiquitin-protein ligase activity involved in mitotic cell cycle	4	4	1.0
+GO:0016043	biological_process	cellular component organization	4	4	1.0
+GO:0007088	biological_process	regulation of mitotic nuclear division	4	4	1.0
+GO:0051443	biological_process	positive regulation of ubiquitin-protein transferase activity	4	4	1.0
+GO:0044772	biological_process	mitotic cell cycle phase transition	4	4	1.0
+GO:0051444	biological_process	negative regulation of ubiquitin-protein transferase activity	4	4	1.0
+GO:0061136	biological_process	regulation of proteasomal protein catabolic process	4	4	1.0
+GO:0007096	biological_process	regulation of exit from mitosis	4	4	1.0
+GO:0030071	biological_process	regulation of mitotic metaphase/anaphase transition	4	4	1.0
+GO:0032268	biological_process	regulation of cellular protein metabolic process	4	4	1.0
+GO:0032269	biological_process	negative regulation of cellular protein metabolic process	4	4	1.0
+GO:1903320	biological_process	regulation of protein modification by small protein conjugation or removal	4	4	1.0
+GO:0032270	biological_process	positive regulation of cellular protein metabolic process	4	4	1.0
+GO:1903321	biological_process	negative regulation of protein modification by small protein conjugation or removal	4	4	1.0
+GO:1903322	biological_process	positive regulation of protein modification by small protein conjugation or removal	4	4	1.0
+GO:0051726	biological_process	regulation of cell cycle	4	4	1.0
+GO:0019222	biological_process	regulation of metabolic process	4	4	1.0
+GO:0004842	molecular_function	ubiquitin-protein transferase activity	4	4	1.0
+GO:0044237	biological_process	cellular metabolic process	4	4	1.0
+GO:0044763	biological_process	single-organism cellular process	4	4	1.0
+GO:0044238	biological_process	primary metabolic process	4	4	1.0
+GO:1901265	molecular_function	nucleoside phosphate binding	4	4	1.0
+GO:0019787	molecular_function	ubiquitin-like protein transferase activity	4	4	1.0
+GO:0044248	biological_process	cellular catabolic process	4	4	1.0
+GO:0043161	biological_process	proteasome-mediated ubiquitin-dependent protein catabolic process	4	4	1.0
+GO:1903362	biological_process	regulation of cellular protein catabolic process	4	4	1.0
+GO:0005488	molecular_function	binding	4	4	1.0
+GO:0016740	molecular_function	transferase activity	4	4	1.0
+GO:0043167	molecular_function	ion binding	4	4	1.0
+GO:1903364	biological_process	positive regulation of cellular protein catabolic process	4	4	1.0
+GO:0043168	molecular_function	anion binding	4	4	1.0
+GO:0044260	biological_process	cellular macromolecule metabolic process	4	4	1.0
+GO:0043170	biological_process	macromolecule metabolic process	4	4	1.0
+GO:0097367	molecular_function	carbohydrate derivative binding	4	4	1.0
+GO:0044265	biological_process	cellular macromolecule catabolic process	4	4	1.0
+GO:0016020	cellular_component	membrane	4	4	1.0
+GO:0044267	biological_process	cellular protein metabolic process	4	4	1.0
+GO:0005524	molecular_function	ATP binding	4	4	1.0
+GO:0030162	biological_process	regulation of proteolysis	4	4	1.0
+GO:0030163	biological_process	protein catabolic process	4	4	1.0
+GO:0061630	molecular_function	ubiquitin protein ligase activity	4	4	1.0
+GO:0061631	molecular_function	ubiquitin conjugating enzyme activity	4	4	1.0
+GO:0016567	biological_process	protein ubiquitination	4	4	1.0
+GO:0003824	molecular_function	catalytic activity	4	4	1.0
+GO:0061650	molecular_function	ubiquitin-like protein conjugating enzyme activity	4	4	1.0
+GO:0031323	biological_process	regulation of cellular metabolic process	4	4	1.0
+GO:0043234	cellular_component	protein complex	4	4	1.0
+GO:0031324	biological_process	negative regulation of cellular metabolic process	4	4	1.0
+GO:0070936	biological_process	protein K48-linked ubiquitination	4	4	1.0
+GO:0031325	biological_process	positive regulation of cellular metabolic process	4	4	1.0
+GO:0061659	molecular_function	ubiquitin-like protein ligase activity	4	4	1.0
