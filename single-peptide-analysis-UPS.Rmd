@@ -46,12 +46,12 @@ ups_peptides <- filter(peptide_report, grepl("ups", proteins)) %>%
 
 # Randomly selects 20 peptides
 set.seed(1003)
-peptides <- ups_peptides[sample(nrow(ups_peptides), 20),]$sequence
+ups_peptides <- ups_peptides[sample(nrow(ups_peptides), 20),]
+peptides <- ups_peptides$sequence
 
 # Concatenates the two categories and writes it out in a text file for analysis
 write.table(peptides, "twenty_peptides.txt", 
             sep="\n", quote=FALSE, row.names=FALSE, col.names=FALSE)
-peptides
 ```
 
 ### Unipept
@@ -99,7 +99,6 @@ em <- read.delim("results/eggNOG/eggnog_mapper_20_sequences_results_seed-1003.ta
                  stringsAsFactors = FALSE,
                  header=FALSE) %>%
     select(peptide = V1, em_prot = V2, em_go = V6, em_gene = V5, em_descript = V13) %>%
-    filter(peptide %in% fivepep) %>%
     mutate(em_go = str_replace_all(em_go, pattern = ",", replacement = "; "))
 ```
 ## BLASTP against UniProt
@@ -119,18 +118,16 @@ em <- read.delim("results/eggNOG/eggnog_mapper_20_sequences_results_seed-1003.ta
 * For taxonomy, we can also calculate the lowest common ancestor of each peptide (TODO)
 
 ```{r}
-peptide <- rep(0, 5)
-blast_go <- rep(0, 5)
+blast_go <- rep(0, length(peptides))
 files <- list.files('results/uniprot_blastp')
-for (i in 1:5){
-    peptide[i] <- fivepep[i]
-    result <- read.delim(paste('results/uniprot_blastp/', paste(fivepep[i], '.tab', sep=""), sep="/"),
+for (i in 1:length(peptides)){
+    result <- read.delim(paste('results/uniprot_blastp/', paste(peptides[i], '.tab', sep=""), sep="/"),
                    stringsAsFactors = FALSE,
                    na.strings = c("", "NA", "NaN"))
     gos <- table(unlist(str_split(result$Gene.ontology.IDs, "; ")))/50
     blast_go[i] <- paste(names(gos)[which(gos > 0.05)], collapse = "; ")
 }
-blast <- data.frame(peptide, blast_go, stringsAsFactors = FALSE)
+blast <- data.frame(peptide = peptides, blast_go, stringsAsFactors = FALSE)
 ```
 
 ### MetaGOmics
@@ -145,27 +142,28 @@ blast <- data.frame(peptide, blast_go, stringsAsFactors = FALSE)
 * Download results individually, combine into table
 
 ```{r}
-# Creates the input files for metaGOmics i.e., single peptide with spectral count (# of validated PSMs)
-#go_input <- select(fivepep_df, sequence, counts)
-#for (i in 1:nrow(go_input)){
-#  write.table(go_input[i,], paste('Data/metaGOmics/', go_input[i,]$sequence,".txt", sep=""), 
-#            sep="\t", eol = "\r\n", quote=FALSE, row.names=FALSE, col.names=FALSE)
-#}
+#Creates the input files for metaGOmics i.e., single peptide with spectral count (# of validated PSMs)
+go_input <- select(ups_peptides, sequence, counts)
+for (i in 1:nrow(go_input)){
+ write.table(go_input[i,], paste('Data/metaGOmics/', go_input[i,]$sequence,".txt", sep=""),
+         sep="\t", eol = "\r\n", quote=FALSE, row.names=FALSE, col.names=FALSE)
+}
+```
 
-peptide <- rep(0, 5)
-mg_go <- rep(0, 5)
+
+```{r}
+mg_go <- rep(0, length(peptides))
 dir <- 'results/metaGOmics/'
 files <- list.files(dir)
-for (i in 1:5){
-    peptide[i] <- fivepep[i]
-    result <- read.delim(paste(dir, paste(fivepep[i], '.txt', sep=""), sep=""),
+for (i in 1:length(peptides)){
+    result <- read.delim(paste(dir, paste(peptides[i], '.txt', sep=""), sep=""),
                    stringsAsFactors = FALSE,
                    na.strings = c("", "NA", "NaN"),
                    comment.char = "#")
     gos <- result$GO.acc
     mg_go[i] <- paste(gos, collapse = "; ")
 }
-mg <- data.frame(peptide, mg_go, stringsAsFactors = FALSE)
+mg <- data.frame(peptide = peptides, mg_go, stringsAsFactors = FALSE)
 ```
 
 
