@@ -18,6 +18,14 @@ Analysis adapted from Caleb Easterly's "Single Peptide Results Analysis" (https:
 
 ---
 
+Let's get the dynamic amounts for each UPS protein
+```{r}
+ups_ratios <- read.csv("UPS-Protein-Ratios.tsv", sep = "\t",
+                header = TRUE, stringsAsFactors = FALSE) %>%
+  select(ups2_amount = UPS2.Amount..fmol.,
+         protein = UniProt.Accession.Number)
+```
+
 ### Peptide Sampling
 Let's randomly select 10 UPS peptides and 10 non-UPS peptides from the UPS1 dataset (replicate #3):
 
@@ -31,23 +39,19 @@ peptide_report <- read.csv("Data/UPS/UPS1/UPS1_03_[Peptide_Shaker_on_data_21__Pe
          sequence = Sequence,
          counts = X.Validated.PSMs)
 
-# Splits into UPS peptides and non-UPS peptides
-ups_peptides <- filter(peptide_report, grepl("ups", proteins))
-non_ups_peptides <- filter(peptide_report, !grepl("ups", proteins))
+# Extracts the UPS peptide rows
+ups_peptides <- filter(peptide_report, grepl("ups", proteins)) %>%
+  mutate(protein = str_extract(proteins, "[A-Z][0-9]+")) %>%
+  filter(protein %in% ups_ratios$protein)
 
-# Randomly selects 10 from each category
+# Randomly selects 20 peptides
 set.seed(1003)
-ups_peps_20 <- ups_peptides[sample(nrow(ups_peptides), 10),]
-non_ups_peps_20 <- non_ups_peptides[sample(nrow(non_ups_peptides), 10),]
-twenty_peps <- rbind(ups_peps_20, non_ups_peps_20)
-set.seed(24)
-fivepep_df <- twenty_peps[sample(20,5),]
-fivepep <- fivepep_df$sequence
+peptides <- ups_peptides[sample(nrow(ups_peptides), 20),]$sequence
 
 # Concatenates the two categories and writes it out in a text file for analysis
-write.table(twenty_peps$sequence, "twenty_peptides.txt", 
+write.table(peptides, "twenty_peptides.txt", 
             sep="\n", quote=FALSE, row.names=FALSE, col.names=FALSE)
-fivepep_df
+peptides
 ```
 
 ### Unipept
@@ -63,7 +67,7 @@ fivepep_df
 
 ```{r}
 cov_pat <- "\ \\(.{2,4}\\)"
-uni <- read.csv('results/unipept/UPS1_03-Unipept-20pep-1003seed.csv',
+uni <- read.csv('results/unipept/UPS_03-Unipept-20pep-1003seed.csv',
                 stringsAsFactors = FALSE) %>%
     select(peptide,
            uni_go_bp = GO..biological.process.,
