@@ -73,7 +73,6 @@ uni <- read.csv('results/unipept/UPS_03-Unipept-20pep-1003seed.csv',
            uni_go_bp = GO..biological.process.,
            uni_go_mf = GO..molecular.function.,
            uni_go_cc = GO..cellular.component.) %>%
-    filter(peptide %in% fivepep) %>%
     mutate(uni_go_bp = str_replace_all(string = uni_go_bp, pattern = cov_pat, replacement = ""),
            uni_go_mf = str_replace_all(string = uni_go_mf, pattern = cov_pat, replacement = ""),
            uni_go_cc = str_replace_all(string = uni_go_cc, pattern = cov_pat, replacement = ""))
@@ -142,12 +141,12 @@ blast <- data.frame(peptide = peptides, blast_go, stringsAsFactors = FALSE)
 * Download results individually, combine into table
 
 ```{r}
-#Creates the input files for metaGOmics i.e., single peptide with spectral count (# of validated PSMs)
-go_input <- select(ups_peptides, sequence, counts)
-for (i in 1:nrow(go_input)){
- write.table(go_input[i,], paste('Data/metaGOmics/', go_input[i,]$sequence,".txt", sep=""),
-         sep="\t", eol = "\r\n", quote=FALSE, row.names=FALSE, col.names=FALSE)
-}
+##Creates the input files for metaGOmics i.e., single peptide with spectral count (# of validated PSMs)
+# go_input <- select(ups_peptides, sequence, counts)
+# for (i in 1:nrow(go_input)){
+#  write.table(go_input[i,], paste('Data/metaGOmics/', go_input[i,]$sequence,".txt", sep=""),
+#          sep="\t", eol = "\r\n", quote=FALSE, row.names=FALSE, col.names=FALSE)
+# }
 ```
 
 
@@ -174,20 +173,17 @@ ups_go_df <- read.csv('data/uniprot-UPS-go-terms.tab', sep = "\t",
                 stringsAsFactors = FALSE) %>%
   select(protein = Entry,
          ups_go = Gene.ontology.IDs)
-
-pepprots <- select(peptide_report, proteins, peptide = sequence) %>%
-  filter(peptide %in% fivepep) %>%
+pepprots <- unique(select(peptide_report, proteins, peptide = sequence) %>%
+  filter(peptide %in% peptides) %>%
   mutate(protein = str_extract(proteins,"[A-Z0-9]+")) %>%
-  select(protein, peptide)
+  select(protein, peptide))
 pepprots <- plyr::join_all(list(pepprots, ups_go_df), by = "protein")
-pepprots
 ```
 
 
 ### Combine all of the results:
 ```{r}
 all_results <- plyr::join_all(list(pepprots, em, blast, mg, uni), by = "peptide")
-all_results
 ```
 
 
@@ -495,6 +491,7 @@ get_children <- function(goids){
     children_is_a <- lapply(children, function(x) unlist(x[x$relation == "is_a", ]$id))
     return(children_is_a)
 }
+#get_children(str_split("GO:0005575; GO:0005576", "; ", simplify=TRUE))
 ```
 
 Get children of ancestors (that are not ancestors):
@@ -573,14 +570,16 @@ setdiff(unlist(c("yo","gabba")), "gabba")
 
 ```{r}
 library(ggplot2)
+n <- nrow(all_results)
 output <- data.frame(Peptide = all_results[,'peptide'],
                      Uniprot = all_results[,'ups_go'],
                      BLAST = character(n),
                      Unipept = character(n),
                      Equal = logical(n),
                      stringsAsFactors = FALSE)
-for (n in 1:1){
-# for (n in 1:nrow(all_results)){
+for (n in 2:2){
+#for (n in 1:nrow(all_results)){
+ if (n != 16){
   blast <- str_split(all_results[n, 'blast_go'], "; ", simplify=TRUE)
   uni <- c(str_split(all_results[n, 'uni_go_bp'], ";", simplify=TRUE),
          str_split(all_results[n, 'uni_go_mf'], ";", simplify=TRUE),
@@ -589,7 +588,8 @@ for (n in 1:1){
   
   uni <- uni[uni != ""]
   buni <- blast
-  buni_split <- str_split(buni, ";", simplify = TRUE)
+  #buni_split <- str_split(buni, ";", simplify = TRUE)
+  buni_split <- str_split(all_results[n, 'ups_go'], "; ", simplify = TRUE)
   metaGOmics_list <- c(str_split(all_results[n, 'mg_go'], "; ", simplify=TRUE))
   eggnog_list <- c(str_split(all_results[n, 'em_go'], "; ", simplify =TRUE))
 
@@ -601,6 +601,8 @@ for (n in 1:1){
   closely_related <- union_all(buni_split, descendants, ancestors, children_of_ancestors)
   #head(get_go_names(ancestors))
   #head(get_go_names(descendants))
+  output$em.list[n] <- paste(eggnog_list, collapse="; ")
+  output$mg.list[n] <- paste(metaGOmics_list, collapse="; ")
 
   em_ancestors <- intersect(eggnog_list, ancestors)
     em_num_ancestors <- length(em_ancestors)
@@ -636,47 +638,88 @@ for (n in 1:1){
   output$mg.ancestors[n] <- paste(mg_ancestors, collapse="; ")
   output$em.descendants[n] <- paste(em_descendants, collapse="; ")
   output$mg.descendants[n] <- paste(mg_descendants, collapse="; ")
-  #output$em.ancestors[n] <- length(em_ancestors)
-  #output$mg.ancestors[n] <- length(mg_ancestors)
-  #output$em.descendants[n] <- length(em_descendants)
-  #output$mg.descendants[n] <- length(mg_descendants)
-  #output$em.ancestors.kids[n] <- length(em_ancestors_kids)
-  #output$mg.ancestors.kids[n] <- length(mg_ancestors_kids)
   em_buni <- intersect(eggnog_list, buni)
     em_num_buni <- length(em_buni)
   mg_buni <- intersect(metaGOmics_list, buni)
     mg_num_buni <- length(mg_buni)
   
   term_df <- data.frame(
-    typeOfTerm = rep(c("blast_and_unipept", "descendants", "ancestors", "ancestors_kids", "extraneous"), 2),
-    NumTerms = c(em_num_buni, em_num_descendants, em_num_ancestors, em_num_ancestors_kids, em_num_extraneous,
-             mg_num_buni, mg_num_descendants, mg_num_ancestors, mg_num_ancestors_kids, mg_num_extraneous),
-    Tool = rep(c("eggnog_mapper", "metagomics"), each = 5)
+    typeOfTerm = rep(c("UniProtKB", "Descendants", "Ancestors", "Ancestors' kids", "Extraneous"), 2),
+    NumTerms = c(em_num_buni, length(em_descendants), length(em_ancestors), length(em_ancestors_kids), length(em_extraneous),
+             length(mg_buni), length(mg_descendants), length(mg_ancestors), length(mg_ancestors_kids), length(mg_extraneous)),
+    Tool = rep(c("eggNOG Mapper", "metaGOmics"), each = 5)
   )
-  plot <- ggplot(term_df) +
-    geom_bar(aes(x = Tool, y = NumTerms, fill = typeOfTerm), color = "black", stat = "identity") +
-    theme_bw()
-  # plot_em <- pie(c(em_num_buni, em_num_descendants, em_num_ancestors, em_num_ancestors_kids, em_num_extraneous), 
-  #     labels = c("blast_and_unipept", "descendants", "ancestors", "ancestors_kids", "extraneous"),
-  #     main=paste("EggNOG\n", all_results[n,'peptide']))
-  # plot_mg <- pie(c(mg_num_buni, mg_num_descendants, mg_num_ancestors, mg_num_ancestors_kids, mg_num_extraneous), 
-  #     labels = c("blast_and_unipept", "descendants", "ancestors", "ancestors_kids", "extraneous"),
-  #     main=paste("MetaGOmics\n", all_results[n,'peptide']))
+  term_df$typeOfTerm <- factor(term_df$typeOfTerm, 
+              levels = c("Extraneous", "Ancestors' kids", "Ancestors", "Descendants", "UniProtKB"))
+
+  plot <- ggplot(term_df, aes(x = Tool, y = NumTerms, fill = typeOfTerm)) +
+    geom_bar(color = "black", stat = "identity", position = "stack") +
+    scale_fill_manual("Type of term", values = c("Extraneous" = "#D576EE",
+                      "Ancestors' kids" = "#A4A233", "Ancestors" = "#E57D74",
+                      "Descendants" = "#4FAFE4", "UniProtKB" = "#5DBA85")) +
+    ggtitle(all_results[n, 'peptide']) +
+    theme_update(plot.title = element_text(hjust = 0.5))
   print(plot)
-  #print(plot_em)
-  #print(plot_mg)
+ }
 }
 #pander::pander(output, split.cell = 10, split.table = Inf)
 ```
+```{r}
+# TO-DO: Support larger queries
+#length(ancestors)
+get_children <- function(goids){
+    base_url <- 'https://www.ebi.ac.uk/QuickGO/services/ontology/go/terms/'
+    terms <- str_replace(goids, ":", "%3A")
+    joined_terms <- paste(terms, collapse="%2C")
+    term_url <- paste(base_url, joined_terms, sep="")
+    term_info <- GET(term_url, accept("application/json"))
+    json <- toJSON(content(term_info))
+    children <- fromJSON(json)$results$children
+    children_is_a <- lapply(children, function(x) unlist(x[x$relation == "is_a", ]$id))
+    return(children_is_a)
+}
+# 16th peptide
+#get_children(ancestors[1:520]) Works
+#get_children(ancestors[1:530]) Doesn't work
+```
+
 
 ```{r}
-#shortest_path("GO:0003723", "GO:0065007")
-#get_go_ancestors("GO:0065007")
-#get_go_names(get_go_ancestors("GO:0008150"))
-terms <- str_split(output$Uniprot[1], '; ', simplify = TRUE)
-terms
-get_go_names(terms)
+row <- output[output$Peptide == "EEVAEEAQSGGD",]
+#uniprot <- str_split(row$Uniprot, '; ', simplify = TRUE)
+# length(intersect(str_split(row$BLAST, '; ', simplify = TRUE),
+#           str_split(row$Uniprot, '; ', simplify = TRUE))) / length(uniprot)
+# length(intersect(str_split(row$Unipept, '; ', simplify = TRUE),
+#           str_split(row$Uniprot, '; ', simplify = TRUE))) / length(uniprot)
+
+uniprot_terms <- str_split(row$Uniprot, '; ', simplify = TRUE)
+em_extra_terms <- str_split(row$em.extraneous, '; ', simplify = TRUE)
+em_terms <- str_split(row$em.list, '; ', simplify = TRUE)
+buni_terms <- str_split(row$BLAST, '; ', simplify = TRUE)
+em_ancestors_terms <- str_split(row$em.ancestors, '; ', simplify = TRUE)
+
+uniprot_notBLAST <- setdiff(unlist(uniprot_terms), buni_terms) # Terms not covered by BLAST
+get_go_names(uniprot_terms)
+get_go_names(uniprot_notBLAST)
+get_go_names(em_extra_terms)
+
+#   length(uniprot_notBLAST)
+# uniprot_notBLAST_isExtra <- intersect(em_extra_terms,uniprot_notBLAST) # Terms not covered by BLAST but covered by extraneousEggNOG
+#   length(uniprot_notBLAST_isExtra)
+# uniprot_notBLAST_notExtra <- setdiff(unlist(uniprot_notBLAST), em_extra_terms)
+#   length(uniprot_notBLAST_notExtra)
+# intersect(em_ancestors_terms, uniprot_notBLAST_notExtra)
+
+# intersect(uniprot_terms, buni_terms)
+# length(intersect(uniprot_terms, buni_terms))/length(uniprot_terms)
+# length(intersect(uniprot_terms, em_terms))/length(uniprot_terms)
+# get_go_names(intersect(uniprot_terms, em_terms))
+# get_go_names(em_terms)
+# length(em_terms)
+#intersect(uniprot_terms, em_terms)
+#intersect(em_terms, buni_terms)
 ```
+
 
 
 ```{r}
@@ -686,7 +729,7 @@ length(str_split(output$BLAST[n],'; ', simplify=TRUE)) + length(str_split(output
 length(str_split(output$em.ancestors[n],'; ', simplify=TRUE)) + length(str_split(output$em.ancestors.kids[n],'; ', simplify=TRUE)) +
 length(str_split(output$em.extraneous[n],'; ', simplify=TRUE))
 #== length(eggnog_list)
-length(eggnog_list)
+length(output$em.list[n])
 ```
 
 ```{r}
