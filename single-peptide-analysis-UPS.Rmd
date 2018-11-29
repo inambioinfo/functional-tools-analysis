@@ -258,51 +258,6 @@ exclus_em
 ```
 
 Extraneous terms
-```{r}
-### Get distance -->
-get_paths <- function(from, to){
-     base_url <- 'https://www.ebi.ac.uk/QuickGO/services/ontology/go/terms/'
-     from_clean <- str_replace(from, ":", "%3A")
-     to_clean <- str_replace(to, ":", "%3A")
-     term_url <- paste(base_url, from_clean,
-                       "/paths/", to_clean, "?relations=is_a", sep="")
-     paths <- GET(term_url, accept("application/json"))
-     json <- toJSON(content(paths))
-     names <- fromJSON(json)$results
-     names
-}
-
-shortest_path <- function(go1, go2){
-  if (go1 == go2){
-    'NA'
-  } else{
-     paths1_2 <- get_paths(go1, go2)
-     paths2_1 <- get_paths(go2, go1)
-     paths <- c(paths1_2, paths2_1)
-     print(paths)
-     if (length(paths1_2) + length(paths2_1) == 0){
-       'NA'
-     } else {
-       min(sapply(paths, nrow))
-     }
-  }
-}
-
-map_paths <- function(x, terms){
-  #print(terms)
-  paste(terms)
-  paths <- list()
-  for (i in 1:length(terms)){
-    result <- shortest_path(x, terms[i])
-    if (result != 'NA'){
-      path <- paste(terms[i], '(', result,')', sep='')
-      paths <- rbind(paths, path)
-    }
-  }
-  print(paste(paths, collapse=";"))
-}
-```
-
 
 ```{r}
 eggnog_list <- c(str_split(all_results[n, 'em_go'], "; ", simplify =TRUE))
@@ -577,7 +532,8 @@ output <- data.frame(Peptide = all_results[,'peptide'],
                      Unipept = character(n),
                      Equal = logical(n),
                      stringsAsFactors = FALSE)
-for (n in 2:2){
+paths <- data.frame(Peptide = all_results[,'peptide'])
+for (n in 1:1){
 #for (n in 1:nrow(all_results)){
  if (n != 16){
   blast <- str_split(all_results[n, 'blast_go'], "; ", simplify=TRUE)
@@ -599,53 +555,44 @@ for (n in 2:2){
     descendants <- setdiff(unlist(descendants), buni_split)
   children_of_ancestors <- setdiff(unlist(get_children(ancestors)), ancestors)
   closely_related <- union_all(buni_split, descendants, ancestors, children_of_ancestors)
-  #head(get_go_names(ancestors))
-  #head(get_go_names(descendants))
+  
+  
+  em_buni <- intersect(eggnog_list, buni_split)
+  mg_buni <- intersect(metaGOmics_list, buni_split)
+  em_ancestors <- intersect(eggnog_list, ancestors)
+  mg_ancestors <- intersect(metaGOmics_list, ancestors)
+  em_descendants <- intersect(descendants, eggnog_list)
+  mg_descendants <- intersect(descendants, metaGOmics_list)
+  em_ancestors_kids <- setdiff(unlist(intersect(eggnog_list, children_of_ancestors)), em_buni)
+  mg_ancestors_kids <- setdiff(unlist(intersect(metaGOmics_list, children_of_ancestors)), mg_buni)
+  em_extraneous <- setdiff(eggnog_list, closely_related)
+  mg_extraneous <- setdiff(metaGOmics_list, closely_related)
+  
+  #output$BLAST[n] <- all_results[n, 'blast_go']
+  
+  #output$Unipept[n] <- paste(uni, collapse="; ")
+  #output$Equal[n] <- setequal(uni, blast)
+  
   output$em.list[n] <- paste(eggnog_list, collapse="; ")
   output$mg.list[n] <- paste(metaGOmics_list, collapse="; ")
-
-  em_ancestors <- intersect(eggnog_list, ancestors)
-    em_num_ancestors <- length(em_ancestors)
-  mg_ancestors <- intersect(metaGOmics_list, ancestors)
-    mg_num_ancestors <- length(mg_ancestors)
-  em_descendants <- intersect(descendants, eggnog_list)
-    em_num_descendants <- length(em_descendants)
-  mg_descendants <- intersect(descendants, metaGOmics_list)
-    mg_num_descendants <- length(mg_descendants)
-  em_ancestors_kids <- intersect(eggnog_list, children_of_ancestors)
-    em_ancestors_kids <- setdiff(unlist(em_ancestors_kids), buni_split)
-    em_num_ancestors_kids <- length(em_ancestors_kids)
-  mg_ancestors_kids <- intersect(metaGOmics_list, children_of_ancestors)
-    mg_ancestors_kids <- setdiff(unlist(mg_ancestors_kids), buni_split)
-    mg_num_ancestors_kids <- length(mg_ancestors_kids)
-  
-  em_extraneous <- setdiff(eggnog_list, closely_related)
-    em_num_extraneous <- length(em_extraneous)
-  mg_extraneous <- setdiff(metaGOmics_list, closely_related)
-    mg_num_extraneous <- length(mg_extraneous)
-  
-  output$BLAST[n] <- all_results[n, 'blast_go']
-  output$Unipept[n] <- paste(uni, collapse="; ")
-  output$Equal[n] <- setequal(uni, blast)
+  output$em.buni[n] <- paste(em_buni, collapse="; ")
+  output$mg.buni[n] <- paste(mg_buni, collapse="; ")
   output$em.extraneous[n] <- paste(em_extraneous, collapse="; ")
   output$mg.extraneous[n] <- paste(mg_extraneous, collapse="; ")
   output$em.ancestors.kids[n] <- paste(em_ancestors_kids, collapse="; ")
   output$mg.ancestors.kids[n] <- paste(mg_ancestors_kids, collapse="; ")
-  #output$em.paths[n] <- calc_paths(em_extraneous, em_ancestors_kids)
-  #output$mg.paths[n] <- calc_paths(mg_extraneous, mg_ancestors_kids)
+  
+  paths$em.ancestors[n] <- average_paths(em_buni, em_ancestors)
+  paths$mg.ancestors[n] <- average_paths(mg_buni, mg_ancestors)
   
   output$em.ancestors[n] <- paste(em_ancestors, collapse="; ")
   output$mg.ancestors[n] <- paste(mg_ancestors, collapse="; ")
   output$em.descendants[n] <- paste(em_descendants, collapse="; ")
   output$mg.descendants[n] <- paste(mg_descendants, collapse="; ")
-  em_buni <- intersect(eggnog_list, buni)
-    em_num_buni <- length(em_buni)
-  mg_buni <- intersect(metaGOmics_list, buni)
-    mg_num_buni <- length(mg_buni)
-  
+
   term_df <- data.frame(
     typeOfTerm = rep(c("UniProtKB", "Descendants", "Ancestors", "Ancestors' kids", "Extraneous"), 2),
-    NumTerms = c(em_num_buni, length(em_descendants), length(em_ancestors), length(em_ancestors_kids), length(em_extraneous),
+    NumTerms = c(length(em_buni), length(em_descendants), length(em_ancestors), length(em_ancestors_kids), length(em_extraneous),
              length(mg_buni), length(mg_descendants), length(mg_ancestors), length(mg_ancestors_kids), length(mg_extraneous)),
     Tool = rep(c("eggNOG Mapper", "metaGOmics"), each = 5)
   )
@@ -660,27 +607,69 @@ for (n in 2:2){
     ggtitle(all_results[n, 'peptide']) +
     theme_update(plot.title = element_text(hjust = 0.5))
   print(plot)
+  #print(get_go_names(buni_split))
+  #print(get_go_names(em_extraneous))
+  #print(paste(all_results[n, 'peptide'], get_go_names(all_results[n, 'ups_go'])))
  }
 }
 #pander::pander(output, split.cell = 10, split.table = Inf)
 ```
 ```{r}
-# TO-DO: Support larger queries
-#length(ancestors)
-get_children <- function(goids){
-    base_url <- 'https://www.ebi.ac.uk/QuickGO/services/ontology/go/terms/'
-    terms <- str_replace(goids, ":", "%3A")
-    joined_terms <- paste(terms, collapse="%2C")
-    term_url <- paste(base_url, joined_terms, sep="")
-    term_info <- GET(term_url, accept("application/json"))
-    json <- toJSON(content(term_info))
-    children <- fromJSON(json)$results$children
-    children_is_a <- lapply(children, function(x) unlist(x[x$relation == "is_a", ]$id))
-    return(children_is_a)
+### Get distance -->
+get_paths <- function(from, to){
+     base_url <- 'https://www.ebi.ac.uk/QuickGO/services/ontology/go/terms/'
+     from_clean <- str_replace(from, ":", "%3A")
+     to_clean <- str_replace(to, ":", "%3A")
+     term_url <- paste(base_url, from_clean,
+                       "/paths/", to_clean, "?relations=is_a", sep="")
+     paths <- GET(term_url, accept("application/json"))
+     json <- toJSON(content(paths))
+     names <- fromJSON(json)$results
+     names
 }
-# 16th peptide
-#get_children(ancestors[1:520]) Works
-#get_children(ancestors[1:530]) Doesn't work
+
+shortest_path <- function(go1, go2){
+  if (go1 == go2){
+    'NA'
+  } else{
+     paths1_2 <- get_paths(go1, go2)
+     paths2_1 <- get_paths(go2, go1)
+     paths <- c(paths1_2, paths2_1)
+     if (length(paths1_2) + length(paths2_1) == 0){
+       'NA'
+     } else {
+       min(sapply(paths, nrow))
+     }
+  }
+}
+
+average_paths <- function(ref_terms, targ_terms){
+  results <- sapply(targ_terms, 
+              function(x) sapply(ref_terms, function(y) shortest_path(y, x)))
+  print(mean(as.numeric(results[results != "NA"])))
+}
+hello <- average_paths(em_buni[9:10], em_ancestors[5:8])
+
+# map_paths <- function(x, terms){
+#   #print(terms)
+#   paths <- list()
+#   results <- list()
+#   print(x)
+#   for (i in 1:length(terms)){
+#     print(terms[i])
+#     result <- shortest_path(x, terms[i])
+#     if (result != 'NA'){
+#       print(result)
+#       path <- paste(terms[i], '(', result,')', sep='')
+#       paths <- rbind(paths, path)
+#       results <- rbind(results, results)
+#     }
+#   }
+#   print(paste(paths, collapse=";"))
+# }
+```
+```{r}
+hello[hello != 'NA']
 ```
 
 
@@ -702,6 +691,7 @@ uniprot_notBLAST <- setdiff(unlist(uniprot_terms), buni_terms) # Terms not cover
 get_go_names(uniprot_terms)
 get_go_names(uniprot_notBLAST)
 get_go_names(em_extra_terms)
+get_go_names(buni_split)
 
 #   length(uniprot_notBLAST)
 # uniprot_notBLAST_isExtra <- intersect(em_extra_terms,uniprot_notBLAST) # Terms not covered by BLAST but covered by extraneousEggNOG
@@ -719,17 +709,47 @@ get_go_names(em_extra_terms)
 #intersect(uniprot_terms, em_terms)
 #intersect(em_terms, buni_terms)
 ```
+```{r}
+# TO-DO: Support larger queries
+#length(ancestors)
+get_children <- function(goids){
+    base_url <- 'https://www.ebi.ac.uk/QuickGO/services/ontology/go/terms/'
+    terms <- str_replace(goids, ":", "%3A")
+    joined_terms <- paste(terms, collapse="%2C")
+    term_url <- paste(base_url, joined_terms, sep="")
+    term_info <- GET(term_url, accept("application/json"))
+    json <- toJSON(content(term_info))
+    children <- fromJSON(json)$results$children
+    children_is_a <- lapply(children, function(x) unlist(x[x$relation == "is_a", ]$id))
+    return(children_is_a)
+}
+# 16th peptide
+#get_children(ancestors[1:520]) Works
+#get_children(ancestors[1:530]) Doesn't work
+```
 
 
 
 ```{r}
 # Check if there is no overlap between categories
 n <- 1
-length(str_split(output$BLAST[n],'; ', simplify=TRUE)) + length(str_split(output$em.descendants[n],'; ', simplify=TRUE)) +
+length(str_split(output$em.buni[n],'; ', simplify=TRUE)) + length(str_split(output$em.descendants[n],'; ', simplify=TRUE)) +
 length(str_split(output$em.ancestors[n],'; ', simplify=TRUE)) + length(str_split(output$em.ancestors.kids[n],'; ', simplify=TRUE)) +
 length(str_split(output$em.extraneous[n],'; ', simplify=TRUE))
+intersect(str_split(output$em.descendants[n],'; ', simplify=TRUE),
+          str_split(output$em.ancestors.kids[n],'; ', simplify=TRUE))
+intersect(str_split(output$em.descendants[n],'; ', simplify=TRUE),
+          str_split(output$em.ancestors[n],'; ', simplify=TRUE))
+get_go_names("GO:0051403") #stress-activated MAPK cascade = descendant and ancestors kid
+str_split(output$em.buni[n],'; ', simplify=TRUE)
+get_go_names(str_split(output$em.buni[n],'; ', simplify=TRUE))
+get_go_names("GO:0005768") #endosome" = Descendants and ancestor
+get_go_names("GO:0000165") # MAPK cascade Descendants and ancestor
+get_go_names(str_split(output$em.descendants[n],'; ', simplify=TRUE))
+#get_go_names(str_split(output$em.extraneous[n],'; ', simplify=TRUE))
+#get_go_names(str_split(output$em.ancestors.kids[n],'; ', simplify=TRUE))
 #== length(eggnog_list)
-length(output$em.list[n])
+length(str_split(output$em.list[n], '; ', simplify=TRUE))
 ```
 
 ```{r}
