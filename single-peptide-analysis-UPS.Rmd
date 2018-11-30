@@ -582,8 +582,25 @@ for (n in 1:1){
   output$em.ancestors.kids[n] <- paste(em_ancestors_kids, collapse="; ")
   output$mg.ancestors.kids[n] <- paste(mg_ancestors_kids, collapse="; ")
   
-  paths$em.ancestors[n] <- average_paths(em_buni, em_ancestors)
-  paths$mg.ancestors[n] <- average_paths(mg_buni, mg_ancestors)
+  #paths$em.ancestors[n] <- average_paths(em_buni, em_extraneous)
+  #paths$mg.ancestors[n] <- average_paths(mg_buni, mg_ancestors)
+  #paths$em.extraneous.to.ancestors <- average_paths(em_buni, em_descendants)
+  #paths$mg.extraneous.to.ancestors <- average_paths(mg_extraneous, mg_ancestors_kids)
+  #paths$mg.extraneous.to.ancestors <- get_paths(mg_extraneous[1:5], mg_ancestors[1:5])
+  #paths$mg.extraneous.to.ancestors <- average_paths(mg_buni, )
+  
+  print(all_results[n, 'peptide'])
+  #paths$em.extraneous.to.ancestors <- paste(map_paths(em_extraneous, em_ancestors), collapse="; ")
+  paths$mg.extraneous.to.ancestors <- paste(map_paths(mg_extraneous, mg_ancestors), collapse="; ")
+  #paths$em.extraneous.to.ancestors.kids <- paste(map_paths(em_extraneous, em_ancestors_kids), collapse="; ")
+  paths$mg.extraneous.to.ancestors.kids <- paste(map_paths(mg_extraneous, mg_ancestors_kids), collapse="; ")
+  #paths$em.uniprot.to.ancestors <- paste(map_paths(em_buni, em_ancestors), collapse="; ")
+  #paths$mg.uniprot.to.ancestors <- paste(map_paths(mg_buni, mg_ancestors), collapse="; ")
+  #paths$em.uniprot.to.descendants <- paste(map_paths(em_buni, em_descendants), collapse="; ")
+  paths$mg.uniprot.to.descendants <- paste(map_paths(mg_buni, mg_descendants), collapse="; ")
+  
+  #get_paths(mg_extraneous, mg_ancestors_kids)
+  
   
   output$em.ancestors[n] <- paste(em_ancestors, collapse="; ")
   output$mg.ancestors[n] <- paste(mg_ancestors, collapse="; ")
@@ -594,7 +611,7 @@ for (n in 1:1){
     typeOfTerm = rep(c("UniProtKB", "Descendants", "Ancestors", "Ancestors' kids", "Extraneous"), 2),
     NumTerms = c(length(em_buni), length(em_descendants), length(em_ancestors), length(em_ancestors_kids), length(em_extraneous),
              length(mg_buni), length(mg_descendants), length(mg_ancestors), length(mg_ancestors_kids), length(mg_extraneous)),
-    Tool = rep(c("eggNOG Mapper", "metaGOmics"), each = 5)
+    Tool = rep(c("eggNOG Mapper", "metaGOmics"), each = 5) 
   )
   term_df$typeOfTerm <- factor(term_df$typeOfTerm, 
               levels = c("Extraneous", "Ancestors' kids", "Ancestors", "Descendants", "UniProtKB"))
@@ -614,6 +631,21 @@ for (n in 1:1){
 }
 #pander::pander(output, split.cell = 10, split.table = Inf)
 ```
+```{r}
+result <- str_split(paths$em.extraneous.to.ancestors.kids, '; ', simplify=TRUE)
+nums <- as.numeric(result[result != 'NA'])
+length(nums)
+mean(nums)
+sd(nums)
+```
+```{r}
+#paste(map_paths(mg_buni, mg_descendants), collapse="; ")
+#mg_buni[17]
+#mg_descendants[1]
+#shortest_path(mg_buni[34], mg_descendants[1])
+#here <- str_split(paths$mg.uniprot.to.descendants, '; ', simplify=TRUE)
+```
+
 ```{r}
 ### Get distance -->
 get_paths <- function(from, to){
@@ -643,33 +675,15 @@ shortest_path <- function(go1, go2){
   }
 }
 
-average_paths <- function(ref_terms, targ_terms){
-  results <- sapply(targ_terms, 
-              function(x) sapply(ref_terms, function(y) shortest_path(y, x)))
-  print(mean(as.numeric(results[results != "NA"])))
+map_paths <- function(ref_terms, targ_terms){
+  # Creates "heat map" of available pathing between terms
+  results <- sapply(targ_terms, function(targ_term) 
+                  sapply(ref_terms, function(ref_term) 
+                         shortest_path(ref_term, targ_term)))
+  return(results)
+  # Removes NA results and converts to digits
+  return(as.numeric(results[results != "NA"]))
 }
-hello <- average_paths(em_buni[9:10], em_ancestors[5:8])
-
-# map_paths <- function(x, terms){
-#   #print(terms)
-#   paths <- list()
-#   results <- list()
-#   print(x)
-#   for (i in 1:length(terms)){
-#     print(terms[i])
-#     result <- shortest_path(x, terms[i])
-#     if (result != 'NA'){
-#       print(result)
-#       path <- paste(terms[i], '(', result,')', sep='')
-#       paths <- rbind(paths, path)
-#       results <- rbind(results, results)
-#     }
-#   }
-#   print(paste(paths, collapse=";"))
-# }
-```
-```{r}
-hello[hello != 'NA']
 ```
 
 
