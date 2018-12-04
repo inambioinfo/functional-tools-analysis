@@ -192,7 +192,7 @@ All of the results are below:
 ```{r results = 'asis'}
 library(pander)
 # knitr::kable(all_results)
-pander::pander(all_results, split.cell = 80, split.table = Inf)
+#pander::pander(all_results, split.cell = 80, split.table = Inf)
 ```
 
 ## Let's go through the peptides one-by-one
@@ -533,8 +533,8 @@ output <- data.frame(Peptide = all_results[,'peptide'],
                      Equal = logical(n),
                      stringsAsFactors = FALSE)
 paths <- data.frame(Peptide = all_results[,'peptide'])
-for (n in 1:1){
-#for (n in 1:nrow(all_results)){
+#for (n in 2:2){
+for (n in 10:nrow(all_results)){
  if (n != 16){
   blast <- str_split(all_results[n, 'blast_go'], "; ", simplify=TRUE)
   uni <- c(str_split(all_results[n, 'uni_go_bp'], ";", simplify=TRUE),
@@ -590,14 +590,14 @@ for (n in 1:1){
   #paths$mg.extraneous.to.ancestors <- average_paths(mg_buni, )
   
   print(all_results[n, 'peptide'])
-  #paths$em.extraneous.to.ancestors <- paste(map_paths(em_extraneous, em_ancestors), collapse="; ")
-  paths$mg.extraneous.to.ancestors <- paste(map_paths(mg_extraneous, mg_ancestors), collapse="; ")
-  #paths$em.extraneous.to.ancestors.kids <- paste(map_paths(em_extraneous, em_ancestors_kids), collapse="; ")
-  paths$mg.extraneous.to.ancestors.kids <- paste(map_paths(mg_extraneous, mg_ancestors_kids), collapse="; ")
-  #paths$em.uniprot.to.ancestors <- paste(map_paths(em_buni, em_ancestors), collapse="; ")
-  #paths$mg.uniprot.to.ancestors <- paste(map_paths(mg_buni, mg_ancestors), collapse="; ")
-  #paths$em.uniprot.to.descendants <- paste(map_paths(em_buni, em_descendants), collapse="; ")
-  paths$mg.uniprot.to.descendants <- paste(map_paths(mg_buni, mg_descendants), collapse="; ")
+  paths$em.extraneous.to.ancestors[n] <- paste(map_paths(em_extraneous, em_ancestors), collapse="; ")
+  paths$mg.extraneous.to.ancestors[n] <- paste(map_paths(mg_extraneous, mg_ancestors), collapse="; ")
+  paths$em.extraneous.to.ancestors.kids[n] <- paste(map_paths(em_extraneous, em_ancestors_kids), collapse="; ")
+  paths$mg.extraneous.to.ancestors.kids[n] <- paste(map_paths(mg_extraneous, mg_ancestors_kids), collapse="; ")
+  paths$em.uniprot.to.ancestors[n] <- paste(map_paths(em_buni, em_ancestors), collapse="; ")
+  paths$mg.uniprot.to.ancestors[n] <- paste(map_paths(mg_buni, mg_ancestors), collapse="; ")
+  paths$em.uniprot.to.descendants[n] <- paste(map_paths(em_buni, em_descendants), collapse="; ")
+  paths$mg.uniprot.to.descendants[n] <- paste(map_paths(mg_buni, mg_descendants), collapse="; ")
   
   #get_paths(mg_extraneous, mg_ancestors_kids)
   
@@ -632,11 +632,30 @@ for (n in 1:1){
 #pander::pander(output, split.cell = 10, split.table = Inf)
 ```
 ```{r}
-result <- str_split(paths$em.extraneous.to.ancestors.kids, '; ', simplify=TRUE)
-nums <- as.numeric(result[result != 'NA'])
-length(nums)
-mean(nums)
-sd(nums)
+get_stats <- function(data){
+  result <- str_split(data, '; ', simplify=TRUE)
+  nums <- as.numeric(result[result != 'NA'])
+  c(mean(nums),
+      sd(nums),
+    length(nums))
+}
+
+row <- paths[16,]
+row$Peptide
+#result <- str_split(paths$mg.extraneous.to.ancestors.kids[1], '; ', simplify=TRUE)
+get_stats(row$em.extraneous.to.ancestors.kids)
+
+em_tabular_paths <- data.frame(UniProt.to.Ancestors = get_stats(row$em.uniprot.to.ancestors),
+                            Extraneous.to.Ancestors.Kids = get_stats(row$em.extraneous.to.ancestors.kids),
+                            Extraneous.to.Ancestors = get_stats(row$em.extraneous.to.ancestors),
+                            UniProt.to.Descendants = get_stats(row$em.uniprot.to.descendants))
+row.names(em_tabular_paths) = c("mean", "sd", "number")
+
+mg_tabular_paths <- data.frame(UniProt.to.Ancestors = get_stats(row$mg.uniprot.to.ancestors),
+                            Extraneous.to.Ancestors.Kids = get_stats(row$mg.extraneous.to.ancestors.kids),
+                            Extraneous.to.Ancestors = get_stats(row$mg.extraneous.to.ancestors),
+                            UniProt.to.Descendants = get_stats(row$mg.uniprot.to.descendants))
+row.names(mg_tabular_paths) = c("mean", "sd", "number")
 ```
 ```{r}
 #paste(map_paths(mg_buni, mg_descendants), collapse="; ")
