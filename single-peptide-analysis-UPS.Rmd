@@ -20,6 +20,8 @@ Analysis adapted from Caleb Easterly's "Single Peptide Results Analysis" (https:
 
 Let's get the dynamic amounts for each UPS protein
 ```{r}
+library(dplyr)
+library(stringr)
 ups_ratios <- read.csv("UPS-Protein-Ratios.tsv", sep = "\t",
                 header = TRUE, stringsAsFactors = FALSE) %>%
   select(ups2_amount = UPS2.Amount..fmol.,
@@ -30,8 +32,6 @@ ups_ratios <- read.csv("UPS-Protein-Ratios.tsv", sep = "\t",
 Let's randomly select 10 UPS peptides and 10 non-UPS peptides from the UPS1 dataset (replicate #3):
 
 ```{r}
-library(dplyr)
-library(stringr)
 # Obtains peptide report
 peptide_report <- read.csv("Data/UPS/UPS1/UPS1_03_[Peptide_Shaker_on_data_21__Peptide_Report].tabular",
          sep = "\t", comment.char="", header = TRUE, stringsAsFactors = FALSE) %>%
@@ -178,7 +178,16 @@ pepprots <- unique(select(peptide_report, proteins, peptide = sequence) %>%
   mutate(protein = str_extract(proteins,"[A-Z0-9]+")) %>%
   select(protein, peptide))
 pepprots <- plyr::join_all(list(pepprots, ups_go_df), by = "protein")
+pepprots
 ```
+
+### Which protein has the fewest amount of GO terms?
+```{r}
+ups_go_term_counts <- mutate(pepprots, count = sapply(ups_go, function(x) length(str_split(x, "; ", simplify=TRUE))))
+lgt_ups <- ups_go_term_counts[ups_go_term_counts$count == min(ups_go_term_counts$count),]
+lgt_ups # Least GO Terms UPS
+```
+
 
 
 ### Combine all of the results:
@@ -534,7 +543,7 @@ output <- data.frame(Peptide = all_results[,'peptide'],
                      stringsAsFactors = FALSE)
 paths <- data.frame(Peptide = all_results[,'peptide'])
 #for (n in 2:2){
-for (n in 10:nrow(all_results)){
+for (n in 18:nrow(all_results)){
  if (n != 16){
   blast <- str_split(all_results[n, 'blast_go'], "; ", simplify=TRUE)
   uni <- c(str_split(all_results[n, 'uni_go_bp'], ";", simplify=TRUE),
@@ -548,7 +557,6 @@ for (n in 10:nrow(all_results)){
   buni_split <- str_split(all_results[n, 'ups_go'], "; ", simplify = TRUE)
   metaGOmics_list <- c(str_split(all_results[n, 'mg_go'], "; ", simplify=TRUE))
   eggnog_list <- c(str_split(all_results[n, 'em_go'], "; ", simplify =TRUE))
-
   ancestors <- get_go_ancestors(buni_split)
     ancestors <- setdiff(unlist(ancestors), buni_split)
   descendants <- get_go_descendants(buni_split)
@@ -631,6 +639,7 @@ for (n in 10:nrow(all_results)){
 }
 #pander::pander(output, split.cell = 10, split.table = Inf)
 ```
+
 ```{r}
 get_stats <- function(data){
   result <- str_split(data, '; ', simplify=TRUE)
