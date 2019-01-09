@@ -29,7 +29,7 @@ ups_ratios <- read.csv("UPS-Protein-Ratios.tsv", sep = "\t",
 ```
 
 ### Peptide Sampling
-Let's randomly select 10 UPS peptides and 10 non-UPS peptides from the UPS1 dataset (replicate #3):
+Let's randomly select 20 UPS peptides from the UPS1 dataset (replicate #3):
 
 ```{r}
 # Obtains peptide report
@@ -49,7 +49,7 @@ set.seed(1003)
 ups_peptides <- ups_peptides[sample(nrow(ups_peptides), 20),]
 peptides <- ups_peptides$sequence
 
-# Concatenates the two categories and writes it out in a text file for analysis
+# Writes out twenty peptides in a text file for analysis
 write.table(peptides, "twenty_peptides.txt", 
             sep="\n", quote=FALSE, row.names=FALSE, col.names=FALSE)
 ```
@@ -166,7 +166,7 @@ mg <- data.frame(peptide = peptides, mg_go, stringsAsFactors = FALSE)
 ```
 
 
-### Get the proteins and GO terms (for UPS) associated with the peptides
+### Get the proteins and UniProtKB GO terms (for UPS) associated with the peptides
 ```{r}
 # Takes the Uniprot-derived GO terms for UPS proteins
 ups_go_df <- read.csv('data/uniprot-UPS-go-terms.tab', sep = "\t",
@@ -181,11 +181,19 @@ pepprots <- plyr::join_all(list(pepprots, ups_go_df), by = "protein")
 pepprots
 ```
 
-### Which protein has the fewest amount of GO terms?
+### Which protein has the fewest and greatest amount of GO terms?
 ```{r}
-ups_go_term_counts <- mutate(pepprots, count = sapply(ups_go, function(x) length(str_split(x, "; ", simplify=TRUE))))
+ups_go_term_counts <- mutate(pepprots, count = as.numeric(sapply(ups_go, function(x) length(str_split(x, "; ", simplify=TRUE)))))
 lgt_ups <- ups_go_term_counts[ups_go_term_counts$count == min(ups_go_term_counts$count),]
-lgt_ups # Least GO Terms UPS
+#ups_go_term_counts
+lgt_ups$protein # Least GO Terms UPS
+lgt_ups$peptide
+lgt_ups$count
+#lgt_ups$ups_go
+mgt_ups <- ups_go_term_counts[ups_go_term_counts$count == max(ups_go_term_counts$count),]
+mgt_ups$protein # Most GO Terms UPS
+mgt_ups$peptide
+mgt_ups$count
 ```
 
 
@@ -206,35 +214,141 @@ library(pander)
 
 ## Let's go through the peptides one-by-one
 
-Let's go through this UPS peptide:
+Let's analyze each peptide one-by-one, starting with the peptide with the fewest amount of UniProtKB-derived GO terms
 ```{r}
-n <- 1
+n <-13
 uniprot <- str_split(all_results[n, 'ups_go'], "; ", simplify=TRUE)
-buni <- str_split(all_results[n, 'blast_go'], "; ", simplify=TRUE)
+blast <- str_split(all_results[n, 'blast_go'], "; ", simplify=TRUE)
+uni <- c(str_split(all_results[n, 'uni_go_bp'], ";", simplify=TRUE),
+         str_split(all_results[n, 'uni_go_mf'], ";", simplify=TRUE),
+         str_split(all_results[n, 'uni_go_cc'], ";", simplify=TRUE))
 em <- str_split(all_results[n, 'em_go'], "; ", simplify=TRUE)
 mg <- str_split(all_results[n, 'mg_go'], "; ", simplify=TRUE)
-all_results[n, 'peptide']
-all_results[n, 'protein']
+paste(all_results[n, 'peptide'], 'from', all_results[n, 'protein'])
+paste('Contains', length(uniprot), 'GO terms')
+
+
 ```
 
-It has a few GO terms taken from UniProt's UPS protein. It has this many GO terms:
+Let's check what these terms are:
 ```{r}
-length(uniprot)
-#setdiff(unlist(get_children(ancestors)), ancestors)
+library(httr)
+library(jsonlite)
+get_go_names <- function(id_vector){
+  if (length(id_vector) > 0){
+    base_url <- 'https://www.ebi.ac.uk/QuickGO/services/ontology/go/terms/'
+    terms <- str_replace(id_vector, ":", "%3A")
+    joined_terms <- paste(terms, collapse="%2C")
+    term_url <- paste(base_url, joined_terms, sep="")
+    term_info <- GET(term_url, accept("application/json"))
+    json <- toJSON(content(term_info))
+    names <- unlist(fromJSON(json)$results$name)
+    names
+  }
+}
+get_go_names(uniprot)
 ```
 
-Based on this peptide, unipept analysis provides us adequate coverage, but it does not cover all UniProt terms. 
-Let's check if all of Unipept's terms are contained within the UniProt set.
+Let's get the ancestors of these UniProtKB terms
 ```{r}
-length(buni) == length(intersect(buni, uniprot))
-```
-Here's how many GO terms are covered by Unipept:
-```{r}
-length(intersect(buni, uniprot))
-length(uniprot)
-paste(formatC(length(intersect(buni, uniprot)) / length(uniprot) * 100), "%", sep="")
+# get all ancestors
+get_go_ancestors <- function(id_vector){
+    base_url <- 'https://www.ebi.ac.uk/QuickGO/services/ontology/go/terms/'
+    terms <- str_replace(id_vector, ":", "%3A")
+    joined_terms <- paste(terms, collapse="%2C")
+    term_url <- paste(base_url, joined_terms, '/ancestors?relations=is_a', sep="")
+    term_info <- GET(term_url, accept("application/json"))
+    json <- toJSON(content(term_info))
+    names <- unlist(fromJSON(json)$results$ancestors)
+    names
+}
+ancestors <- get_go_ancestors(uniprot)
+get_go_names(sample(ancestors, 10))
 ```
 
+Let's get the descendants of these UniProtKB terms
+```{r}
+# Gets all descendants
+get_go_descendants <- function(id_vector){
+    base_url <- 'https://www.ebi.ac.uk/QuickGO/services/ontology/go/terms/'
+    terms <- str_replace(id_vector, ":", "%3A")
+    joined_terms <- paste(terms, collapse="%2C")
+    term_url <- paste(base_url, joined_terms, '/descendants?relations=is_a', sep="")
+    term_info <- GET(term_url, accept("application/json"))
+    json <- toJSON(content(term_info))
+    names <- unlist(fromJSON(json)$results$descendants)
+    names
+}
+descendants <- get_go_ancestors(uniprot)
+get_go_names(sample(descendants, 10))
+```
+
+
+Let's check how these GO terms are covered amongst these three groups:
+```{r}
+library(VennDiagram)
+venn.plot <- draw.triple.venn(
+  area1 = length(uniprot),
+  area2 = length(blast),
+  area3 = length(uni),
+  n12 = length(intersect(uniprot, blast)),
+  n23 = length(intersect(blast, uni)),
+  n13 = length(intersect(uniprot, uni)),
+  n123 = length(intersect(intersect(uniprot, uni), blast)),
+  category = c("Uniprot", "BLAST", "Unipept"))
+grid.draw(venn.plot)
+grid.newpage()
+
+```
+
+Are the non-UniProtKB terms related (i.e., ancestors or descendants) to UniProtKB terms?
+```{r}
+unknown_go_uni <- setdiff(uni, intersect(uniprot, uni))
+unknown_go_blast <- setdiff(blast, intersect(uniprot, blast))
+if (length(unknown_go_uni) > 0){
+  length(intersect(unknown_go_uni,ancestors)) > 0 || length(intersect(unknown_go_uni,descendants)) > 0
+}
+if (length(unknown_go_blast) > 0){
+  length(intersect(unknown_go_blast,ancestors)) > 0 || length(intersect(unknown_go_blast,descendants)) > 0
+}
+```
+
+
+```{r}
+# UniProtKB should have more than BLAST and Unipept
+length(uniprot) > length(blast) && length(uniprot) > length(uni)
+
+# What proportion of the BLAST terms are contained by UniProtKB?
+blast_prop <- length(intersect(uniprot, blast)) / length(blast)
+blast_prop
+if (blast_prop != 1){
+  paste(get_go_names(setdiff(blast, intersect(uniprot, blast))),
+    "= from BLAST is excluded in UniProtKB")
+}
+
+# What proportion of the Unipept terms are contained by UniProtKB?
+uni_prop <- length(intersect(uniprot, uni)) / length(uni)
+uni_prop
+if (uni_prop != 1){
+  paste(get_go_names(setdiff(uni, intersect(uniprot, uni))),
+    "= from Unipept is excluded in UniProtKB")
+}
+
+# Unique to UniProtKB compared to BLAST
+get_go_names(setdiff(uniprot, intersect(blast, uniprot)))
+# Unique to UniProtKB compared to Unipept
+get_go_names(setdiff(uniprot, intersect(uni, uniprot)))
+# Unique to BLAST compared to Unipept
+get_go_names(setdiff(blast, intersect(uni, blast)))
+
+
+ancestors <- get_go_ancestors(uniprot)
+
+#get_go_names(setdiff(uniprot, blast))
+#get_go_names(setdiff(uniprot, uni))
+#setdiff(uni, uniprot)
+#length(buni) == length(intersect(buni, uniprot))
+```
 
 Conversely, metaGOmics and eggNOG mapper have a lot of GO terms:
 ```{r}
@@ -246,9 +360,10 @@ MetaGOmics seems to cover all the UPS terms:
 ```{r}
 length(uniprot) == length(intersect(uniprot, mg))
 ```
+
 EggNOG mapper doesn't, but it seems to cover more than Unipept.
 ```{r}
-length(ups) == length(intersect(uniprot, em))
+length(uniprot) == length(intersect(uniprot, em))
 exclus_buni <- setdiff(unlist(intersect(uniprot, buni)),
                 intersect(uniprot, em))
 exclus_em <- setdiff(unlist(intersect(uniprot, em)),
@@ -324,19 +439,7 @@ eggnog_list <- c(str_split(all_results[n, 'em_go'], "; ", simplify =TRUE))
 
 Let's go to the QuickGO API to get the names of the 4 BLAST/Unipept terms.
 ```{r}
-library(httr)
-library(jsonlite)
-buni_split <- str_split(buni, "; ", simplify = TRUE)
-get_go_names <- function(id_vector){
-    base_url <- 'https://www.ebi.ac.uk/QuickGO/services/ontology/go/terms/'
-    terms <- str_replace(id_vector, ":", "%3A")
-    joined_terms <- paste(terms, collapse="%2C")
-    term_url <- paste(base_url, joined_terms, sep="")
-    term_info <- GET(term_url, accept("application/json"))
-    json <- toJSON(content(term_info))
-    names <- unlist(fromJSON(json)$results$name)
-    names
-}
+
 get_go_names(buni_split)
 ```
 
@@ -528,8 +631,9 @@ head(get_go_names(mg_buni))
 em_buni
 ```
 
+
 ```{r}
-setdiff(unlist(c("yo","gabba")), "gabba")
+all_results
 ```
 
 ```{r}
@@ -542,9 +646,10 @@ output <- data.frame(Peptide = all_results[,'peptide'],
                      Equal = logical(n),
                      stringsAsFactors = FALSE)
 paths <- data.frame(Peptide = all_results[,'peptide'])
-#for (n in 2:2){
-for (n in 18:nrow(all_results)){
+for (n in 13:13){
+#for (n in 18:nrow(all_results)){
  if (n != 16){
+   all_results[n,'peptide']
   blast <- str_split(all_results[n, 'blast_go'], "; ", simplify=TRUE)
   uni <- c(str_split(all_results[n, 'uni_go_bp'], ";", simplify=TRUE),
          str_split(all_results[n, 'uni_go_mf'], ";", simplify=TRUE),
@@ -597,15 +702,15 @@ for (n in 18:nrow(all_results)){
   #paths$mg.extraneous.to.ancestors <- get_paths(mg_extraneous[1:5], mg_ancestors[1:5])
   #paths$mg.extraneous.to.ancestors <- average_paths(mg_buni, )
   
-  print(all_results[n, 'peptide'])
-  paths$em.extraneous.to.ancestors[n] <- paste(map_paths(em_extraneous, em_ancestors), collapse="; ")
-  paths$mg.extraneous.to.ancestors[n] <- paste(map_paths(mg_extraneous, mg_ancestors), collapse="; ")
-  paths$em.extraneous.to.ancestors.kids[n] <- paste(map_paths(em_extraneous, em_ancestors_kids), collapse="; ")
-  paths$mg.extraneous.to.ancestors.kids[n] <- paste(map_paths(mg_extraneous, mg_ancestors_kids), collapse="; ")
-  paths$em.uniprot.to.ancestors[n] <- paste(map_paths(em_buni, em_ancestors), collapse="; ")
-  paths$mg.uniprot.to.ancestors[n] <- paste(map_paths(mg_buni, mg_ancestors), collapse="; ")
-  paths$em.uniprot.to.descendants[n] <- paste(map_paths(em_buni, em_descendants), collapse="; ")
-  paths$mg.uniprot.to.descendants[n] <- paste(map_paths(mg_buni, mg_descendants), collapse="; ")
+  # Path mapping
+  #paths$em.extraneous.to.ancestors[n] <- paste(map_paths(em_extraneous, em_ancestors), collapse="; ")
+  #paths$mg.extraneous.to.ancestors[n] <- paste(map_paths(mg_extraneous, mg_ancestors), collapse="; ")
+  #paths$em.extraneous.to.ancestors.kids[n] <- paste(map_paths(em_extraneous, em_ancestors_kids), collapse="; ")
+  #paths$mg.extraneous.to.ancestors.kids[n] <- paste(map_paths(mg_extraneous, mg_ancestors_kids), collapse="; ")
+  #paths$em.uniprot.to.ancestors[n] <- paste(map_paths(em_buni, em_ancestors), collapse="; ")
+  #paths$mg.uniprot.to.ancestors[n] <- paste(map_paths(mg_buni, mg_ancestors), collapse="; ")
+  #paths$em.uniprot.to.descendants[n] <- paste(map_paths(em_buni, em_descendants), collapse="; ")
+  #paths$mg.uniprot.to.descendants[n] <- paste(map_paths(mg_buni, mg_descendants), collapse="; ")
   
   #get_paths(mg_extraneous, mg_ancestors_kids)
   
